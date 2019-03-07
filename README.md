@@ -8,3 +8,6 @@ At the heart of the modern computer is the microprocessor —also commonly calle
 
 A computer takes a stream of instructions (code) and a stream of data as input, and it produces a stream of results as output.
 
+## The File-Clerk Model of Computing
+
+
