@@ -52,3 +52,15 @@ Backing to the example.
 3.- Place the results back in a destination register.
 
 This three-step sequence is quite simple, but it's at the very core of how a microprocessor really works.
+
+## The File-Clerck MOdel Revised and Expanded
+
+We can think of main memory as a document storage room located on another floor and the registers as a small.
+The clerk does not really know anything about the document storage room
+
+## The File-Clerck MOdel Revised and Expanded
+
+We can think of main memory as a document storage room located on another floor and the registers as a small.
+The clerk does not really know anything about the document storage room.
+
+
