@@ -65,3 +65,16 @@ Main Memory which in moder computers is always some type of random access memory
 In fact, the ALU an the registers are internal parts of the microprocessor, but main memory is a complete separeta component of the computer system that is connected to the processor via the Memory Bus. Transfering data between main memory and the registers via the memory bus takes a significant amount of time. This, if there were no registers and the ALU had to read data directly from the main memory for each calculation, computers would run very slowly. However, because the register enable the computer to store data near the ALU, where it can be access nearly instantaneously, the computer's computational speed is decoupled somewhat from the speed of main memory.
 
 
+#The File-Clerk Model Revised and Expanded
+
+we can think of main memory as a document storage room located on another floor and the registers as a small, personal filing cabinet where the file clerk places the papers on which he is currently working. The Clerk doesn not really know anything about the document storage room.
+
+# A closer Look at the Code Stream: The Program
+
+At the beginning did say, Code Stream: An ordered sequence of operatios, no operations becomes instructions, because not only operatations would do.
+
+Modern RISC microprocessors the code stream is in charge to move data between memory and the registers
+Operations are two main categories:
+
+- Arithmethic instrucctions.
+- Memory-access instructions
