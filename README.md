@@ -60,7 +60,7 @@ The clerk does not really know anything about the document storage room
 
 # RAM: When Registers Alone Won't Cut It
 
-Main Memory which in moder computers is always some type of random access memory (RAM), stores the data set on which the computer operates, and onle a small portion of the data set at a time is moved to the registers for easy access from the ALLU.
+Main Memory which in moder computers is always some type of random access memory (RAM), stores the data set on which the computer operates, and only a small portion of the data set at a time is moved to the registers for easy access from the ALLU.
 
 In fact, the ALU an the registers are internal parts of the microprocessor, but main memory is a complete separeta component of the computer system that is connected to the processor via the Memory Bus. Transfering data between main memory and the registers via the memory bus takes a significant amount of time. This, if there were no registers and the ALU had to read data directly from the main memory for each calculation, computers would run very slowly. However, because the register enable the computer to store data near the ALU, where it can be access nearly instantaneously, the computer's computational speed is decoupled somewhat from the speed of main memory.
 
@@ -71,10 +71,29 @@ we can think of main memory as a document storage room located on another floor 
 
 # A closer Look at the Code Stream: The Program
 
-At the beginning did say, Code Stream: An ordered sequence of operatios, no operations becomes instructions, because not only operatations would do.
+At the beginning did say, Code Stream: An ordered sequence of operatios, noiw operations becomes instructions, because not only operatations would do.
 
-Modern RISC microprocessors the code stream is in charge to move data between memory and the registers
-Operations are two main categories:
+## General Instruction Types
 
-- Arithmethic instrucctions.
-- Memory-access instructions
+These ordered lists of instructions are called programs. In modern RISC microprocessor, the act of moving data between memory and the registers is under the explicit control of the code stream, or program.
+
+
+Modern RISC microprocessors the code stream is in charge to move data between memory and the registers. Operations are two main categories:
+
+- Arithmethic instrucctions. (add, sub, mul, div)
+- Memory-access instructions. (load, store)
+
+To show you how memory-access and arithmetic operations work together within the context of the code stream.
+
+# The DLW-1's Basic Architecture and Arithmetic Instruction Format
+
+DLW1 
+
+- ALU
+- 4 registers: A,B,C y D
+- Bank Main Memory 256 memory cells.
+- The number that identifies an individual memory cell is called an address.
+
+
+
+
