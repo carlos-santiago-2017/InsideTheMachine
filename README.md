@@ -98,12 +98,24 @@ DLW1
 
 instruction source1, source2, destination
 
-instruction field:
-source1 field:
+instruction field: 	Specifies the type of operation.
+source1 field: 			It Tells the computer which registers hold the two numberes or Operands 
 source2 field:
-destination field:
+destination field: 	it Tells the computer which register to place the result in.
+ 
+# The DLW-1's Memory Instruction Format 
 
+Now you need to tell the processor explicitly that you want to move the data in two specificy memory cells.
 
+The "filling" operation is done via memory-access instruction called the load.
+
+The load instruction loads the appropriate data from main memory into the appropriate registers.
+
+Instruction Format:
+
+instruction source, destination.
+
+For all memory accesses, the instruction field specifies the type of memory operation to be performed.
 
 
 
