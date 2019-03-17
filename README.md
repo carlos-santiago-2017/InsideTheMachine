@@ -94,6 +94,16 @@ DLW1
 - Bank Main Memory 256 memory cells.
 - The number that identifies an individual memory cell is called an address.
 
+# The DLW-1's Arithmetic Instruction Format 
+
+instruction source1, source2, destination
+
+instruction field:
+source1 field:
+source2 field:
+destination field:
+
+
 
 
 
