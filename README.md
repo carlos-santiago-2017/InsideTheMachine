@@ -94,7 +94,7 @@ DLW1
 - Bank Main Memory 256 memory cells.
 - The number that identifies an individual memory cell is called an **address**.
 
-# The DLW-1's Arithmetic Instruction Format 
+## The DLW-1's Arithmetic Instruction Format 
 
 instruction source1, source2, destination
 
@@ -103,7 +103,7 @@ source1 field: 			It Tells the computer which registers hold the two numberes or
 source2 field:
 destination field: 	it Tells the computer which register to place the result in.
  
-# The DLW-1's Memory Instruction Format 
+## The DLW-1's Memory Instruction Format 
 
 Now you need to tell the processor explicitly that you want to move the data in two specificy memory cells.
 
