@@ -119,7 +119,6 @@ For all memory accesses, the instruction field specifies the type of memory oper
 
 Program Example
 
-
 ``` assembly
 load #12, A
 load #13, B
@@ -127,9 +126,36 @@ add A, B, C
 store C, #14
 ```
 
-
 # A Closer Look at Memory Accesses: Register vs Immediate
 
+Until now, programmer knows the exact memory location of every number that he or she wants to lead and store. It presumes that in composing each program, the programmer has at his or her disposal a list of the contents of memoery cells #0 through #255
+Programmers need a flexible way to access memory, a way that does not requiere each memory access to specify numerically an exact memory address.
 Modern computers allow the contents of a register to be used as a memory address.
+
+## Immediate Values
+
+All of the arithmetic instructions so far have required two source registers as input. However, it is possible to replace one or both of the source registers with an explicit numerical value, called an immediate value. 
+
+Example.
+
+``` assembly 
+add A, 2, A		Add 2 to the contents of register A and place the resulñt back into A, overwriting whatever was there.
+``` 
+
+The #12 in the load instruction in line 1 of Program 1-1 is just an immediate value (regular whole number) prefixed by a # sign to let the computer know that this particular immediate value is a memory address that designates a cell in memory.
+
+Memory addresses ar just regilar whole numbers that are specially marked with the # sign. The whole-number contest of a register, like D, could be construed by the computer as representating a memory address.
+
+Example:
+
+``` assembly
+load #D, A
+load #12, B
+add A, B, C
+tore C, #14
+```
+
+
+
 
 
