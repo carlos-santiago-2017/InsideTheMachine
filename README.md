@@ -117,7 +117,8 @@ instruction source, destination.
 
 For all memory accesses, the instruction field specifies the type of memory operation to be performed.
 
-# A Closer Look at Memory Accesses: Reguster vs Immediate
+# A Closer Look at Memory Accesses: Register vs Immediate
 
 Modern computers allow the contents of a register to be used as a memory address.
+
 
