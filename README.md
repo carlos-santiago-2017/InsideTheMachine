@@ -47,9 +47,9 @@ Most computers have a relatively small number of very fast data storage location
 
 Backing to the example.
 
-1.- Obtain the two numbers to be added (the input operands) from the two source registers.
-2.- Add the numbers.
-3.- Place the results back in a destination register.
+1. Obtain the two numbers to be added (the input operands) from the two source registers.
+2. Add the numbers.
+3. Place the results back in a destination register.
 
 This three-step sequence is quite simple, but it's at the very core of how a microprocessor really works.
 
