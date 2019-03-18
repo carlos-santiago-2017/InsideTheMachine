@@ -117,7 +117,18 @@ instruction source, destination.
 
 For all memory accesses, the instruction field specifies the type of memory operation to be performed.
 
-# A Closer Look at Memory Accesses: Register vs Immediate
+Program Example
+
+
+``` assembly
+load #12, A
+load #13, B
+add A, B, C
+store C, #14
+```
+
+
+# A Closer Look at Memory Accesses: Register vs Immediate
 
 Modern computers allow the contents of a register to be used as a memory address.
 
