@@ -111,7 +111,7 @@ The **"filling"** operation is done via memory-access instruction called the loa
 
 The load instruction loads the appropriate data from main memory into the appropriate registers.
 
-Instruction Format:
+### Instruction Format:
 
 instruction source, destination.
 
