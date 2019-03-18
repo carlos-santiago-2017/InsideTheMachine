@@ -34,9 +34,9 @@ All computers operate.
 
 Example
 
-1.- obtain two numbers to be added (the input operands) from the data storage.
-2.- Add the numbers.
-3.- Place the results back into data storage.
+1. obtain two numbers to be added (the input operands) from the data storage.
+2. Add the numbers.
+3. Place the results back into data storage.
 
 Those three steps are carried out billions of times per second on a modern CPU.
 
@@ -117,5 +117,7 @@ instruction source, destination.
 
 For all memory accesses, the instruction field specifies the type of memory operation to be performed.
 
+# A Closer Look at Memory Accesses: Reguster vs Immediate
 
+Modern computers allow the contents of a register to be used as a memory address.
 
