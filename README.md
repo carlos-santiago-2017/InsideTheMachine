@@ -92,7 +92,7 @@ DLW1
 - ALU
 - 4 registers: A,B,C y D
 - Bank Main Memory 256 memory cells.
-- The number that identifies an individual memory cell is called an address.
+- The number that identifies an individual memory cell is called an **address**.
 
 # The DLW-1's Arithmetic Instruction Format 
 
