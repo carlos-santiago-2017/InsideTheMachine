@@ -58,18 +58,18 @@ This three-step sequence is quite simple, but it's at the very core of how a mic
 We can think of main memory as a document storage room located on another floor and the registers as a small.
 The clerk does not really know anything about the document storage room
 
-# RAM: When Registers Alone Won't Cut It
+## RAM: When Registers Alone Won't Cut It
 
 Main Memory which in moder computers is always some type of random access memory (RAM), stores the data set on which the computer operates, and only a small portion of the data set at a time is moved to the registers for easy access from the ALLU.
 
 In fact, the ALU an the registers are internal parts of the microprocessor, but main memory is a complete separeta component of the computer system that is connected to the processor via the Memory Bus. Transfering data between main memory and the registers via the memory bus takes a significant amount of time. This, if there were no registers and the ALU had to read data directly from the main memory for each calculation, computers would run very slowly. However, because the register enable the computer to store data near the ALU, where it can be access nearly instantaneously, the computer's computational speed is decoupled somewhat from the speed of main memory.
 
 
-#The File-Clerk Model Revised and Expanded
+## The File-Clerk Model Revised and Expanded
 
 we can think of main memory as a document storage room located on another floor and the registers as a small, personal filing cabinet where the file clerk places the papers on which he is currently working. The Clerk doesn not really know anything about the document storage room.
 
-# A closer Look at the Code Stream: The Program
+## A closer Look at the Code Stream: The Program
 
 At the beginning did say, Code Stream: An ordered sequence of operatios, noiw operations becomes instructions, because not only operatations would do.
 
@@ -85,7 +85,7 @@ Modern RISC microprocessors the code stream is in charge to move data between me
 
 To show you how memory-access and arithmetic operations work together within the context of the code stream.
 
-# The DLW-1's Basic Architecture and Arithmetic Instruction Format
+## The DLW-1's Basic Architecture and Arithmetic Instruction Format
 
 DLW1 
 
@@ -107,7 +107,7 @@ destination field: 	it Tells the computer which register to place the result in.
 
 Now you need to tell the processor explicitly that you want to move the data in two specificy memory cells.
 
-The "filling" operation is done via memory-access instruction called the load.
+The **"filling"** operation is done via memory-access instruction called the load.
 
 The load instruction loads the appropriate data from main memory into the appropriate registers.
 
@@ -117,7 +117,7 @@ instruction source, destination.
 
 For all memory accesses, the instruction field specifies the type of memory operation to be performed.
 
-Program Example
+## Program Example
 
 ``` assembly
 load #12, A
@@ -126,7 +126,7 @@ add A, B, C
 store C, #14
 ```
 
-# A Closer Look at Memory Accesses: Register vs Immediate
+## A Closer Look at Memory Accesses: Register vs Immediate
 
 Until now, programmer knows the exact memory location of every number that he or she wants to lead and store. It presumes that in composing each program, the programmer has at his or her disposal a list of the contents of memoery cells #0 through #255
 Programmers need a flexible way to access memory, a way that does not requiere each memory access to specify numerically an exact memory address.
@@ -136,7 +136,7 @@ Modern computers allow the contents of a register to be used as a memory address
 
 All of the arithmetic instructions so far have required two source registers as input. However, it is possible to replace one or both of the source registers with an explicit numerical value, called an immediate value. 
 
-Example.
+## Example.
 
 ``` assembly 
 add A, 2, A		Add 2 to the contents of register A and place the resulñt back into A, overwriting whatever was there.
@@ -146,7 +146,7 @@ The #12 in the load instruction in line 1 of Program 1-1 is just an immediate va
 
 Memory addresses ar just regilar whole numbers that are specially marked with the # sign. The whole-number contest of a register, like D, could be construed by the computer as representating a memory address.
 
-Example:
+## Example:
 
 ``` assembly
 load #D, A
