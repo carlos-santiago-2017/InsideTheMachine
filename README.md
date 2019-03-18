@@ -98,10 +98,10 @@ DLW1
 
 instruction source1, source2, destination
 
-instruction field: 	Specifies the type of operation.
-source1 field: 			It Tells the computer which registers hold the two numberes or Operands 
-source2 field:
-destination field: 	it Tells the computer which register to place the result in.
+- instruction field: 	Specifies the type of operation.
+- source1 field: 			It Tells the computer which registers hold the two numberes or Operands 
+- source2 field:			It Tells the computer which registers hold the two numberes or Operands 
+- destination field: 	it Tells the computer which register to place the result in.
  
 ## The DLW-1's Memory Instruction Format 
 
