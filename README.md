@@ -129,7 +129,7 @@ store C, #14
 ## A Closer Look at Memory Accesses: Register vs Immediate
 
 Until now, programmer knows the exact memory location of every number that he or she wants to lead and store. It presumes that in composing each program, the programmer has at his or her disposal a list of the contents of memoery cells #0 through #255
-Programmers need a flexible way to access memory, a way that does not requiere each memory access to specify numerically an exact memory address.
+**Programmers need a flexible way to access memory, a way that does not requiere each memory access to specify numerically an exact memory address.**
 Modern computers allow the contents of a register to be used as a memory address.
 
 ## Immediate Values
