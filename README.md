@@ -177,7 +177,19 @@ store C, #14	Store what is inside of C into #14
 |--------------------|--------------------|
 | load #12, A        | load #D, A         |
 
+(# Sign of address)
 
+The first lines of these programs are funcionally equivalent.
 
+### Because memory addresses are just regular numbers, they can be stored in Memory cells as well as in registers.
 
+The next program ilustrates the use of a memory address that is stored in another memory cell.
+
+``` assembly
+load #11, D		
+load #D, A
+load #13, B		
+add A, B, C		
+store C, #14	
+```
 
