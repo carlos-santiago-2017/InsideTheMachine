@@ -193,3 +193,7 @@ add A, B, C
 store C, #14	
 ```
 
+* The firts instruction in Program 1-3 loads the number 12 from memory cell #11 into register D
+* The second instruction then uses the content of D as a memory address to load register A into memory location #12.
+
+
