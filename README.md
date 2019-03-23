@@ -174,6 +174,7 @@ store C, #14	Store what is inside of C into #14
 ```
 
 | program 1-1 line 1 | Program 1-2 line 1 |
+|--------------------|--------------------|
 | load #12, A        | load #D, A         |
 
 
