@@ -196,4 +196,10 @@ store C, #14
 * The firts instruction in Program 1-3 loads the number 12 from memory cell #11 into register D
 * The second instruction then uses the content of D as a memory address to load register A into memory location #12.
 
+### Why go to trouble of storing memory addresses in memory cells and then loading the addresses in memory cells and then loading the addresses from main memory into the registers before they are finally ready to be used to access memory again ? Is not this an overly complicated way to do thins ?
+
+When the programmers used with the register-relative addressing technique described next they make managing code and data traffic between the processor and massive amounts of main memory much less complex.
+
+# Register-Relative Addressing
+
 
