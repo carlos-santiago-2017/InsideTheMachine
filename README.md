@@ -26,15 +26,15 @@ All computers consist of at least three fundamental types of structures needed t
 
 Figure 1.3
 
-# Storage 
+## Storage 
 
 To say that a computer "reads" and "writes" numbers implies that there is at least one number-holding structures that it reads from and writes to. All Computers have a place to put numbers -a storage are thtat can be read from and write to.
 
-# Arithmethic Logic Unit (ALU)
+## Arithmethic Logic Unit (ALU)
 
 It is the part where the computer performs artithmetic operations.
 
-# Bus
+## Bus
 
 The network of transmission lines for shuttling numbers around inside the computer is called Data Bus.
 The instructions travel into the ALU via the Instruction Bus.
