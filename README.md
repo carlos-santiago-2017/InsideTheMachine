@@ -40,6 +40,9 @@ The network of transmission lines for shuttling numbers around inside the comput
 The instructions travel into the ALU via the Instruction Bus.
 
 
+
+In reality, blocks of code and data are mixed together in main memory.
+
 Prior to the invention of the first stored-program computer, all computing devices, from the abacus to the earliest electronic computer machines, had to be manipulated by an operator or group of operators who manually entered a particular sequence of commands each time they wanted to make a particular calculation.
 
 ## Refining the File-clerck Model.
@@ -164,10 +167,18 @@ Memory addresses ar just regilar whole numbers that are specially marked with th
 ## Example:
 
 ``` assembly
-load #D, A
-load #12, B
-add A, B, C
-tore C, #14
+load #D, A		Read the contents of D into A
+load #12, B		Read the contents of #12 into B
+add A, B, C		Add A and B, and store the result in C
+store C, #14	Store what is inside of C into #14
 ```
+
+|--------------------|--------------------|
+| program 1-1 line 1 | Program 1-2 line 1 |
+| load #12, A        | load #D, A         |
+|--------------------|--------------------|
+
+
+
 
 
