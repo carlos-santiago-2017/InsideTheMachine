@@ -26,6 +26,20 @@ All computers consist of at least three fundamental types of structures needed t
 
 Figure 1.3
 
+## Storage 
+
+To say that a computer "reads" and "writes" numbers implies that there is at least one number-holding structures that it reads from and writes to. All Computers have a place to put numbers -a storage are thtat can be read from and write to.
+
+# Arithmethic Logic Unit (ALU)
+
+It is the part where the computer performs artithmetic operations.
+
+# Bus
+
+The network of transmission lines for shuttling numbers around inside the computer is called Data Bus.
+The instructions travel into the ALU via the Instruction Bus.
+
+
 Prior to the invention of the first stored-program computer, all computing devices, from the abacus to the earliest electronic computer machines, had to be manipulated by an operator or group of operators who manually entered a particular sequence of commands each time they wanted to make a particular calculation.
 
 ## Refining the File-clerck Model.
@@ -39,7 +53,6 @@ Example
 3. Place the results back into data storage.
 
 Those three steps are carried out billions of times per second on a modern CPU.
-
 
 ## The register file
 
@@ -63,6 +76,8 @@ The clerk does not really know anything about the document storage room
 Main Memory which in moder computers is always some type of random access memory (RAM), stores the data set on which the computer operates, and only a small portion of the data set at a time is moved to the registers for easy access from the ALLU.
 
 In fact, the ALU an the registers are internal parts of the microprocessor, but main memory is a complete separeta component of the computer system that is connected to the processor via the Memory Bus. Transfering data between main memory and the registers via the memory bus takes a significant amount of time. This, if there were no registers and the ALU had to read data directly from the main memory for each calculation, computers would run very slowly. However, because the register enable the computer to store data near the ALU, where it can be access nearly instantaneously, the computer's computational speed is decoupled somewhat from the speed of main memory.
+
+## Instructions are combined with data to produce results.
 
 
 ## The File-Clerk Model Revised and Expanded
@@ -154,8 +169,5 @@ load #12, B
 add A, B, C
 tore C, #14
 ```
-
-
-
 
 
