@@ -8,6 +8,7 @@ At the heart of the modern computer is the microprocessor —also commonly calle
 
 A computer takes a stream of instructions (code) and a stream of data as input, and it produces a stream of results as output.
 
+![Screen Shot 2019-08-26 at 3 43 05 PM](https://user-images.githubusercontent.com/24994818/63722147-35dda800-c818-11e9-9e40-599208836737.png)
 Figure 1-1
 
 Figure 1-2
