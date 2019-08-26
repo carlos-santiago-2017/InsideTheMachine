@@ -30,7 +30,7 @@ Figure 1.3
 
 ## Storage 
 
-To say that a computer "reads" and "writes" numbers implies that there is at least one number-holding structures that it reads from and writes to. All Computers have a place to put numbers -a storage are thtat can be read from and write to.
+To say that a computer **"reads"** and **"writes"** numbers implies that there is at least one number-holding structures that it reads from and writes to. All Computers have a place to put numbers -a storage are thtat can be read from and write to.
 
 ## Arithmethic Logic Unit (ALU)
 
