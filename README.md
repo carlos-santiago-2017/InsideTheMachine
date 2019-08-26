@@ -25,6 +25,7 @@ All computers consist of at least three fundamental types of structures needed t
 - Arithmetic Logic Unit (ALU)
 - Bus.
 
+![Screen Shot 2019-08-26 at 3 44 25 PM](https://user-images.githubusercontent.com/24994818/63722253-6c1b2780-c818-11e9-9a82-91fe5fa09e1e.png)
 Figure 1.3
 
 ## Storage 
