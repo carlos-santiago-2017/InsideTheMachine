@@ -26,6 +26,7 @@ A computer takes a stream of instructions (code) and a stream of data as input, 
 ![Screen Shot 2020-05-27 at 20 15 39](https://user-images.githubusercontent.com/24994818/83087530-231e2b00-a057-11ea-9d45-63fad093bacc.png)
 ![Screen Shot 2020-05-27 at 20 15 30](https://user-images.githubusercontent.com/24994818/83087531-231e2b00-a057-11ea-9eed-3149896d9f41.png)
 ![Screen Shot 2020-05-27 at 20 15 18](https://user-images.githubusercontent.com/24994818/83087532-23b6c180-a057-11ea-9388-2183270e46d3.png)
+![Screen Shot 2019-08-26 at 3 43 05 PM](https://user-images.githubusercontent.com/24994818/63722147-35dda800-c818-11e9-9e40-599208836737.png)
 
 
 ## The File-Clerk Model of Computing
@@ -40,11 +41,12 @@ All computers consist of at least three fundamental types of structures needed t
 - Arithmetic Logic Unit (ALU)
 - Bus.
 
+![Screen Shot 2019-08-26 at 3 44 25 PM](https://user-images.githubusercontent.com/24994818/63722253-6c1b2780-c818-11e9-9a82-91fe5fa09e1e.png)
 Figure 1.3
 
 ## Storage 
 
-To say that a computer "reads" and "writes" numbers implies that there is at least one number-holding structures that it reads from and writes to. All Computers have a place to put numbers -a storage are thtat can be read from and write to.
+To say that a computer **"reads"** and **"writes"** numbers implies that there is at least one number-holding structures that it reads from and writes to. All Computers have a place to put numbers -a storage are thtat can be read from and write to.
 
 ## Arithmethic Logic Unit (ALU)
 
