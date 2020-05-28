@@ -8,9 +8,25 @@ At the heart of the modern computer is the microprocessor —also commonly calle
 
 A computer takes a stream of instructions (code) and a stream of data as input, and it produces a stream of results as output.
 
-Figure 1-1
+![Screen Shot 2020-05-27 at 20 17 13](https://user-images.githubusercontent.com/24994818/83087521-20bbd100-a057-11ea-8692-ea35561d3de1.png)
+![Screen Shot 2020-05-27 at 20 17 01](https://user-images.githubusercontent.com/24994818/83087522-21ecfe00-a057-11ea-8597-2bb367cfd575.png)
+![Screen Shot 2020-05-27 at 20 16 51](http
+![Screen Shot 2020-05-27 at 20 15 14](https://user-images.githubusercontent.com/24994818/83087533-23b6c180-a057-11ea-8627-b68a4c26a795.png)
+![Screen Shot 2020-05-27 at 20 14 59](https://user-images.githubusercontent.com/24994818/83087534-23b6c180-a057-11ea-9e7e-f8abb864a5b1.png)
+![Screen Shot 2020-05-27 at 20 14 44](https://user-images.githubusercontent.com/24994818/83087535-244f5800-a057-11ea-9b49-a335e2ffdd87.png)
+![Screen Shot 2020-05-27 at 20 14 30](https://user-images.githubusercontent.com/24994818/83087537-244f5800-a057-11ea-8a36-37d407c495e0.png)
+![Screen Shot 2020-05-27 at 20 14 17](https://user-images.githubusercontent.com/24994818/83087538-244f5800-a057-11ea-832c-0939e6b4ba89.png)
+![Screen Shot 2020-05-27 at 20 13 49](https://user-images.githubusercontent.com/24994818/83087540-24e7ee80-a057-11ea-8c9c-59081720ff0a.png)
+![Screen Shot 2020-05-27 at 20 12 08](https://user-images.githubusercontent.com/24994818/83087542-25808500-a057-11ea-8425-375ad8809116.png)
+![Screen Shot 2020-05-27 at 20 16 40](https://user-images.githubusercontent.com/24994818/83087525-21ecfe00-a057-11ea-9f91-9a2249c5c2a9.png)
+![Screen Shot 2020-05-27 at 20 16 27](https://user-images.githubusercontent.com/24994818/83087526-22859480-a057-11ea-9e39-7472afd89835.png)
+![Screen Shot 2020-05-27 at 20 16 15](https://user-images.githubusercontent.com/24994818/83087527-22859480-a057-11ea-8653-5335fd98e500.png)
+![Screen Shot 2020-05-27 at 20 15 59](https://user-images.githubusercontent.com/24994818/83087528-22859480-a057-11ea-9d6c-bd72244369a0.png)
+![Screen Shot 2020-05-27 at 20 15 49](https://user-images.githubusercontent.com/24994818/83087529-231e2b00-a057-11ea-9c4e-f255a8189194.png)
+![Screen Shot 2020-05-27 at 20 15 39](https://user-images.githubusercontent.com/24994818/83087530-231e2b00-a057-11ea-9d45-63fad093bacc.png)
+![Screen Shot 2020-05-27 at 20 15 30](https://user-images.githubusercontent.com/24994818/83087531-231e2b00-a057-11ea-9eed-3149896d9f41.png)
+![Screen Shot 2020-05-27 at 20 15 18](https://user-images.githubusercontent.com/24994818/83087532-23b6c180-a057-11ea-9388-2183270e46d3.png)
 
-Figure 1-2
 
 ## The File-Clerk Model of Computing
 
@@ -200,6 +216,6 @@ store C, #14
 
 When the programmers used with the register-relative addressing technique described next they make managing code and data traffic between the processor and massive amounts of main memory much less complex.
 
-# Register-Relative Addressing
+## Register-Relative Addressing
 
 
