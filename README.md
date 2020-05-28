@@ -1,5 +1,71 @@
 # INSIDE THE MACHINE
 
+1. [Introduction]() 
+2. [Basic Computing Concepts]() 
+3. [The Mechanics of Program Execution]() 
+4. [Pipelined Execution]() 
+5. [Pipelined Execution]() 
+6. [PowerPC Processors: 600 Series, 700 Series, and 7400]()
+7. [Intel’s Pentium 4 vs. Motorola’s G4e: Approaches and Design Philosophies]()
+8. [Intel’s Pentium 4 vs. Motorola’s G4e: The Back End]()
+9. [64-Bit Computing and x86-64]()
+10. [The G5: IBM’s PowerPC 970]()
+11. [Understanding Caching and Performance]()
+12. [Intel’s Pentium M, Core Duo, and Core 2 Duo]()
+13. [Bibliography and Suggested Reading]()
+
+# 1. [BASIC COMPUTING CONCEPTS]()
+
+- [The Calculator Model of Computing]()
+- []The File-Clerk Model of Computing]()
+	* [The Stored-Program Computer]()
+	* [Refining the File-Clerk Model]()
+- [The Register File]()
+- [RAM: When Registers Alone Won’t Cut It]()
+	* [The File-Clerk Model Revisited and Expanded]() 
+	* [An Example: Adding Two Numbers]()
+- [A Closer Look at the Code Stream: The Program]()
+	* [General Instruction Types]()
+	* [The DLW-1’s Basic Architecture and Arithmetic Instruction Format]()
+- [A Closer Look at Memory Accesses: Register vs. Immediate]()
+	* [Immediate Values]()
+	* [Register-Relative Addressing]()
+
+# 2. [THE MECHANICS OF PROGRAM EXECUTION]()
+
+- [Opcodes and Machine Language]()
+	* [Machine Language on the DLW-1]()
+	* [Binary Encoding of Arithmetic Instructions]()
+	* [Binary Encoding of Memory Access Instructions]()
+	* [Translating an Example Program into Machine Language]() 
+- [The Programming Model and the ISA]() 
+	* [The Programming Model]()
+	* [The Instruction Register and Program Counter]() 
+	* [The Instruction Fetch: Loading the Instruction Register]() 
+	* [Running a Simple Program: The Fetch-Execute Loop]() 
+- [The Clock]()
+- [Branch Instructions]() 
+	* [Unconditional Branch]() 
+	* [Conditional Branch]() 
+- [Excursus: Booting Up]() 
+
+
+# 3. [PIPELINED EXECUTION 35]()
+
+- [The Lifecycle of an Instruction]()
+- [Basic Instruction Flow]()
+- [Pipelining Explained]()
+- [Applying the Analogy]()
+	* [A Non-Pipelined Processor]() 
+	* [A Pipelined Processor]()
+	* [The Speedup from Pipelining]() 
+	* [Program Execution Time and Completion Rate]() 
+	* [The Relationship Between Completion Rate and Program Execution Time]()
+	* [Instruction Throughput and Pipeline Stalls]()
+	* [Instruction Latency and Pipeline Stalls]()
+	* [Limits to Pipelining]()
+
+
 ## 1 Basic Computing Concepts.
 
 At the heart of the modern computer is the microprocessor —also commonly called the central processing unit (CPU)
