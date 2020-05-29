@@ -14,10 +14,13 @@
 12. [Intel’s Pentium M, Core Duo, and Core 2 Duo]()
 13. [Bibliography and Suggested Reading]()
 
-# 1. [BASIC COMPUTING CONCEPTS]()
+
+# 1. [INTRODUCTION]()
+
+# 2. [BASIC COMPUTING CONCEPTS]()
 
 - [The Calculator Model of Computing]()
-- []The File-Clerk Model of Computing]()
+- [The File-Clerk Model of Computing]()
 	* [The Stored-Program Computer]()
 	* [Refining the File-Clerk Model]()
 - [The Register File]()
@@ -31,7 +34,7 @@
 	* [Immediate Values]()
 	* [Register-Relative Addressing]()
 
-# 2. [THE MECHANICS OF PROGRAM EXECUTION]()
+# 3. [THE MECHANICS OF PROGRAM EXECUTION]()
 
 - [Opcodes and Machine Language]()
 	* [Machine Language on the DLW-1]()
@@ -50,7 +53,7 @@
 - [Excursus: Booting Up]() 
 
 
-# 3. [PIPELINED EXECUTION 35]()
+# 4. [PIPELINED EXECUTION 35]()
 
 - [The Lifecycle of an Instruction]()
 - [Basic Instruction Flow]()
