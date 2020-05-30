@@ -80,7 +80,19 @@ Modern computers come in all shapes and sizes, and they aid us in a million diff
 At the heart of the modern computers is the **microprocessor** -also commonly called **central processing unit (CPU)** - a tiny, square silver of silicon that is etched with a microscopic network of gates and channels through which electricity flows. This netwoork of gates (transistors) and channels (wires or lines) is a very small version of the kind circuitry that we have all seen when cracking open a television remote or an old radio. In short, the microprocessor is not just the "heart" of a modern computer - It is a computer and of itself
 
 # - [The Calculator Model of Computing](https://github.com/c4arl0s/InsideTheMachine#--the-calculator-model-of-computing)
-# - [The Calculator Model of Computing](https://github.com/c4arl0s/InsideTheMachine#2-basic-computing-concepts)
+
+A computer takes a stream of instructions (code) and a stream of data as input, and it produces a stream of results as output.
+
+![Screen Shot 2019-08-26 at 3 43 05 PM](https://user-images.githubusercontent.com/24994818/63722147-35dda800-c818-11e9-9e40-599208836737.png)
+
+Figure 1-1 is my own variation on the traditional way of representing a processor's arithmetic logic unit (ALU)
+
+I have depicted code and data streams entering the top ports and a results stream leaving the bottom port.
+
+![Screen Shot 2020-05-29 at 23 47 12](https://user-images.githubusercontent.com/24994818/83319751-bf3a6480-a206-11ea-83f7-6536b64b33c5.png)
+
+The kind of simple calculation describe above represents the sort of thing that we intuitive think computers do.
+
 # - [The File-Clerk Model of Computing](https://github.com/c4arl0s/InsideTheMachine#2-basic-computing-concepts)
 # 	* [The Stored-Program Computer](https://github.com/c4arl0s/InsideTheMachine#2-basic-computing-concepts)
 # 	* [Refining the File-Clerk Model](https://github.com/c4arl0s/InsideTheMachine#2-basic-computing-concepts)
