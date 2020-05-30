@@ -94,6 +94,28 @@ I have depicted code and data streams entering the top ports and a results strea
 The kind of simple calculation describe above represents the sort of thing that we intuitive think computers do.
 
 # - [The File-Clerk Model of Computing](https://github.com/c4arl0s/InsideTheMachine#2-basic-computing-concepts)
+
+The "Calculator" model of computing, while useful in many aspects, is not the only or even the best way to think about what computers do. As an alternative, consider the following definition of a computer:
+
+A computer is a device that shuffles numbers around from place to place, reading, writing, erasing, and rewriting different numbers in different locations according to a set of inputs, a fixed set of rules for processing those inputs, and the prior history of all the inputs that the computer has seen since it was last reset, until a predefined set of criteria are met that case the computer to halt.
+
+we might, after Richard Feynman, call this idea of a computer as a reader, writer, and modifier of numbers the "file-clerk" model of computing (as opposed to the aforementioned calculator model). In the File-clerk model, the computer access a large (theoretically infinite) store of sequentially arranged numbers fr the purpose of altering that store to achieve a desired result. Once this desired result is achieved, the computer halts so that the now-modified store of numbers can be read and interpreted by humans.
+
+The file-clerk mode of computing might not initially strike you as all that useful, but as this chapter progresses, you will begin to understand how important it is. This way of looking at computers is powerful because it emphasizes the end product of computation rather than the computation itself. After all, the purpose of computers is not just to compute in the abstract, but to produce the usable results from a given data set.
+
+Those who have studied computer science will recognize in the preceding description the beginnings of a discussion of a Turing Machine. The Touring machine is, however, too abstract for our purposes here, so I won't actually describe one. The description that I develop here sticks closer to the classic **Reduced Instruction Set Computing (RISC) load-stored model, where the computer is "Fixed" along with the storage. The TToring model of a computer as a movable read-write head (with a state table) traversing a linear "tape" is too far from real-life hardware organization to be anythin but confusing in this discussion.**
+
+In other words, what matters in computing is not that you did some math, but that you started with a body of numbers, applied a sequence of operations to it, and got a body of results. Those results could, again, represent pixel values for a rendered scene or an environmental snapshot in a weather simulation. Indeed the idea that computer is a device that transforms one set of numbers into another should be intuitively obvious to anyone who has ever used a Photoshop filter. Once we understand computers not in terms of math they do, but in terms of the numbers they move and modify, we can begin to get a fuller picture of how they operate.
+
+In a nutshell, a computer is a device that reads, modifies, and writes sequences of numbers. These three functions - read, modify, and write- are the three most fundamental functions that a computer performs, and all the machine's component are designed to aid in carrying them out. This read-modify-write sequence is actually inherent in the three central bullet points of our initial file-clerk definition of a computer. Her is a sequence mapped explicitly onto the file-clerk definition:
+
+> A computer is a device that shuffles numbers around from place to place, reading, writing, erasing, and rewriting different numbers in different locations according to a set of inputs [read], a fixed set of rules for processing those inputs [modify], and the prior history of all inputs that the computer has seen since it was last reset [write], until a predefined set of criteria are met that cause the computer to halt.
+
+That sums up what a computer does. And, in fact, that's all a computer does. Whether you are playing a game or listening to music, everything that is going on under the computer's hood fits into this model.
+___
+**Note** 
+All of this is fairly simple so far, and I have even seen a bit repetitive with the explanations to drive home the basic read-modify-write structure of all computer operations. It is important to grasp this structure in its simplicity, because as we increase our computing model's level of complexity, we will see this structure repeated at very level.
+____
 # 	* [The Stored-Program Computer](https://github.com/c4arl0s/InsideTheMachine#2-basic-computing-concepts)
 # 	* [Refining the File-Clerk Model](https://github.com/c4arl0s/InsideTheMachine#2-basic-computing-concepts)
 # - [The Register File](https://github.com/c4arl0s/InsideTheMachine#2-basic-computing-concepts)
@@ -215,12 +237,9 @@ Main Memory which in moder computers is always some type of random access memory
 
 In fact, the ALU an the registers are internal parts of the microprocessor, but main memory is a complete separeta component of the computer system that is connected to the processor via the Memory Bus. Transfering data between main memory and the registers via the memory bus takes a significant amount of time. This, if there were no registers and the ALU had to read data directly from the main memory for each calculation, computers would run very slowly. However, because the register enable the computer to store data near the ALU, where it can be access nearly instantaneously, the computer's computational speed is decoupled somewhat from the speed of main memory.
 
-## Instructions are combined with data to produce results.
 
 
-## The File-Clerk Model Revised and Expanded
 
-we can think of main memory as a document storage room located on another floor and the registers as a small, personal filing cabinet where the file clerk places the papers on which he is currently working. The Clerk doesn not really know anything about the document storage room.
 
 ## A closer Look at the Code Stream: The Program
 
