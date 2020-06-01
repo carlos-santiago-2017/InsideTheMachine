@@ -141,6 +141,20 @@ In the rest of this chapter, you will get a first-hand look at the many ways tha
 
 
 # 	* [Refining the File-Clerk Model](https://github.com/c4arl0s/InsideTheMachine#2-basic-computing-concepts)
+
+All computers operate.
+
+Example
+
+1. obtain two numbers to be added (the input operands) from the data storage.
+2. Add the numbers.
+3. Place the results back into data storage.
+
+Those three steps are carried out billions of times per second on a modern CPU.
+
+To return to our File-clerck analogy, a computer is like a file clerck who sits at his desk all day waiting for messages from his boss. Eventually, the boss sends him a message telling him a message telling him to perform a calculation, and where in his personal filling cabinet the necessary numbers are located. So the clerk first retrieves the numbers from his filing cabinet, then performs the calculation, and finally places the result back into the filing cabinet. It is boring, mindless, repetitive task that is repeated endlessly, day in day out, which is precisely why we have invented a machine that can do it efficiently and not complain.
+
+
 # - [The Register File](https://github.com/c4arl0s/InsideTheMachine#2-basic-computing-concepts)
 # - [RAM: When Registers Alone Won’t Cut It](https://github.com/c4arl0s/InsideTheMachine#2-basic-computing-concepts)
 # 	* [The File-Clerk Model Revisited and Expanded](https://github.com/c4arl0s/InsideTheMachine#2-basic-computing-concepts) 
@@ -193,36 +207,7 @@ In the rest of this chapter, you will get a first-hand look at the many ways tha
 
 
 
-## Storage 
 
-To say that a computer **"reads"** and **"writes"** numbers implies that there is at least one number-holding structures that it reads from and writes to. All Computers have a place to put numbers -a storage are thtat can be read from and write to.
-
-## Arithmethic Logic Unit (ALU)
-
-It is the part where the computer performs artithmetic operations.
-
-## Bus
-
-The network of transmission lines for shuttling numbers around inside the computer is called Data Bus.
-The instructions travel into the ALU via the Instruction Bus.
-
-
-
-In reality, blocks of code and data are mixed together in main memory.
-
-Prior to the invention of the first stored-program computer, all computing devices, from the abacus to the earliest electronic computer machines, had to be manipulated by an operator or group of operators who manually entered a particular sequence of commands each time they wanted to make a particular calculation.
-
-## Refining the File-clerck Model.
-
-All computers operate.
-
-Example
-
-1. obtain two numbers to be added (the input operands) from the data storage.
-2. Add the numbers.
-3. Place the results back into data storage.
-
-Those three steps are carried out billions of times per second on a modern CPU.
 
 ## The register file
 
