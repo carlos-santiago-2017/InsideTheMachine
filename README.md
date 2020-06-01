@@ -156,6 +156,31 @@ To return to our File-clerck analogy, a computer is like a file clerck who sits 
 
 
 # - [The Register File](https://github.com/c4arl0s/InsideTheMachine#2-basic-computing-concepts)
+
+Since numbers must first be fetched from the storage before they can be added, we want our data storage a space to be as fast as possible so that the operation can be carried out quickly. Since the ALU is the part of the processor that does the actual addition. We would like **to place the data storage as close as possible the ALU** so it can read the operands almost instantaneously. However, practical considerations, such as CUPs limited surface area, constrain the size of the storage area that we can stick next to the ALU. This fast data storage locations attached to the ALU. These storage locations called **registers**, and the first x86 computers only had eight of them to work with. These **registers**^, which are arrayed in a storage structure called a **register file**, stored only a small subset of the data that the code stream needs (and we will talk about where the rest of that data lives shortly).
+
+Building on our previous,, three.step description of what goes on when a computer's ALU is commanded to add two numbers, we can modify it as follows. To execute an **add** instruction, the ALU must perform these steps:
+
+1. Obtain the two numbers to be added (the input operands= from two source registers.ç
+2. Add the numbers.
+3. Place the results back in a **destination register**
+
+For a concrete example, let's look at addition on a simple computer with only four registers, named A,B,C,D. Suppose each of these registers contains a number, and we want to add the contents of two registers together and overwrite the contents of a third register with the resulting sum, as in the following operation:
+
+Code				Comments
+A + B = C		Add the contents of register A and B, and place the result in C, overwriting whatever was there.
+
+Upon receiving and instruction commanding it to perform this addition operation, the ALU in our simple computer would carry out the following three familiar steps:
+
+1. Read the contents of register A and B
+2. Add the contents of A and B
+3. Write the result to register C
+
+You should recognize these three steps as a more specific form of the read-modify-write sequence from earlier, where the generic modify steps is replaced with an addition operation.
+
+This three-step sequence is a quite simple, but it is at the very core of how a microprocessor really works. In fact, if you glance ahead to Chapter 10 discussion of the PowerPC 9700s pipeline, you will see that it actually has separate stages for each of these three operations: stage 12 is the register read step, stage 13 is the actual execute step, and stage 14 i the write-back step. (dont worry if you dont know what a pipeline is, because that is the topic for chapter 3). So the 970's ALU reads two operands from the register file, adds them together, and writes the sum back to the register file. If we were to stop our discussion right here, you would already understand the three core stages of the 970's main integer pipeline- all the other stages are either just preparation to get to this point or they are cleanup work after it.
+
+
 # - [RAM: When Registers Alone Won’t Cut It](https://github.com/c4arl0s/InsideTheMachine#2-basic-computing-concepts)
 # 	* [The File-Clerk Model Revisited and Expanded](https://github.com/c4arl0s/InsideTheMachine#2-basic-computing-concepts) 
 # 	* [An Example: Adding Two Numbers](https://github.com/c4arl0s/InsideTheMachine#2-basic-computing-concepts)
