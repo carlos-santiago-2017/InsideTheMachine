@@ -112,11 +112,34 @@ In a nutshell, a computer is a device that reads, modifies, and writes sequences
 > A computer is a device that shuffles numbers around from place to place, reading, writing, erasing, and rewriting different numbers in different locations according to a set of inputs [read], a fixed set of rules for processing those inputs [modify], and the prior history of all inputs that the computer has seen since it was last reset [write], until a predefined set of criteria are met that cause the computer to halt.
 
 That sums up what a computer does. And, in fact, that's all a computer does. Whether you are playing a game or listening to music, everything that is going on under the computer's hood fits into this model.
-___
+---
 **Note** 
 All of this is fairly simple so far, and I have even seen a bit repetitive with the explanations to drive home the basic read-modify-write structure of all computer operations. It is important to grasp this structure in its simplicity, because as we increase our computing model's level of complexity, we will see this structure repeated at very level.
-____
+---
+
 # 	* [The Stored-Program Computer](https://github.com/c4arl0s/InsideTheMachine#2-basic-computing-concepts)
+
+All computers consist of at least three fundamental types of structures needed to carry out the read-modify-write sequence:
+
+- Storage.
+- Arithmetic Logic Unit (ALU)
+- Bus.
+
+The data enters the ALU from a special storage area, but where does the code stream come from? 
+One might imagine that it comes from the keypad of some person standing at the computer and entering a sequence of instructions, each of which is then transmitted to the code input port of the ALU, or perhaps that the code stream is a prerecorded list of instructions that is fed into the ALU, one instruction at a time, by some manual or automated mechanism. Figure 1-3 depicts the code stream as a prerecorded list of instructions that is stored in a special storage area just like the data stream, and modern computers do store the code stream in just such manner.
+
+![Screen Shot 2020-05-31 at 19 39 09](https://user-images.githubusercontent.com/24994818/83366707-76092280-a376-11ea-87d7-9dc5da2c0568.png)
+
+---
+Note
+More advance readers might notice that in figure 1-3 (and in figure 1-4 later) I have separated the code and data in main memory after the manner of a Harvard architecture level-one cache. In reality, blocks of code and data are mixed together in main memory, but for now I have chosen to illustrate them as logically separated.
+---
+
+The modern computer's ability to store and reuse prerecorded sequences of commands makes it fundamentally different from the simpler calculating machines that preceded it. Prior to the invention of the first **stored-program computer**, all computing devices, from the abacus to the earliest electronic computing machines, had to be manipulated by an operator or group of operators who manually entered a particular sequence of commands each time they wanted to make a particular calculation. In contrast, modern computers store and reuse such command sequences, and as such they have a level of flexibility and usefulness that sets them apart from everything that has come before.
+
+In the rest of this chapter, you will get a first-hand look at the many ways that the stored-program concept affects the design and capabilities of the modern computer.
+
+
 # 	* [Refining the File-Clerk Model](https://github.com/c4arl0s/InsideTheMachine#2-basic-computing-concepts)
 # - [The Register File](https://github.com/c4arl0s/InsideTheMachine#2-basic-computing-concepts)
 # - [RAM: When Registers Alone Won’t Cut It](https://github.com/c4arl0s/InsideTheMachine#2-basic-computing-concepts)
@@ -168,20 +191,7 @@ ____
 
 
 
-## The File-Clerk Model of Computing
 
-In the file-clerck model, the computer accesses a large store of sequentially arranged numbers for the purpose of altering that store to achieve a desired result. Once this desired result is achived, the computer halts so that the now-modified store of numbers can be read and interpreted by humans.
-
-## The stored-Program Computer
-
-All computers consist of at least three fundamental types of structures needed to carry out the read-modify-write sequence:
-
-- Storage.
-- Arithmetic Logic Unit (ALU)
-- Bus.
-
-![Screen Shot 2019-08-26 at 3 44 25 PM](https://user-images.githubusercontent.com/24994818/63722253-6c1b2780-c818-11e9-9a82-91fe5fa09e1e.png)
-Figure 1.3
 
 ## Storage 
 
