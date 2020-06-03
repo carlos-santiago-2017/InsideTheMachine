@@ -99,7 +99,7 @@ The "Calculator" model of computing, while useful in many aspects, is not the on
 
 A computer is a device that shuffles numbers around from place to place, reading, writing, erasing, and rewriting different numbers in different locations according to a set of inputs, a fixed set of rules for processing those inputs, and the prior history of all the inputs that the computer has seen since it was last reset, until a predefined set of criteria are met that case the computer to halt.
 
-we might, after Richard Feynman, call this idea of a computer as a reader, writer, and modifier of numbers the "file-clerk" model of computing (as opposed to the aforementioned calculator model). In the File-clerk model, the computer access a large (theoretically infinite) store of sequentially arranged numbers fr the purpose of altering that store to achieve a desired result. Once this desired result is achieved, the computer halts so that the now-modified store of numbers can be read and interpreted by humans.
+We might, after Richard Feynman, call this idea of a computer as a reader, writer, and modifier of numbers the "file-clerk" model of computing (as opposed to the aforementioned calculator model). In the File-clerk model, the computer access a large (theoretically infinite) store of sequentially arranged numbers fr the purpose of altering that store to achieve a desired result. Once this desired result is achieved, the computer halts so that the now-modified store of numbers can be read and interpreted by humans.
 
 The file-clerk mode of computing might not initially strike you as all that useful, but as this chapter progresses, you will begin to understand how important it is. This way of looking at computers is powerful because it emphasizes the end product of computation rather than the computation itself. After all, the purpose of computers is not just to compute in the abstract, but to produce the usable results from a given data set.
 
@@ -131,7 +131,7 @@ One might imagine that it comes from the keypad of some person standing at the c
 ![Screen Shot 2020-05-31 at 19 39 09](https://user-images.githubusercontent.com/24994818/83366707-76092280-a376-11ea-87d7-9dc5da2c0568.png)
 
 ---
-Note
+**Note**
 More advance readers might notice that in figure 1-3 (and in figure 1-4 later) I have separated the code and data in main memory after the manner of a Harvard architecture level-one cache. In reality, blocks of code and data are mixed together in main memory, but for now I have chosen to illustrate them as logically separated.
 ---
 
@@ -182,6 +182,17 @@ This three-step sequence is a quite simple, but it is at the very core of how a 
 
 
 # - [RAM: When Registers Alone Won’t Cut It](https://github.com/c4arl0s/InsideTheMachine#2-basic-computing-concepts)
+
+Obviously, four (or even eight) registers are not even close to the theoretically infinite storage space I mentioned earlier in this chapter. In order to make a viable computer that does useful work. You need to be able to store very large data sets. This is where the computer's **main memory** comes in. Main memory, which in modern computers is always some type of **random access memory (RAM)**, stores the data set on which the computer operates, and only a small portion of that data set a time is moved to the registers and only a small portion of that data set at a time is moved to the registers for easy access from the **ALU** (as shown in Figure 1-4).
+
+
+
+Figure 1-4 gives only the slightest indication of it, but **main memory** is situated quite a bit farther away from the **ALU** than are the registers. In fact, the ALU and the registers are internal parts of the microprocessor, but main memory is a completely separate component of the computer system that is connected to the processor via the **memory bus**. Transfering data between main memory and the registers via the memory bus takes a significant amount of time. Thus, if there were no registers and the ALU had to read data directly from main memory for each calculation, computers would run very slowly. However, because the registers enable the computer to store data near the ALU, where it can be accessed nearly instantaneously, the computer's computational speed is **decoupled** somewhat from the speed of **main memory**. 
+
+We will discuss the problem of memory access speeds and computational performance in more detail in [Chapter 11](), when we talk about [caches]().
+
+![Screen Shot 2020-06-03 at 11 22 31](https://user-images.githubusercontent.com/24994818/83663511-7f6cd780-a58e-11ea-85bf-c73da8f4985b.png)  
+
 # 	* [The File-Clerk Model Revisited and Expanded](https://github.com/c4arl0s/InsideTheMachine#2-basic-computing-concepts) 
 # 	* [An Example: Adding Two Numbers](https://github.com/c4arl0s/InsideTheMachine#2-basic-computing-concepts)
 # - [A Closer Look at the Code Stream: The Program](https://github.com/c4arl0s/InsideTheMachine#2-basic-computing-concepts)
