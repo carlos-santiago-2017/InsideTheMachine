@@ -194,6 +194,11 @@ We will discuss the problem of memory access speeds and computational performanc
 ![Screen Shot 2020-06-03 at 11 22 31](https://user-images.githubusercontent.com/24994818/83663511-7f6cd780-a58e-11ea-85bf-c73da8f4985b.png)  
 
 # 	* [The File-Clerk Model Revisited and Expanded](https://github.com/c4arl0s/InsideTheMachine#2-basic-computing-concepts) 
+
+To return to our file-clerk metaphor, we can think of **main memory** as a document storage room located on another floor and the registers as a small, personal filling cabinet where the file clerk places the papers on which he is currently working. The clerk does not really know anything about the document storage room. -what it is or where it is located- because his desk and his personal filing cabinet are all he concerns himself with. For documents that are in the storage room, there is another office worker, the office secretary, whose job it is to locate files in the storage room and retrieve them for the clerk.
+
+This secretary represents a few different units within the processor, all of which we will meet Chapter 4. For now, suffice it to say that when the boss wants the clerk to work on a file that is not in the clerk's personal filing cabinet, the secretary must first be ordered, via a message from the boss, to retrieve the file from the storage room and place it in the clerk's cabinet so that the clerk can access it when he gets the order to begin working on it.
+
 # 	* [An Example: Adding Two Numbers](https://github.com/c4arl0s/InsideTheMachine#2-basic-computing-concepts)
 # - [A Closer Look at the Code Stream: The Program](https://github.com/c4arl0s/InsideTheMachine#2-basic-computing-concepts)
 # 	* [General Instruction Types](https://github.com/c4arl0s/InsideTheMachine#2-basic-computing-concepts)
