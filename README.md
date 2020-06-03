@@ -219,9 +219,12 @@ Since steps 2a, and 2c all take a trivial amount of time to complete, relative t
 
 The existence of **main memory** means that the user -the boss in our filing-clerk analogy- must manage the flow of information between main memory and the CPU's registers. This means that the user must issue instructions to more than just the processor's ALU; he or she must also issue instructions to the parts of the CPU that **handle memory traffic**. Thus, the preceding three steps are representative of the kinds of instructions you find when you take a close look at the code stream.
 
-
-
 # - [A Closer Look at the Code Stream: The Program](https://github.com/c4arl0s/InsideTheMachine#2-basic-computing-concepts)
+
+At the beginning pf this chapter, I defined the **code stream**  consisting of **"an ordered sequence of operations** and this definition is fine as far as it goes. But in order to dig deeper, we need a more detailed picture of what the code stream is an how it woks.
+
+The term **operations** suggests  series of simple arithmetic operations like addition or substraction, but the **code stream** consist of more than just arithmetic operations. Therefore, it would be better to say that **the code stream** consist of **an ordered sequence of instructions**. Instructions, generally speaking, are commands that tell the whole computer - not just the ALU, but simple parts of the machine -exactly what actions to perform. As we have seen, a computer's list of potential actions encompasses more than just simple arithmetic operations.
+
 # 	* [General Instruction Types](https://github.com/c4arl0s/InsideTheMachine#2-basic-computing-concepts)
 # 	* [The DLW-1’s Basic Architecture and Arithmetic Instruction Format](https://github.com/c4arl0s/InsideTheMachine#2-basic-computing-concepts)
 # - [A Closer Look at Memory Accesses: Register vs. Immediate](https://github.com/c4arl0s/InsideTheMachine#2-basic-computing-concepts)
