@@ -200,6 +200,27 @@ To return to our file-clerk metaphor, we can think of **main memory** as a docum
 This secretary represents a few different units within the processor, all of which we will meet Chapter 4. For now, suffice it to say that when the boss wants the clerk to work on a file that is not in the clerk's personal filing cabinet, the secretary must first be ordered, via a message from the boss, to retrieve the file from the storage room and place it in the clerk's cabinet so that the clerk can access it when he gets the order to begin working on it.
 
 # 	* [An Example: Adding Two Numbers](https://github.com/c4arl0s/InsideTheMachine#2-basic-computing-concepts)
+To translate this office example into computing terms, let's look at how the computer uses main memory, the register file, and the ALU to add two numbers.
+
+To add two numbers stored in main memory, the computer must perform these steps.
+
+1. Load the two operands from main memory into the two source registers.
+2. Add the contents of the source registers and place the results in the destination register, using the ALU. To do so, the ALU must perform these steps.
+	A. Read the contents of registers A and B into the ALUU's input ports.
+	B. Add the contents of A and B in the ALU.
+	C. Write the result to regiter C via the ALU's output port.
+3. Store the contents of the destination register in **main memory**.
+
+Since steps 2a, and 2c all take a trivial amount of time to complete, relative to steps 1 and 3, we can ignore them. Hence our addition looks like this:
+
+1. Load the two operands from main memory into the two source registers.
+2. Add the contents of the source registers, and place the results in the destination register, using the ALU.
+3. Store the contents of the destination register in main memory.
+
+The existence of **main memory** means that the user -the boss in our filing-clerk analogy- must manage the flow of information between main memory and the CPU's registers. This means that the user must issue instructions to more than just the processor's ALU; he or she must also issue instructions to the parts of the CPU that **handle memory traffic**. Thus, the preceding three steps are representative of the kinds of instructions you find when you take a close look at the code stream.
+
+
+
 # - [A Closer Look at the Code Stream: The Program](https://github.com/c4arl0s/InsideTheMachine#2-basic-computing-concepts)
 # 	* [General Instruction Types](https://github.com/c4arl0s/InsideTheMachine#2-basic-computing-concepts)
 # 	* [The DLW-1’s Basic Architecture and Arithmetic Instruction Format](https://github.com/c4arl0s/InsideTheMachine#2-basic-computing-concepts)
