@@ -226,6 +226,35 @@ At the beginning pf this chapter, I defined the **code stream**  consisting of *
 The term **operations** suggests  series of simple arithmetic operations like addition or substraction, but the **code stream** consist of more than just arithmetic operations. Therefore, it would be better to say that **the code stream** consist of **an ordered sequence of instructions**. Instructions, generally speaking, are commands that tell the whole computer - not just the ALU, but simple parts of the machine -exactly what actions to perform. As we have seen, a computer's list of potential actions encompasses more than just simple arithmetic operations.
 
 # 	* [General Instruction Types](https://github.com/c4arl0s/InsideTheMachine#2-basic-computing-concepts)
+
+Instructions are grouped into ordered lists that, when taken as a whole, tell the different parts of the computer how to work together to perform a specific task, like grayscaling and image or playing a file media. These ordered lists of instructions are called **programs**, and they consist of a few basic types of instructions.
+
+In modern RISC microprocessors, the act of moving data between memory and the registers is under the explicit control of the code stream or program. So if a programmer wants to add two numbers that are located in main memory and then store the result back in main memory, he or she must write a list of instructions (a program) to tell the computer exactly what to do. The program must consist of:
+
+	* a load instruction to move the two numbers from memory into the registers.
+	* an add instruction to tell the ALU to add the two numbers.
+	* a store instruction to tell the computer to place the result of the addition back into memory, overwriting whatever was previously there.
+
+These operations fall into two main categories:
+
+### Arithmetic Instructions
+
+These instructions tell the ALU to perform an arithmetic calculation (for example add, sub, mul, div)
+
+### Memory-access instructions
+
+These instructions tell the parts of the processor that deal with main memory to move data from and to main memory (for example load and store)
+
+We will discuss a third type of instruction, the branch instruction, shortly. Branch instructions are technically a special type of memory-access instructions, but they access code storage instead instead of data storage. Still, it is easier to treat branches as a third category of instruction.
+
+The **arithmetic instruction** fits with our calculator metaphor and is the type of instructions most familiar to anyone who is worked with computers. Instructions, like integer and floating-point addition, subtraction, multiplication, and division all fall under the general category.
+
+In order to simplify the discussion and reduce the number of terms, I am temporarily including logical operations like AND, OR, NOT, NOR,and so on, under the general heading of arithmetic instructions. The difference between arithmetic and logical operations will be introduced in Chapter 2
+
+The **memory-access instructions** is just as important as the arithmetic instruction, because without access main memory's data storage regions, the computer would have no way to get data into or out of the register file. 
+
+To show you how **memory-access** and arithmetic operations work together within the context of the code stream, the remainder of this chapter will use a series of increasingly detailed examples. All of the examples are based on a simple, hypothetical computer, which I will call the DLW-1 [(2)]()
+
 # 	* [The DLW-1’s Basic Architecture and Arithmetic Instruction Format](https://github.com/c4arl0s/InsideTheMachine#2-basic-computing-concepts)
 # - [A Closer Look at Memory Accesses: Register vs. Immediate](https://github.com/c4arl0s/InsideTheMachine#2-basic-computing-concepts)
 # 	* [Immediate Values](https://github.com/c4arl0s/InsideTheMachine#2-basic-computing-concepts)
