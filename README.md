@@ -30,6 +30,7 @@
 - [A Closer Look at the Code Stream: The Program](https://github.com/c4arl0s/InsideTheMachine#--a-closer-look-at-the-code-stream-the-program)
 	* [General Instruction Types](https://github.com/c4arl0s/InsideTheMachine#-general-instruction-types)
 	* [The DLW-1’s Basic Architecture and Arithmetic Instruction Format](https://github.com/c4arl0s/InsideTheMachine#-the-dlw-1s-basic-architecture-and-arithmetic-instruction-format)
+  * [The DLW-1's Arithmetic Instructions Format]()
 - [A Closer Look at Memory Accesses: Register vs. Immediate](https://github.com/c4arl0s/InsideTheMachine#--a-closer-look-at-memory-accesses-register-vs-immediate)
 	* [Immediate Values](https://github.com/c4arl0s/InsideTheMachine#-immediate-values)
 	* [Register-Relative Addressing](https://github.com/c4arl0s/InsideTheMachine#-register-relative-addressing)
@@ -253,11 +254,31 @@ In order to simplify the discussion and reduce the number of terms, I am tempora
 
 The **memory-access instructions** is just as important as the arithmetic instruction, because without access main memory's data storage regions, the computer would have no way to get data into or out of the register file. 
 
-To show you how **memory-access** and arithmetic operations work together within the context of the code stream, the remainder of this chapter will use a series of increasingly detailed examples. All of the examples are based on a simple, hypothetical computer, which I will call the DLW-1 [(2)]()
+To show you how **memory-access** and arithmetic operations work together within the context of the code stream, the remainder of this chapter will use a series of increasingly detailed examples. All of the examples are based on a simple, hypothetical computer, which I will call the DLW-1 [^2]
 
 # 	* [The DLW-1’s Basic Architecture and Arithmetic Instruction Format](https://github.com/c4arl0s/InsideTheMachine#2-basic-computing-concepts)
 
 The DLW-1 microprocessor consist of an ALU (along with a few other units that I will describe later) attached to four registers, named A,B,C,D for convenience. The **DLW-1** is attached to a bank of main memory that is laid out as a line of 256 memory cells, numbered #0 to #255 (The number that identifies an individual memory cell is called an **address**)
+
+# - [The DLW-1's Arithmetic Instructions Format]()
+
+All of the DLW-10's arithmetic instructions are in the following **instruction format**:
+
+```assembly
+instruction sourceOne, sourceTwo, destination
+```
+
+There are four parts to this instruction format, each of which is called a **field**. The **instruction** field specifies the type of operation being performed (for example, an addition, a subtraction, a multiplication, and so on.) The two source fields tell the computer which registers hold the two numbers being operated on, or the **operands**. Finally, the **destination** field tells the computer which register to place the result in.
+
+As a quick illustration, an addition instruction that adds the numbers in register A and B (the two source registers) and places the result in register C (the destination register) would look like this:
+
+```assembly
+add A, B, C 
+```
+
+Add the contents of registers A and B and place the result in C, overwriting whatever was previously there.
+
+[^2]: DLW in honor of the DLX architecture used by Hennessy and Patterson in their books on computer architecture.
 
 
 # - [A Closer Look at Memory Accesses: Register vs. Immediate](https://github.com/c4arl0s/InsideTheMachine#2-basic-computing-concepts)
