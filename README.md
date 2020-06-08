@@ -31,6 +31,8 @@
 	* [General Instruction Types](https://github.com/c4arl0s/InsideTheMachine#-general-instruction-types)
 	* [The DLW-1’s Basic Architecture and Arithmetic Instruction Format](https://github.com/c4arl0s/InsideTheMachine#-the-dlw-1s-basic-architecture-and-arithmetic-instruction-format)
   * [The DLW-1's Arithmetic Instructions Format]()
+  * [The DLW-1's Memory Instruction Forma]()
+  * [An example DLW-1 Program]()
 - [A Closer Look at Memory Accesses: Register vs. Immediate](https://github.com/c4arl0s/InsideTheMachine#--a-closer-look-at-memory-accesses-register-vs-immediate)
 	* [Immediate Values](https://github.com/c4arl0s/InsideTheMachine#-immediate-values)
 	* [Register-Relative Addressing](https://github.com/c4arl0s/InsideTheMachine#-register-relative-addressing)
@@ -280,6 +282,19 @@ Add the contents of registers A and B and place the result in C, overwriting wha
 
 [^2]: DLW in honor of the DLX architecture used by Hennessy and Patterson in their books on computer architecture.
 
+# - [The DLW-1's Memory Instruction Forma]()
+
+In order to get the process to move two operands from main memory into the source registers so they can be added, you need to tell the process explicitly that you want to move the data in two specific memory cells to two specific registers. This **"filing"** operation is done via a **memory-access** instruction called the **load**.
+
+All of the memory-access instructions for the DLW-1 have the following instruction format:
+
+```assembly
+instruction source, destination
+```
+
+For all memory access, the instruction field specifies the type of memory operation to be performed (either a load or a store). In he case of a load, the source field tells the computer which memory address to fetch the data from, while the destination field specifies which register to put in. Conversely, in the case of a **store**, the source field tells the computer which register to take the data from, and the destination field specifies which memory address to write the data to.
+
+# - [An example DLW-1 Program]()
 
 # - [A Closer Look at Memory Accesses: Register vs. Immediate](https://github.com/c4arl0s/InsideTheMachine#2-basic-computing-concepts)
 
