@@ -296,6 +296,34 @@ For all memory access, the instruction field specifies the type of memory operat
 
 # - [An example DLW-1 Program]()
 
+Now consider program 1-1, which is a piece of DLW-1 code. Each of the lines in the program must be executed in sequence to achieve the desired result.
+
+```assembly
+1	load #12, A		; Read the contents of memory cell #12 into register A.
+2 load #13, B		; read the contents of memory cell #13 into register B.
+3 add A, B, C		; add the numbers in registers A and B and store the result in C
+4 store C, #14	; Write the result of the addition from register C into memory cell #14
+```
+
+Suppose the main memory looked like the following before running Program 1-1
+
+--------
+#14	| 3
+#13 | 2
+#12 | 6
+#11 | 12
+--------
+
+After doing our addition and storing the results, the memory would be changed so that the contents of cell #14 would be overwritten by the sum of cells #12 and #13, as shown here:
+
+--------
+#14	| 8
+#13 | 2
+#12 | 6
+#11 | 12
+--------
+
+
 # - [A Closer Look at Memory Accesses: Register vs. Immediate](https://github.com/c4arl0s/InsideTheMachine#2-basic-computing-concepts)
 
 The examples so far presume that the programmer knows the exact memory location of every number that he or she wants to load and store. In other words, it presumes that in composing each program, the programmer has at his or her disposal a list of the contents of memory cells #0 through #255.
