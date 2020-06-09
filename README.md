@@ -299,7 +299,7 @@ For all memory access, the instruction field specifies the type of memory operat
 Now consider program 1-1, which is a piece of DLW-1 code. Each of the lines in the program must be executed in sequence to achieve the desired result.
 
 ```assembly
-1	load #12, A		; Read the contents of memory cell #12 into register A.
+1 load #12, A		; Read the contents of memory cell #12 into register A.
 2 load #13, B		; read the contents of memory cell #13 into register B.
 3 add A, B, C		; add the numbers in registers A and B and store the result in C
 4 store C, #14	; Write the result of the addition from register C into memory cell #14
@@ -307,21 +307,21 @@ Now consider program 1-1, which is a piece of DLW-1 code. Each of the lines in t
 
 Suppose the main memory looked like the following before running Program 1-1
 
---------
-#14	| 3
-#13 | 2
-#12 | 6
-#11 | 12
---------
+---------
+| #14	| 3
+| #13 | 2
+| #12 | 6
+| #11 | 12
+---------
 
 After doing our addition and storing the results, the memory would be changed so that the contents of cell #14 would be overwritten by the sum of cells #12 and #13, as shown here:
 
---------
-#14	| 8
-#13 | 2
-#12 | 6
-#11 | 12
---------
+---------
+| #14	| 8
+| #13 | 2
+| #12 | 6
+| #11 | 12
+---------
 
 
 # - [A Closer Look at Memory Accesses: Register vs. Immediate](https://github.com/c4arl0s/InsideTheMachine#2-basic-computing-concepts)
@@ -333,6 +333,62 @@ While such an accurate snapshot of the initial state of main memory may be feasi
 Modern computers allow the **contents** of a register to be used as a memory address, a move that provides the programmer with the desired flexibility. But before discussing the effects of this move in more detail, let's take one more look at the basic **add** instruction.
 
 # 	* [Immediate Values](https://github.com/c4arl0s/InsideTheMachine#2-basic-computing-concepts)
+
+All of the arithmetic instructions so far have required two source registers as input. However, it is possible to replace one or both of the source registers with an explicit numerical value, called an **immediate value**. For instance, to increase whatever number is in register A by 2, we don't need to lead the value 2 into a second source register, like B, from some cell in main memory that contains that value. Rather, we can just tell the computer to add 2 to A directly, as follows.
+
+```assembly
+add A, 2, A		; add 2 to the contents of register A and place the result back into A, overwriting whatever was there.
+```
+
+I have actually been using immediate values all along in my examples, but just not in any arithmetic instructions. In all of the preceding examples, each load and store uses an immediate value in order to specify a memory address.
+
+So the #12 in the load instruction in line 1 of Program 1-1 is just an immediate value (a regular whole number) prefixed by a # sign to let the computer know that this particular immediate value is a memory address that designates a cell in memory.
+
+Memory address are just regular whole numbers that are specially marked with the # sign. Because they are regular whole numbers, the can be stored in registers- and stored in memory- just like any other number.
+
+Thus, the whole number contents of a register, like D, could be construed by the computer as representing a memory address.
+
+For example, say that we have stored the number 12 in register D, and that we intend to use the contents of D as the address of a memory cell in Program 1-2
+
+```assembly
+1 load #D, A		; read the contents of the memory cell designated by the number stored in D (where D=12) into register A
+2 load #13, B		; read the contents of memory cell #13 into register B.
+3 add A, B, C		; add the numbers in register A and B and store the result in C
+4 store C, #14		; write the result of the addition from register C into memory cell #14
+```
+
+Program 1-2 is essentially the same as program 1-1, and given the same input, it yields the same results. The only difference is in line 1:
+
+Program 1-1, Line 1
+```assembly
+load #12, A
+```
+
+Program 1-2, Line 1
+```assembly
+load #D, A
+```
+
+Since the content of D is the number 12, we can tell the computer to look in D for the memory cell address by substituting the register name (this time marked with a # sign for use as an address) for the actual memory cell number inn line 1's load instruction. Thus, the first lines of Program 1-1 and 1-2 are functionally equivalent.
+
+This same trick words for **store** instructions, as well. For example, if we place the number 14 in D we can modify the **store** command in line 4 of Program 1-1 to read as follows: **store C, #D**. Again, this modification would not change the program's output.
+
+Because memory addresses are just regular numbers, they can be stored in memory cells as well as in registers. Program 1-3 illustrates the use of a memory address that is stored in another memory cell. If we take the input for Program 1-1 and apply it to Program 1-3, we get the same output as if we would just run Program 1-1 without modifications:
+
+```assembly
+1 load #11, D		; read the contents of memory cell #11 into D
+2 load #D, A		; read the contents of memory cell designated by the number in D (where D = 12) into register A.
+3 load #13, B		; read the contents of memory cell #13 into register B
+4 add A, B, C		; add the numbers in regisers A and B and store the result in C
+5 store C, #14	; write the result in C, into memory cell #14.
+```
+
+The first instruction in Program 1-3 loads the number 12 from memory cell #11 into register D. The second instruction then uses the content of D (which is the value 12) as a memory address in order to load register A into memory location #12.
+
+But why go to the trouble of storing memory address in memory cells and the loading the addresses from main memory into the registers before they are finally ready to be used to access memory again ? Is not this an overly complicated way to do thins ? 
+
+Actually, these capabilities are designed to make programmer's live easier, because when used with the register-relative addressing technique described next they make managing code and data traffic between the processor and massive amount of main memory much less complex.
+
 # 	* [Register-Relative Addressing](https://github.com/c4arl0s/InsideTheMachine#2-basic-computing-concepts)
 
 # 3. [THE MECHANICS OF PROGRAM EXECUTION](https://github.com/c4arl0s/InsideTheMachine#inside-the-machine)
