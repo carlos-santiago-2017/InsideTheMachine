@@ -391,6 +391,32 @@ Actually, these capabilities are designed to make programmer's live easier, beca
 
 # 	* [Register-Relative Addressing](https://github.com/c4arl0s/InsideTheMachine#2-basic-computing-concepts)
 
+In real world programs, **loads** and **stores** most often use **register-relative addressing**, which is a way of specifying memory addresses relative to a register that contains a fixed **base address**
+
+For example, we have been using **D** to store memory addresses, so let`s say that on the DLW-1 we can assume that, unless it is explicitly told to do otherwise, the operating system always loads the starting address (or base address) of a program's data segment into D. Remember that code and data are logically separated in main memory, and that data flows into the processor from a data storage are, while code flows into the processor from a special code storage are. Main memory itself is just one long row of undifferentiated memory cells, each one **byte** in width, that store numbers. The computer carves up this long row of bytes into multiple segments, some of which store code and some of which store data.
+
+A **data segment** is a block of contigous memory cells that a program stores all of its data in, so if a programmer knows a data segment's starting address (base address) in memory, he or she can access all of the other memory locations in that segment using this formula:
+
+base address + offset
+
+where **offset** is the distance in bytes of the desired memory location from the data segment`s base address.
+
+Thus, **load** and **store** instructions in DLW-1 assembly would normally look something like this:
+
+```assembly
+load #(D+108), A	; Read the contents of the memory cell at location #(D+108) into A.
+store B, #(D+108)	; write the contents of B into the memory cell at locations #(D+108)
+```
+
+In the case of the **load**, the processor takes the number in D, which is the base address of the data segment, adds 108 to it, and uses the result as the load's destination memory address. The **store** works in the exact same way.
+
+Of course, this technique requires that a quick addition operation (called an **address calculation**) be part of the execution of the **load** instruction, so this is why the **load-store units** on modern processors contain very fast integer addition hardware. (As we will learn in Chapter 4, the **load-store** unit is the execution unit resposible for executing **load** and **store** instructions, just like the arithmetic-logic unit is responsible for executing arithmetic instructions.)
+
+By using register-relative addressing instead of **absolute addressing** (in which memory addresses are given as immediate values), a programmer can write programs without knowing the exact location of data in memory. All the programmer needs to know is which register the operating system will place the data segment's base address in, and he or she can do all memory accesses relative to the **base address**. In situations where a programmer uses absolute addressing, when the operating system loads the program into memory, all data seg ment's actual location in memory.
+
+Because both memory addresses and regular integer numbers are stored in the same registers, these registers are called **general-purpose registers** (GPRs) On the DLW-1, A, B, C and D are all GPRs.
+
+
 # 3. [THE MECHANICS OF PROGRAM EXECUTION](https://github.com/c4arl0s/InsideTheMachine#inside-the-machine)
 
 # - [Opcodes and Machine Language](https://github.com/c4arl0s/InsideTheMachine#3-the-mechanics-of-program-execution)
