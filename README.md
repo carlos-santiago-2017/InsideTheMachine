@@ -430,6 +430,37 @@ How is a program like Program 1-1 rendered in numerical notation so that it can 
 As you may already know, a computer actually only understand 1s and 0s (or "high" and "low" electric voltages), not English words like **add, load and store**, or letters and base-10 numbers like A, B, or 12. In order for the computer to run a program, therefore, all of its instructions must be rendered in **binary notation**. Think of translating English words into Morse code's dots and dashes and you will have some idea of what I am talking about.
 
 # 	* [Machine Language on the DLW-1](https://github.com/c4arl0s/InsideTheMachine#3-the-mechanics-of-program-execution)
+
+The translation of programs of any complexity into this binary-based **machine language** is a massive undertaking that's meant to be done by a computer, but I will show you the basics of how it works so you can understand what is going on. The following example is simplified, but useful nonetheless.
+
+The english words in a program, like **add, load ad store**, are **mnemonics** (meaning the are ease for people to remember), and they are all mapped to strings of binary numbers, called **opcodes**, that the computer can understand. Each **opcode** designates a different operation that the processor can perform. Table 2-1 maps each of the mnemonics used in Chapter 1 to a **3-bit opcode** for the hypothetical DLW-1 microprocessor. We can also map the four register names to a **2-bit binary codes**, as shown in Table 2-2
+
+
+table 2-1 Mapping of Mnemonics to Opcodes for the DLW-1
+
+| Mnemonic  | Opcode   |
+| --------  | -------- |
+| add       | 000      |
+| sub       | 001      |
+| load      | 001      |
+| store     | 011      |
+
+Table 2-2 Mapping of Registers to binary Codes for the DLW-1
+
+| Register| Binary code |
+| ------  | ----------- |
+| A       | 00          |
+| B       | 01          |
+| C       | 10          |
+| D       | 111         |
+
+The binary valyes representing both the opcodes and the register codes are arranged in one of a number of **16-bits** (or 2-byte) formats to get a complete **machine language instruction** which is a binary number that can be stored in RAM and used by the processor.
+
+---
+**Note**
+Because programmer-written instructions must be translated into binary codes before a computer can read them, it is common to see programs in any format -binary, assembly, or a high-level language like BASIC or C, referred to generically as "code" or "codes" When referring to programs written in assembly, binary or C language. Programmers also often descrive the act of programming as "writing code" or "coding", I have adopted this terminology in this book, and will henceforth use the term "code" regularly to refer generically to instructions sequences and programs.
+---
+
 # 	* [Binary Encoding of Arithmetic Instructions](https://github.com/c4arl0s/InsideTheMachine#3-the-mechanics-of-program-execution)
 # 	* [Binary Encoding of Memory Access Instructions](https://github.com/c4arl0s/InsideTheMachine#3-the-mechanics-of-program-execution)
 # 	* [Translating an Example Program into Machine Language](https://github.com/c4arl0s/InsideTheMachine#3-the-mechanics-of-program-execution) 
@@ -460,155 +491,5 @@ As you may already know, a computer actually only understand 1s and 0s (or "high
 # 	* [Instruction Latency and Pipeline Stalls](https://github.com/c4arl0s/InsideTheMachine#4-pipelined-execution-35)
 # 	* [Limits to Pipelining](https://github.com/c4arl0s/InsideTheMachine#4-pipelined-execution-35)
 
-
-
-
-
-
-
-
-
-
-## The register file
-
-Most computers have a relatively small number of very fast data storage locations attached to the ALU, these locations ara called registers.
-
-Backing to the example.
-
-1. Obtain the two numbers to be added (the input operands) from the two source registers.
-2. Add the numbers.
-3. Place the results back in a destination register.
-
-This three-step sequence is quite simple, but it's at the very core of how a microprocessor really works.
-
-## The File-Clerck MOdel Revised and Expanded
-
-We can think of main memory as a document storage room located on another floor and the registers as a small.
-The clerk does not really know anything about the document storage room
-
-## RAM: When Registers Alone Won't Cut It
-
-Main Memory which in moder computers is always some type of random access memory (RAM), stores the data set on which the computer operates, and only a small portion of the data set at a time is moved to the registers for easy access from the ALLU.
-
-In fact, the ALU an the registers are internal parts of the microprocessor, but main memory is a complete separeta component of the computer system that is connected to the processor via the Memory Bus. Transfering data between main memory and the registers via the memory bus takes a significant amount of time. This, if there were no registers and the ALU had to read data directly from the main memory for each calculation, computers would run very slowly. However, because the register enable the computer to store data near the ALU, where it can be access nearly instantaneously, the computer's computational speed is decoupled somewhat from the speed of main memory.
-
-
-
-
-
-## A closer Look at the Code Stream: The Program
-
-At the beginning did say, Code Stream: An ordered sequence of operatios, noiw operations becomes instructions, because not only operatations would do.
-
-## General Instruction Types
-
-These ordered lists of instructions are called programs. In modern RISC microprocessor, the act of moving data between memory and the registers is under the explicit control of the code stream, or program.
-
-
-Modern RISC microprocessors the code stream is in charge to move data between memory and the registers. Operations are two main categories:
-
-- Arithmethic instrucctions. (add, sub, mul, div)
-- Memory-access instructions. (load, store)
-
-To show you how memory-access and arithmetic operations work together within the context of the code stream.
-
-## The DLW-1's Basic Architecture and Arithmetic Instruction Format
-
-DLW1 
-
-- ALU
-- 4 registers: A,B,C y D
-- Bank Main Memory 256 memory cells.
-- The number that identifies an individual memory cell is called an **address**.
-
-## The DLW-1's Arithmetic Instruction Format 
-
-instruction source1, source2, destination
-
-- instruction field: 	Specifies the type of operation.
-- source1 field: 			It Tells the computer which registers hold the two numberes or Operands 
-- source2 field:			It Tells the computer which registers hold the two numberes or Operands 
-- destination field: 	it Tells the computer which register to place the result in.
- 
-## The DLW-1's Memory Instruction Format 
-
-Now you need to tell the processor explicitly that you want to move the data in two specificy memory cells.
-
-The **"filling"** operation is done via memory-access instruction called the load.
-
-The load instruction loads the appropriate data from main memory into the appropriate registers.
-
-### Instruction Format:
-
-instruction source, destination.
-
-For all memory accesses, the instruction field specifies the type of memory operation to be performed.
-
-## Program Example
-
-``` assembly
-load #12, A
-load #13, B
-add A, B, C
-store C, #14
-```
-
-## A Closer Look at Memory Accesses: Register vs Immediate
-
-Until now, programmer knows the exact memory location of every number that he or she wants to lead and store. It presumes that in composing each program, the programmer has at his or her disposal a list of the contents of memoery cells #0 through #255
-**Programmers need a flexible way to access memory, a way that does not requiere each memory access to specify numerically an exact memory address.**
-Modern computers allow the contents of a register to be used as a memory address.
-
-## Immediate Values
-
-All of the arithmetic instructions so far have required two source registers as input. However, it is possible to replace one or both of the source registers with an explicit numerical value, called an immediate value. 
-
-## Example.
-
-``` assembly 
-add A, 2, A		Add 2 to the contents of register A and place the resulñt back into A, overwriting whatever was there.
-``` 
-
-The #12 in the load instruction in line 1 of Program 1-1 is just an immediate value (regular whole number) prefixed by a # sign to let the computer know that this particular immediate value is a memory address that designates a cell in memory.
-
-Memory addresses ar just regilar whole numbers that are specially marked with the # sign. The whole-number contest of a register, like D, could be construed by the computer as representating a memory address.
-
-## Example:
-
-``` assembly
-load #D, A		Read the contents of D into A
-load #12, B		Read the contents of #12 into B
-add A, B, C		Add A and B, and store the result in C
-store C, #14	Store what is inside of C into #14
-```
-
-| program 1-1 line 1 | Program 1-2 line 1 |
-|--------------------|--------------------|
-| load #12, A        | load #D, A         |
-
-(# Sign of address)
-
-The first lines of these programs are funcionally equivalent.
-
-### Because memory addresses are just regular numbers, they can be stored in Memory cells as well as in registers.
-
-The next program ilustrates the use of a memory address that is stored in another memory cell.
-
-``` assembly
-load #11, D		
-load #D, A
-load #13, B		
-add A, B, C		
-store C, #14	
-```
-
-* The firts instruction in Program 1-3 loads the number 12 from memory cell #11 into register D
-* The second instruction then uses the content of D as a memory address to load register A into memory location #12.
-
-### Why go to trouble of storing memory addresses in memory cells and then loading the addresses in memory cells and then loading the addresses from main memory into the registers before they are finally ready to be used to access memory again ? Is not this an overly complicated way to do thins ?
-
-When the programmers used with the register-relative addressing technique described next they make managing code and data traffic between the processor and massive amounts of main memory much less complex.
-
-## Register-Relative Addressing
 
 
