@@ -422,6 +422,13 @@ Because both memory addresses and regular integer numbers are stored in the same
 Now that we understand the basics of computer organization, it is time to take a closer look at the nuts and bolds of how stored programs are actually executed by the computer. To that end, this chapter will cover core programming concepts like machine language. To that end, this chapter will cover core programming concepts like machine language, the programming model, the instruction set architecture, branch instructions, and the fetch-execute loop.
 
 # - [Opcodes and Machine Language](https://github.com/c4arl0s/InsideTheMachine#3-the-mechanics-of-program-execution)
+
+If you have been following the discussion so far, it should not surprise you to lear that both **memory addresses** and **memory instructions** are ordinary numbers that can b stored in memory. Al of the instructions in a program like Program 1-1 are represented inside the computer as strings of numbers. Indeed, a program is one long string of numbers stored in a series of memory location.
+
+How is a program like Program 1-1 rendered in numerical notation so that it can be stored in memory and executed by the computer ?. The answer is simpler than you might think.
+
+As you may already know, a computer actually only understand 1s and 0s (or "high" and "low" electric voltages), not English words like **add, load and store**, or letters and base-10 numbers like A, B, or 12. In order for the computer to run a program, therefore, all of its instructions must be rendered in **binary notation**. Think of translating English words into Morse code's dots and dashes and you will have some idea of what I am talking about.
+
 # 	* [Machine Language on the DLW-1](https://github.com/c4arl0s/InsideTheMachine#3-the-mechanics-of-program-execution)
 # 	* [Binary Encoding of Arithmetic Instructions](https://github.com/c4arl0s/InsideTheMachine#3-the-mechanics-of-program-execution)
 # 	* [Binary Encoding of Memory Access Instructions](https://github.com/c4arl0s/InsideTheMachine#3-the-mechanics-of-program-execution)
