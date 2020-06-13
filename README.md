@@ -419,6 +419,8 @@ Because both memory addresses and regular integer numbers are stored in the same
 
 # 3. [THE MECHANICS OF PROGRAM EXECUTION](https://github.com/c4arl0s/InsideTheMachine#inside-the-machine)
 
+Now that we understand the basics of computer organization, it is time to take a closer look at the nuts and bolds of how stored programs are actually executed by the computer. To that end, this chapter will cover core programming concepts like machine language. To that end, this chapter will cover core programming concepts like machine language, the programming model, the instruction set architecture, branch instructions, and the fetch-execute loop.
+
 # - [Opcodes and Machine Language](https://github.com/c4arl0s/InsideTheMachine#3-the-mechanics-of-program-execution)
 # 	* [Machine Language on the DLW-1](https://github.com/c4arl0s/InsideTheMachine#3-the-mechanics-of-program-execution)
 # 	* [Binary Encoding of Arithmetic Instructions](https://github.com/c4arl0s/InsideTheMachine#3-the-mechanics-of-program-execution)
