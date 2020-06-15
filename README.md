@@ -462,6 +462,49 @@ Because programmer-written instructions must be translated into binary codes bef
 ---
 
 # 	* [Binary Encoding of Arithmetic Instructions](https://github.com/c4arl0s/InsideTheMachine#3-the-mechanics-of-program-execution)
+
+Arithmetic instructions have the simplest machine language instruction formats, so we will start with them Figure 2-1 shows the format for the machine language encoding of a **register-type** arithmetic instruction
+
+![Screen Shot 2020-06-15 at 10 17 25](https://user-images.githubusercontent.com/24994818/84675115-6dc1f300-aef1-11ea-8fc9-67e1c849cb13.png)
+
+In **register-type** arithmetic instructions (that is, an arithmetic instruction that uses only registers and no immediate values), the first bit of the instruction is the **mode bit**. If the mode bit is set to 0, then the instruction is a **register-type** instruction; if it is set to 1, then the instruction is of the immediat type.
+
+Bits 1-3 of the instruction specify the opcode, which tells the computer what type of operation the instruction represents. Bits 4-5 specify the instruction's first resource register. The last six bits are not needed by register-to-register arithmetic instructions, so they are padded with 0s (the are **zeroed out** in computer jargon) and ignored.
+
+Now, let`s use the binary values in Tables 2-1 and 2-2 to translate the add instruction in line 3 of program 1-1 into a 2-byte (or 16 bits) macho¡ine language instruction:
+
+
+| Assebly language Instruction | machine language instruction |
+| ---------------------------  | ---------------------------  |
+| Add A, B, C                  | 00001011 00000000            |
+
+Here are a few more examples of arithmetic instructions, just so you can get the hang of it:
+
+| Assebly language Instruction | machine language instruction |
+| ---------------------------  | ---------------------------  |
+| Add C, D, A                  | 00001011 00000000            |
+| Add D, B, C                  | 00001101 10000000            |
+| Add A, D, C                  | 00010011 10000000            |
+
+Increasing the number of binary digits in the opcode and register fields increases the total number of instructions the machine can use and the number of registers it can have. 
+
+For example, if you kwno something about binary notation, then you probably kwno that a 3-bit opcode allows the processor to map yo to 2^3 = 8 instructions in its **instruction set**, increasing the opcode size to 8 bits would allow the processor's instruction set to contain up to 256 instructions. Similarly, increasing the number of bits in the register field increases the possible number of registers that machine can have.
+
+Arithmetic instructions containing an immediate value use an **immediate type** instruction format, which is slightly different from the register-type format we just saw. In an immediate-type instruction, the first byte contains the opcode, the source register, and the destination register, whie the second byte contains the immediate value, as shown in Figure 2-2
+
+![Screen Shot 2020-06-15 at 10 34 02](https://user-images.githubusercontent.com/24994818/84677011-c0041380-aef3-11ea-9500-8ae349d9aeeb.png)
+
+Here are a few immediate-type arithmetic instructions translated from assembly language to machine language.
+
+
+| Assebly language Instruction | machine language instruction |
+| ---------------------------  | ---------------------------  |
+| Add C, 8, A                  | 10001000 00001000            |
+| Add 5, A, C                  | 10000010 00000101            |
+| Add 25, D, C                 | 10011110 00011001            |
+
+
+
 # 	* [Binary Encoding of Memory Access Instructions](https://github.com/c4arl0s/InsideTheMachine#3-the-mechanics-of-program-execution)
 # 	* [Translating an Example Program into Machine Language](https://github.com/c4arl0s/InsideTheMachine#3-the-mechanics-of-program-execution) 
 # - [The Programming Model and the ISA](https://github.com/c4arl0s/InsideTheMachine#3-the-mechanics-of-program-execution) 
