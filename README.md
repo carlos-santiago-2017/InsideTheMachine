@@ -21,21 +21,23 @@
 
 - [The Calculator Model of Computing](https://github.com/c4arl0s/InsideTheMachine#--the-calculator-model-of-computing)
 - [The File-Clerk Model of Computing](https://github.com/c4arl0s/InsideTheMachine#--the-file-clerk-model-of-computing)
-	* [The Stored-Program Computer](https://github.com/c4arl0s/InsideTheMachine#-the-stored-program-computer)
-	* [Refining the File-Clerk Model](https://github.com/c4arl0s/InsideTheMachine#-refining-the-file-clerk-model)
+	 * [The Stored-Program Computer](https://github.com/c4arl0s/InsideTheMachine#-the-stored-program-computer)
+	 * [Refining the File-Clerk Model](https://github.com/c4arl0s/InsideTheMachine#-refining-the-file-clerk-model)
 - [The Register File](https://github.com/c4arl0s/InsideTheMachine#--the-register-file)
 - [RAM: When Registers Alone Won’t Cut It](https://github.com/c4arl0s/InsideTheMachine#--ram-when-registers-alone-wont-cut-it)
-	* [The File-Clerk Model Revisited and Expanded](https://github.com/c4arl0s/InsideTheMachine#-the-file-clerk-model-revisited-and-expanded) 
-	* [An Example: Adding Two Numbers](https://github.com/c4arl0s/InsideTheMachine#-an-example-adding-two-numbers)
+	 * [The File-Clerk Model Revisited and Expanded](https://github.com/c4arl0s/InsideTheMachine#-the-file-clerk-model-revisited-and-expanded) 
+	 * [An Example: Adding Two Numbers](https://github.com/c4arl0s/InsideTheMachine#-an-example-adding-two-numbers)
 - [A Closer Look at the Code Stream: The Program](https://github.com/c4arl0s/InsideTheMachine#--a-closer-look-at-the-code-stream-the-program)
-	* [General Instruction Types](https://github.com/c4arl0s/InsideTheMachine#-general-instruction-types)
-	* [The DLW-1’s Basic Architecture and Arithmetic Instruction Format](https://github.com/c4arl0s/InsideTheMachine#-the-dlw-1s-basic-architecture-and-arithmetic-instruction-format)
-  * [The DLW-1's Arithmetic Instructions Format]()
-  * [The DLW-1's Memory Instruction Forma]()
-  * [An example DLW-1 Program]()
+	 * [General Instruction Types](https://github.com/c4arl0s/InsideTheMachine#-general-instruction-types)
+      + Arithmetic Instructions
+      + Memory-access instructions
+	 * [The DLW-1’s Basic Architecture and Arithmetic Instruction Format](https://github.com/c4arl0s/InsideTheMachine#-the-dlw-1s-basic-architecture-and-arithmetic-instruction-format)
+   * [The DLW-1's Arithmetic Instructions Format]()
+   * [The DLW-1's Memory Instruction Forma]()
+   * [An example DLW-1 Program]()
 - [A Closer Look at Memory Accesses: Register vs. Immediate](https://github.com/c4arl0s/InsideTheMachine#--a-closer-look-at-memory-accesses-register-vs-immediate)
-	* [Immediate Values](https://github.com/c4arl0s/InsideTheMachine#-immediate-values)
-	* [Register-Relative Addressing](https://github.com/c4arl0s/InsideTheMachine#-register-relative-addressing)
+	 * [Immediate Values](https://github.com/c4arl0s/InsideTheMachine#-immediate-values)
+	 * [Register-Relative Addressing](https://github.com/c4arl0s/InsideTheMachine#-register-relative-addressing)
 
 # 3. [THE MECHANICS OF PROGRAM EXECUTION](https://github.com/c4arl0s/InsideTheMachine#inside-the-machine)
 
@@ -43,16 +45,18 @@
 	* [Machine Language on the DLW-1](https://github.com/c4arl0s/InsideTheMachine#-machine-language-on-the-dlw-1)
 	* [Binary Encoding of Arithmetic Instructions](https://github.com/c4arl0s/InsideTheMachine#-binary-encoding-of-arithmetic-instructions)
 	* [Binary Encoding of Memory Access Instructions](https://github.com/c4arl0s/InsideTheMachine#-binary-encoding-of-memory-access-instructions)
+     * [The Load Instruction]()
+     * [The store instruction]()
 	* [Translating an Example Program into Machine Language](https://github.com/c4arl0s/InsideTheMachine#-translating-an-example-program-into-machine-language) 
 - [The Programming Model and the ISA](https://github.com/c4arl0s/InsideTheMachine#--the-programming-model-and-the-isa) 
 	* [The Programming Model](https://github.com/c4arl0s/InsideTheMachine#-the-programming-model)
 	* [The Instruction Register and Program Counter](https://github.com/c4arl0s/InsideTheMachine#-the-instruction-register-and-program-counter) 
-	* [The Instruction Fetch: Loading the Instruction Register](https://github.com/c4arl0s/InsideTheMachine#-the-instruction-fetch-loading-the-instruction-register) 
-	* [Running a Simple Program: The Fetch-Execute Loop](https://github.com/c4arl0s/InsideTheMachine#-running-a-simple-program-the-fetch-execute-loop) 
+  * [The Instruction Fetch: Loading the Instruction Register](https://github.com/c4arl0s/InsideTheMachine#-the-instruction-fetch-loading-the-instruction-register) 
+  * [Running a Simple Program: The Fetch-Execute Loop](https://github.com/c4arl0s/InsideTheMachine#-running-a-simple-program-the-fetch-execute-loop) 
 - [The Clock](https://github.com/c4arl0s/InsideTheMachine#--the-clock)
 - [Branch Instructions](https://github.com/c4arl0s/InsideTheMachine#--branch-instructions) 
-	* [Unconditional Branch](https://github.com/c4arl0s/InsideTheMachine#-unconditional-branch) 
-	* [Conditional Branch](https://github.com/c4arl0s/InsideTheMachine#-conditional-branch) 
+	 * [Unconditional Branch](https://github.com/c4arl0s/InsideTheMachine#-unconditional-branch) 
+	 * [Conditional Branch](https://github.com/c4arl0s/InsideTheMachine#-conditional-branch) 
 - [Excursus: Booting Up](https://github.com/c4arl0s/InsideTheMachine#--excursus-booting-up) 
 
 
@@ -240,11 +244,11 @@ In modern RISC microprocessors, the act of moving data between memory and the re
 
 These operations fall into two main categories:
 
-### Arithmetic Instructions
+### [Arithmetic Instructions]()
 
 These instructions tell the ALU to perform an arithmetic calculation (for example add, sub, mul, div)
 
-### Memory-access instructions
+### [Memory-access instructions]()
 
 These instructions tell the parts of the processor that deal with main memory to move data from and to main memory (for example load and store)
 
@@ -307,6 +311,7 @@ Now consider program 1-1, which is a piece of DLW-1 code. Each of the lines in t
 
 Suppose the main memory looked like the following before running Program 1-1
 
+```txt
 ---------
 | #14	| 3
 | #13 | 2
@@ -316,13 +321,14 @@ Suppose the main memory looked like the following before running Program 1-1
 
 After doing our addition and storing the results, the memory would be changed so that the contents of cell #14 would be overwritten by the sum of cells #12 and #13, as shown here:
 
+```txt
 ---------
 | #14	| 8
 | #13 | 2
 | #12 | 6
 | #11 | 12
 ---------
-
+```
 
 # - [A Closer Look at Memory Accesses: Register vs. Immediate](https://github.com/c4arl0s/InsideTheMachine#2-basic-computing-concepts)
 
@@ -337,7 +343,7 @@ Modern computers allow the **contents** of a register to be used as a memory add
 All of the arithmetic instructions so far have required two source registers as input. However, it is possible to replace one or both of the source registers with an explicit numerical value, called an **immediate value**. For instance, to increase whatever number is in register A by 2, we don't need to lead the value 2 into a second source register, like B, from some cell in main memory that contains that value. Rather, we can just tell the computer to add 2 to A directly, as follows.
 
 ```assembly
-add A, 2, A		; add 2 to the contents of register A and place the result back into A, overwriting whatever was there.
+add A, 2, A ; add 2 to the contents of register A and place the result back into A, overwriting whatever was there.
 ```
 
 I have actually been using immediate values all along in my examples, but just not in any arithmetic instructions. In all of the preceding examples, each load and store uses an immediate value in order to specify a memory address.
@@ -351,10 +357,10 @@ Thus, the whole number contents of a register, like D, could be construed by the
 For example, say that we have stored the number 12 in register D, and that we intend to use the contents of D as the address of a memory cell in Program 1-2
 
 ```assembly
-1 load #D, A		; read the contents of the memory cell designated by the number stored in D (where D=12) into register A
-2 load #13, B		; read the contents of memory cell #13 into register B.
-3 add A, B, C		; add the numbers in register A and B and store the result in C
-4 store C, #14		; write the result of the addition from register C into memory cell #14
+1 load #D, A   ; read the contents of the memory cell designated by the number stored in D (where D=12) into register A
+2 load #13, B  ; read the contents of memory cell #13 into register B.
+3 add A, B, C  ; add the numbers in register A and B and store the result in C
+4 store C, #14 ; write the result of the addition from register C into memory cell #14
 ```
 
 Program 1-2 is essentially the same as program 1-1, and given the same input, it yields the same results. The only difference is in line 1:
@@ -376,11 +382,11 @@ This same trick words for **store** instructions, as well. For example, if we pl
 Because memory addresses are just regular numbers, they can be stored in memory cells as well as in registers. Program 1-3 illustrates the use of a memory address that is stored in another memory cell. If we take the input for Program 1-1 and apply it to Program 1-3, we get the same output as if we would just run Program 1-1 without modifications:
 
 ```assembly
-1 load #11, D		; read the contents of memory cell #11 into D
-2 load #D, A		; read the contents of memory cell designated by the number in D (where D = 12) into register A.
-3 load #13, B		; read the contents of memory cell #13 into register B
-4 add A, B, C		; add the numbers in regisers A and B and store the result in C
-5 store C, #14	; write the result in C, into memory cell #14.
+1 load #11, D  ; read the contents of memory cell #11 into D
+2 load #D, A   ; read the contents of memory cell designated by the number in D (where D = 12) into register A.
+3 load #13, B  ; read the contents of memory cell #13 into register B
+4 add A, B, C  ; add the numbers in regisers A and B and store the result in C
+5 store C, #14 ; write the result in C, into memory cell #14.
 ```
 
 The first instruction in Program 1-3 loads the number 12 from memory cell #11 into register D. The second instruction then uses the content of D (which is the value 12) as a memory address in order to load register A into memory location #12.
@@ -395,7 +401,7 @@ In real world programs, **loads** and **stores** most often use **register-relat
 
 For example, we have been using **D** to store memory addresses, so let`s say that on the DLW-1 we can assume that, unless it is explicitly told to do otherwise, the operating system always loads the starting address (or base address) of a program's data segment into D. Remember that code and data are logically separated in main memory, and that data flows into the processor from a data storage are, while code flows into the processor from a special code storage are. Main memory itself is just one long row of undifferentiated memory cells, each one **byte** in width, that store numbers. The computer carves up this long row of bytes into multiple segments, some of which store code and some of which store data.
 
-A **data segment** is a block of contigous memory cells that a program stores all of its data in, so if a programmer knows a data segment's starting address (base address) in memory, he or she can access all of the other memory locations in that segment using this formula:
+A **data segment** is a block of contigous memory cells that a program stores all of its data in, so if a programmer knows a data segment's starting address (**base address**) in memory, he or she can access all of the other memory locations in that segment using this formula:
 
 base address + offset
 
@@ -404,8 +410,8 @@ where **offset** is the distance in bytes of the desired memory location from th
 Thus, **load** and **store** instructions in DLW-1 assembly would normally look something like this:
 
 ```assembly
-load #(D+108), A	; Read the contents of the memory cell at location #(D+108) into A.
-store B, #(D+108)	; write the contents of B into the memory cell at locations #(D+108)
+load #(D+108), A  ; Read the contents of the memory cell at location #(D+108) into A.
+store B, #(D+108) ; write the contents of B into the memory cell at locations #(D+108)
 ```
 
 In the case of the **load**, the processor takes the number in D, which is the base address of the data segment, adds 108 to it, and uses the result as the load's destination memory address. The **store** works in the exact same way.
@@ -423,7 +429,7 @@ Now that we understand the basics of computer organization, it is time to take a
 
 # - [Opcodes and Machine Language](https://github.com/c4arl0s/InsideTheMachine#3-the-mechanics-of-program-execution)
 
-If you have been following the discussion so far, it should not surprise you to lear that both **memory addresses** and **memory instructions** are ordinary numbers that can b stored in memory. Al of the instructions in a program like Program 1-1 are represented inside the computer as strings of numbers. Indeed, a program is one long string of numbers stored in a series of memory location.
+If you have been following the discussion so far, it should not surprise you to lear that both **memory addresses** and **memory instructions** are **ordinary numbers** that can b stored in memory. Al of the instructions in a program like Program 1-1 are represented inside the computer as strings of numbers. Indeed, a program is one long string of numbers stored in a series of memory location.
 
 How is a program like Program 1-1 rendered in numerical notation so that it can be stored in memory and executed by the computer ?. The answer is simpler than you might think.
 
@@ -506,6 +512,47 @@ Here are a few immediate-type arithmetic instructions translated from assembly l
 
 
 # 	* [Binary Encoding of Memory Access Instructions](https://github.com/c4arl0s/InsideTheMachine#3-the-mechanics-of-program-execution)
+
+Memory-access instructions use both **register-type** and **immediate-type** instruction formats exactly like those shown for arithmetic instructiions. The only difference lies in how they use them. Let's take the case of a load first.
+
+### The Load Instruction
+
+We have previously seen two types of **load**, the first of which was the immediate type. An immediate-type load (see Figure 2-3) uses the immediate-type instruction format, but because **the load's source is an immediate value (a memory address)** and not a register, the source file is unneeded and must be **zeroed out**. (The source field is not recognized, though, and in a momento we will se what happens if it is not zeroed out)
+
+![Screen Shot 2020-06-16 at 16 37 40](https://user-images.githubusercontent.com/24994818/84830773-ba8bf380-afef-11ea-957d-47bb11ba5dda.png)
+
+Now let's transate the immediate-type **load** in line 1 of program 1-1 (12 is 1100 in binary notation)
+
+
+| Assebly language Instruction | machine language instruction |
+| ---------------------------  | ---------------------------  |
+| load #12, A                  | 10100000 00001100            |
+
+The 2-bute machine language instruction on the right is a binary representation of the assambly language instruction on the left. The first bte correspoindsto an immediate-type **load** instruction that takes register A as its destination. The second byte is the binary representation of the number 12 which is the source address in memory that the data is to be loaded from.
+
+The **second type of load** we have seen is the register type. A register-type load uses the register-type instruction format, but with the source2 field zeroed out and ignored, as shown in Figure 2-4.
+
+In figure 2-4, the source1 field specifies the gister containing the memory address that the processor is to load data from, and the destination fiel specifies the register that the loaded data is to be placed in.
+
+![Screen Shot 2020-06-16 at 16 44 29](https://user-images.githubusercontent.com/24994818/84831277-ae546600-aff0-11ea-947c-53e7ca82218d.png)
+
+For a **register-relative** addressed **load**, we use a version of the immediate-type instruction format, shown in Figure 2-5, with the base field specifying the register that contains **the base address** and the **offset** stored in the second byte of the instruction.
+
+![Screen Shot 2020-06-16 at 16 46 30](https://user-images.githubusercontent.com/24994818/84831453-f2e00180-aff0-11ea-8e11-6a8605fb6c97.png)
+
+Recall from Table 2-2 that 00 is the binary number that designates register A. Therefore, as a result of the DLW-1's particular machine language **encoding scheme**, any register but A Could theoretically be used to store **the base address* for a **register-relative load**
+
+### The store instruction
+
+The **register-type** binary format for a **store instruction** is the same as it is for a **load**, except that destination field specifiesee a register containing a destination memory address, and the source1 field specifies the register containing the data to be stored to memory.
+
+The **immediate-type** machine language format for a **store**, pictured in Figure 2-6, is also similar to the immediate-type format for a load, except that since the destination register is not needed (the destination is the immediate memory address) the destination fiel is zeroed out, while the source field specifies which register holds the data to be stored.
+
+![Screen Shot 2020-06-16 at 16 53 05](https://user-images.githubusercontent.com/24994818/84831926-ddb7a280-aff1-11ea-92d8-2fca69cfaf78.png)
+
+The register-relative store, on the other hand, uses the same immediate-type instruction format used for the register-relative load (Figure 2-5), but the destination fiel is set to a nonzero value, and the offset is stored in the second byte. Again, **the base address** for a **register-relative store** can theoretically be stored in any register other than A, although by convention it is stored in D.
+
+
 # 	* [Translating an Example Program into Machine Language](https://github.com/c4arl0s/InsideTheMachine#3-the-mechanics-of-program-execution) 
 # - [The Programming Model and the ISA](https://github.com/c4arl0s/InsideTheMachine#3-the-mechanics-of-program-execution) 
 # 	* [The Programming Model](https://github.com/c4arl0s/InsideTheMachine#3-the-mechanics-of-program-execution)
