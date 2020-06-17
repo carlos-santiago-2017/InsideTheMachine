@@ -569,8 +569,16 @@ The 1s and 0s in the rightmost column of program 2-1 represent the high and low 
 Real machine language instructions are usually longer and more complex than the simple ones I've given here, but the basic idea is exactly the same. Program instructions are translated into machine language in a mechanical, predefined manner, and even in the case of a fully modern microprocessor, doing such translations by hand is merely a matter of knowing the instruction formats and having access to the right charts an tables.
 Of course for the most part the only people who do such translations by hand are computer engineering or computer science undergraduates who have been assigned them for homework. This was not always the case, though.
  
-
 # - [The Programming Model and the ISA](https://github.com/c4arl0s/InsideTheMachine#3-the-mechanics-of-program-execution) 
+
+Bacj in the bad old days, programmers had to enter programs into the computer directly in machine language (after having walked five miles in the snow uphill to work). In the very early stages of computing, this was done by **flipping switches**. The programmer toggled strings of 1s and 0s into the computer's very limited memory, ran the program, and then pored over the resulting strings of 1s and 0s to decode the answer.
+
+Once memory sizes and processing power increased to the point where programmer time and effort were valuate enough relative to computing time and memory space, computer scientists divised ways of allowing the computer to use  portion of its power and memory to take on some of the burden of making its cryptc input and output a little more human-friendly.
+
+In short, the tedious task of converting human-readable programs into machine-readable binary code was automated; hence the birth pf **assembly language** programming. Programs could now be written using mnemonics, register names, and memory locations, before being converted by **assembler** into machine language for processing.
+
+In order to write assembly language programs for a machine, you have to understand the machine's available resources: how many registers it has, what instructions it supports, and soon. In other words, you need a well defined model of the machine you are trying to program.
+
 # 	* [The Programming Model](https://github.com/c4arl0s/InsideTheMachine#3-the-mechanics-of-program-execution)
 # 	* [The Instruction Register and Program Counter](https://github.com/c4arl0s/InsideTheMachine#3-the-mechanics-of-program-execution) 
 # 	* [The Instruction Fetch: Loading the Instruction Register](https://github.com/c4arl0s/InsideTheMachine#3-the-mechanics-of-program-execution) 
