@@ -552,8 +552,24 @@ The **immediate-type** machine language format for a **store**, pictured in Figu
 
 The register-relative store, on the other hand, uses the same immediate-type instruction format used for the register-relative load (Figure 2-5), but the destination fiel is set to a nonzero value, and the offset is stored in the second byte. Again, **the base address** for a **register-relative store** can theoretically be stored in any register other than A, although by convention it is stored in D.
 
-
 # 	* [Translating an Example Program into Machine Language](https://github.com/c4arl0s/InsideTheMachine#3-the-mechanics-of-program-execution) 
+
+For our simple computer with four registers, three instructions, and 256 memory cells, it is tedious but trivial to translate Program 1-1 into machine-readable binary representation using the previous tables and instruction formats. Program 2-1 shows the translation 
+
+
+| line | Assebly language Instruction | machine language instruction |
+| ---- | ---------------------------  | ---------------------------  |
+| 1    | load #12, A                  | 10100000 00001100            |
+| 2    | load #13, B                  | 10100001 00001101            |
+| 3    | add A, B, C                  | 00000001 10000000            |
+| 4    | store C, #14                 | 10111000 00001110            |
+
+The 1s and 0s in the rightmost column of program 2-1 represent the high and low voltages that the computer **"thinks"** in.
+
+Real machine language instructions are usually longer and more complex than the simple ones I've given here, but the basic idea is exactly the same. Program instructions are translated into machine language in a mechanical, predefined manner, and even in the case of a fully modern microprocessor, doing such translations by hand is merely a matter of knowing the instruction formats and having access to the right charts an tables.
+Of course for the most part the only people who do such translations by hand are computer engineering or computer science undergraduates who have been assigned them for homework. This was not always the case, though.
+ 
+
 # - [The Programming Model and the ISA](https://github.com/c4arl0s/InsideTheMachine#3-the-mechanics-of-program-execution) 
 # 	* [The Programming Model](https://github.com/c4arl0s/InsideTheMachine#3-the-mechanics-of-program-execution)
 # 	* [The Instruction Register and Program Counter](https://github.com/c4arl0s/InsideTheMachine#3-the-mechanics-of-program-execution) 
