@@ -589,8 +589,16 @@ Figure 2-7 shows a diagram of a programming model for an eight-register machine.
 
 The ALU performs arithmetic, the registers store numbers, and the **input-output unit (I/O unit)** is responsible for interacting with memory and the rest of the system (via loads and stores. The parts of the processor that we have not yet met lie in the **control unit**. Of these, we will cover the **program counter** and the **instruction register** now.
 
-
 # 	* [The Instruction Register and Program Counter](https://github.com/c4arl0s/InsideTheMachine#3-the-mechanics-of-program-execution) 
+
+Because programs are stored in memory as ordered sequence of instructions and memory arranged as a linear series of addresses, each instruction in a program lives at its own memory address. In order to step through and execute the lines of a program, the computer simply begins at the program's starting address and the steps through each successive memory location, fetching each successive instruction from memory, placing it in a special register, and executing it as shown in Figure 2-8
+
+![Screen Shot 2020-06-18 at 17 40 34](https://user-images.githubusercontent.com/24994818/85078796-d972bd00-b18a-11ea-98da-fa03ef1d01b6.png)
+
+For example, if the starting address in Program 1-1 were #500, it would look like Figure 2-9 in memory (with the instructions rendered in machine language, not assembly language, of course).
+
+![Screen Shot 2020-06-18 at 17 42 29](https://user-images.githubusercontent.com/24994818/85078890-1939a480-b18b-11ea-8bcd-7cd8dc15c4a8.png)
+
 # 	* [The Instruction Fetch: Loading the Instruction Register](https://github.com/c4arl0s/InsideTheMachine#3-the-mechanics-of-program-execution) 
 # 	* [Running a Simple Program: The Fetch-Execute Loop](https://github.com/c4arl0s/InsideTheMachine#3-the-mechanics-of-program-execution) 
 # - [The Clock](https://github.com/c4arl0s/InsideTheMachine#3-the-mechanics-of-program-execution)
