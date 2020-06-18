@@ -580,6 +580,16 @@ In short, the tedious task of converting human-readable programs into machine-re
 In order to write assembly language programs for a machine, you have to understand the machine's available resources: how many registers it has, what instructions it supports, and soon. In other words, you need a well defined model of the machine you are trying to program.
 
 # 	* [The Programming Model](https://github.com/c4arl0s/InsideTheMachine#3-the-mechanics-of-program-execution)
+
+The **programming model** is the programmer's interface to the microprocessor. It hides all of the processors complex implementation details behind a relatively simple, clean layer of abstraction that exposes to the programmer all o the processor's functionality. (see Chapter 4 for more on the history and development of the programming model).
+
+Figure 2-7 shows a diagram of a programming model for an eight-register machine. By now, most of the parts of the diagram should be familiar to you. 
+
+![Screen Shot 2020-06-18 at 17 24 51](https://user-images.githubusercontent.com/24994818/85077759-a5969800-b188-11ea-95d8-517cf5c77274.png)
+
+The ALU performs arithmetic, the registers store numbers, and the **input-output unit (I/O unit)** is responsible for interacting with memory and the rest of the system (via loads and stores. The parts of the processor that we have not yet met lie in the **control unit**. Of these, we will cover the **program counter** and the **instruction register** now.
+
+
 # 	* [The Instruction Register and Program Counter](https://github.com/c4arl0s/InsideTheMachine#3-the-mechanics-of-program-execution) 
 # 	* [The Instruction Fetch: Loading the Instruction Register](https://github.com/c4arl0s/InsideTheMachine#3-the-mechanics-of-program-execution) 
 # 	* [Running a Simple Program: The Fetch-Execute Loop](https://github.com/c4arl0s/InsideTheMachine#3-the-mechanics-of-program-execution) 
