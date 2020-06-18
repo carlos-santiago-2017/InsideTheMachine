@@ -600,6 +600,10 @@ For example, if the starting address in Program 1-1 were #500, it would look lik
 ![Screen Shot 2020-06-18 at 17 42 29](https://user-images.githubusercontent.com/24994818/85078890-1939a480-b18b-11ea-8bcd-7cd8dc15c4a8.png)
 
 # 	* [The Instruction Fetch: Loading the Instruction Register](https://github.com/c4arl0s/InsideTheMachine#3-the-mechanics-of-program-execution) 
+
+An **instruction fetch** is a special type of load that happens automatically or every instruction. It always takes the address that is currently in the **program counter** register as its source and the instruction register as its destination. The control unit uses a fetch to load each instruction of a program from memory into the instruction register, where that instruction is **decoded** before being executed; and while that instruction is being decoded, the processor places the address of the next instruction into the program counter by incrementing the address that is currently in the program counter, so that the newly incremented address points to the next instruction the sequence. In case of our DLW-1, the program counter is incremented by two every time an instruction is fetched, because the two-byte instructions begin at every other byte in memory.
+
+
 # 	* [Running a Simple Program: The Fetch-Execute Loop](https://github.com/c4arl0s/InsideTheMachine#3-the-mechanics-of-program-execution) 
 # - [The Clock](https://github.com/c4arl0s/InsideTheMachine#3-the-mechanics-of-program-execution)
 # - [Branch Instructions](https://github.com/c4arl0s/InsideTheMachine#3-the-mechanics-of-program-execution) 
