@@ -603,8 +603,39 @@ For example, if the starting address in Program 1-1 were #500, it would look lik
 
 An **instruction fetch** is a special type of load that happens automatically or every instruction. It always takes the address that is currently in the **program counter** register as its source and the instruction register as its destination. The control unit uses a fetch to load each instruction of a program from memory into the instruction register, where that instruction is **decoded** before being executed; and while that instruction is being decoded, the processor places the address of the next instruction into the program counter by incrementing the address that is currently in the program counter, so that the newly incremented address points to the next instruction the sequence. In case of our DLW-1, the program counter is incremented by two every time an instruction is fetched, because the two-byte instructions begin at every other byte in memory.
 
-
 # 	* [Running a Simple Program: The Fetch-Execute Loop](https://github.com/c4arl0s/InsideTheMachine#3-the-mechanics-of-program-execution) 
+
+In Chapter 1 we discussed the steps a processor takes to perform calculations on numbers using the ALU in combination with a fetched arithmetic instruction. Now let's look at the steps the processor takes in order to fetch a series of instructions - a program - and feed them to either the ALU (in the case of arithmetic instructions) or the memory access hardware (in case of leads and stores).
+
+1. **Fetch** the next instruction from the address stored in the program counter, and load that instruction into the instruction register. Increment the program counter.
+2. **Decode** the instructions in the instruction register.
+3. **Execute** the instruction in the instruction register, using the following rules:
+     * a. If the instruction is an arithmetic instruction, execute it using the ALU and register file.
+     * b. If the instruction is a memory access instruction, execute it using the memory-access hardware.
+
+These three steps are fairly straightforward, and with one modification they describe the way that microprocessors execute programs (as we will see in the section "Branch Instructions" on page 30). Computer scientists often refer to these steps as the **fetch execute** or the **fetch-execute cycle**. The fetch-execute loop is repeated for as long as the computer is powered on. The machine iterates though the entire loop, from step 1 to step 3, over and over again many millions or billion of times per second in order to run programs.
+
+Let's run through the three steps with our example program as shown in Figure 2-9. (this example presumes that #500 is already in the program counter). Here is what the processor does, in order:
+
+1. Fetch the instruction beginning at #500, and load **load #12, A** into the instruction register. Increment the program counter to #502.
+2. Decode **load #12, A** in the instruction register.
+3. Execute **load #12, A** from the instruction register, using the memory-access hardware.
+4. Fetch the instruction beginning at #502, and load **load #13, B** in the instruction register. Increment the program counter to #504.
+5. Decode **load #13, B** in the instruction register.
+6. Execute **load #13, B** from the instruction register, using the memory-access hardware..
+7. Fetch the instruction at #504, and load **add A, B, C** into the instruction register. Increment the program counter to #506
+8. Decode **add A, B, C** in the instruction register.
+9. Execute **add A, B, C** from the instruction register, using the ALU and register file.
+10. Fetch the instruction at #506, and load **store C, #14** in the instruction register. Increment the program counter to #508
+11. Decode *+store C, #14** in the instruction register.
+12. Execute **store C, #14** from the instruction register, using the memory-access hardware.
+
+---
+Note
+To zoom in on the execute steps f the preceding sequence, revisit Chapter 1, and particularly the sections "Refining the File-Clerk Model" on page 6 and "RAM: When Register Alone Won't Cut it" on corresponding page If you do, you will gain a pretty good understanding of what is involved in executing a program on any machine. Sure, there are important machine-specific variations for most of what I have presented here, but the general outlines (and even a decent number of the specific) are the same
+---
+
+
 # - [The Clock](https://github.com/c4arl0s/InsideTheMachine#3-the-mechanics-of-program-execution)
 # - [Branch Instructions](https://github.com/c4arl0s/InsideTheMachine#3-the-mechanics-of-program-execution) 
 # 	* [Unconditional Branch](https://github.com/c4arl0s/InsideTheMachine#3-the-mechanics-of-program-execution) 
