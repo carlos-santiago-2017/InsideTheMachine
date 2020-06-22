@@ -652,6 +652,17 @@ There are certain instructions in the struction stream, however, that allow the 
 Rather than thinking about forward of backward branches, it is more useful for our present purposes to categorize all branches as being one of the following two types: **conditional brancges or unconditional branches**.
 
 # 	* [Unconditional Branch](https://github.com/c4arl0s/InsideTheMachine#3-the-mechanics-of-program-execution) 
+
+An **unconditional brancg** instruction consist of two parts: the branch instruction and the target address.
+
+```assembly
+jum #target
+```
+
+An **unconditional branch**, #target can be either an immediate value, like #12, or an address stored in a register, like #D.
+
+Unconditional branches are fairly easy to execute, since all that the computer needs to do upon decoding such a branch in the instruction register is to have the control unit replace the address currently in the program counter with branch's target address. Then the next time the processor goes to fetch the instruction at the address given by the program counter, it will fetch the address at the branch target instead.
+
 # 	* [Conditional Branch](https://github.com/c4arl0s/InsideTheMachine#3-the-mechanics-of-program-execution) 
 # - [Excursus: Booting Up](https://github.com/c4arl0s/InsideTheMachine#3-the-mechanics-of-program-execution) 
 
