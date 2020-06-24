@@ -664,6 +664,19 @@ An **unconditional branch**, #target can be either an immediate value, like #12,
 Unconditional branches are fairly easy to execute, since all that the computer needs to do upon decoding such a branch in the instruction register is to have the control unit replace the address currently in the program counter with branch's target address. Then the next time the processor goes to fetch the instruction at the address given by the program counter, it will fetch the address at the branch target instead.
 
 # 	* [Conditional Branch](https://github.com/c4arl0s/InsideTheMachine#3-the-mechanics-of-program-execution) 
+
+Though it has the same basic instruction format as the unconditional branch (instruction #target), the **conditional branch** instruction is a little more complicated, because it involves jumping to the target address only if a certain condition is met.
+
+Because of such conditional jumps, we need a special register or set of registers in which to store information about the results of arithmetic instructions - information such as whether the previous result was zero or nonzero, positive or negative, and so on.
+
+| line | Assebly language Instruction |
+| ---- | ---------------------------- |
+| 16   | sub A, B, C                  |
+| 17   | jumpz #106                   |
+| 18   | add A, B, C                  |
+
+DLW-1 handles this branch with **processor status word** (PSW) register
+
 # - [Excursus: Booting Up](https://github.com/c4arl0s/InsideTheMachine#3-the-mechanics-of-program-execution) 
 
 
