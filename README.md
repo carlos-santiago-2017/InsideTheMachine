@@ -57,8 +57,20 @@
 - [Branch Instructions](https://github.com/c4arl0s/InsideTheMachine#--branch-instructions) 
 	 * [Unconditional Branch](https://github.com/c4arl0s/InsideTheMachine#-unconditional-branch) 
 	 * [Conditional Branch](https://github.com/c4arl0s/InsideTheMachine#-conditional-branch) 
+
+   * [Branch Instructions and the Fetch-Execute Loop]()
+   * [The Branch Instruction as a Special Type of Load]()
+   * [Branch Instructions and Labels]()
+
 - [Excursus: Booting Up](https://github.com/c4arl0s/InsideTheMachine#--excursus-booting-up) 
 
+If you have been around computers for any length of time, you have heard the terms **reboot** or **boot up** used in connections with either resetting the computer to its initial state or powering it in initially. The term **boot is a shortened version of the term **bootstrap**, which is itself a reference to the seemingly impossible task a computer must perform on start-up, namely, **"pulling itself up by its own bootstraps"**
+
+I say **"seemingly impossible"** because when a computer is first powered on there is no program in memory, but programs contain the instructions that make the computer run. If the processor has no program running when it is the first powered on, then how does it know where to fetch the first instruction from ?
+
+The solution to this dilemma is that the microprocessor, in its power-on default state, is hard-wired to fetch that first instruction from a predermined address in memory. This first instruction, which is loaded into the processors instruction register, is the first line of a program called the **BIOS** that livesi n a special set of storage locations - a small read-only memory (ROM) module attached to the computer's motherboard. It is the job of the BIOS to perform basic tests of the RAM and peripherls in order to  verify that everything is working properly. The the boot process can continue.
+
+At the end of the BIOS program lies a jump instruction, the target of which is the location of a **bootloader program**. By using a jump, the BIOS hands off control of the system to this second program, whose job it is to search for and load the computer's operating system from the hard disk. The operating system (OS) loads and unloads all of the other programs that run on the computer, so once the OS is up and running the computer is ready to interact with the user.
 
 # 4. [PIPELINED EXECUTION 35](https://github.com/c4arl0s/InsideTheMachine#inside-the-machine)
 
@@ -677,7 +689,15 @@ Because of such conditional jumps, we need a special register or set of register
 
 DLW-1 handles this branch with **processor status word** (PSW) register
 
+# - [Branch Instructions and the Fetch-Execute Loop]()
+
+# - [The Branch Instruction as a Special Type of Load]()
+
+# - [Branch Instructions and Labels]()
+
 # - [Excursus: Booting Up](https://github.com/c4arl0s/InsideTheMachine#3-the-mechanics-of-program-execution) 
+
+
 
 
 # 4. [PIPELINED EXECUTION 35](https://github.com/c4arl0s/InsideTheMachine#inside-the-machine)
