@@ -691,6 +691,17 @@ DLW-1 handles this branch with **processor status word** (PSW) register
 
 # - [Branch Instructions and the Fetch-Execute Loop]()
 
+Now that we have looked at the basics branching, we can modify our three step summary of program execution to include the possibility of branch instruction:
+
+1. **Fetch** the next instruction from the address stored in the program counter, and load that instruction into the instruction register. Increment the program counter.
+2. **Decode** the instruction in the instruction register.
+3. **Execute** the instruction in the instruction register, using the following rules
+   * a. It the instruction is an arithmetic instruction, then execute it using the ALU and register file.
+   * b. If the instruction is a memory-access instruction, then execute it using the memory hardware.
+   * c. If the instruction is a branch instruction, then execute it using the control unit and the program counter. (For a taken branch, write the branch target address into the program counter.)
+
+In short, you might say that branch instructions allow the programmer to redirect the **processor** as it travels through the instructions stream. Branches point the processor to different sections of code stream by manipulating its control unit, which, because it contains the instruction register and program counter, is the rudder of the CPU.
+
 # - [The Branch Instruction as a Special Type of Load]()
 
 # - [Branch Instructions and Labels]()
