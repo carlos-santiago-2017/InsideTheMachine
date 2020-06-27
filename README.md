@@ -64,14 +64,6 @@
 
 - [Excursus: Booting Up](https://github.com/c4arl0s/InsideTheMachine#--excursus-booting-up) 
 
-If you have been around computers for any length of time, you have heard the terms **reboot** or **boot up** used in connections with either resetting the computer to its initial state or powering it in initially. The term **boot is a shortened version of the term **bootstrap**, which is itself a reference to the seemingly impossible task a computer must perform on start-up, namely, **"pulling itself up by its own bootstraps"**
-
-I say **"seemingly impossible"** because when a computer is first powered on there is no program in memory, but programs contain the instructions that make the computer run. If the processor has no program running when it is the first powered on, then how does it know where to fetch the first instruction from ?
-
-The solution to this dilemma is that the microprocessor, in its power-on default state, is hard-wired to fetch that first instruction from a predermined address in memory. This first instruction, which is loaded into the processors instruction register, is the first line of a program called the **BIOS** that livesi n a special set of storage locations - a small read-only memory (ROM) module attached to the computer's motherboard. It is the job of the BIOS to perform basic tests of the RAM and peripherls in order to  verify that everything is working properly. The the boot process can continue.
-
-At the end of the BIOS program lies a jump instruction, the target of which is the location of a **bootloader program**. By using a jump, the BIOS hands off control of the system to this second program, whose job it is to search for and load the computer's operating system from the hard disk. The operating system (OS) loads and unloads all of the other programs that run on the computer, so once the OS is up and running the computer is ready to interact with the user.
-
 # 4. [PIPELINED EXECUTION 35](https://github.com/c4arl0s/InsideTheMachine#inside-the-machine)
 
 - [The Lifecycle of an Instruction](https://github.com/c4arl0s/InsideTheMachine#--the-lifecycle-of-an-instruction)
@@ -413,7 +405,7 @@ In real world programs, **loads** and **stores** most often use **register-relat
 
 For example, we have been using **D** to store memory addresses, so let`s say that on the DLW-1 we can assume that, unless it is explicitly told to do otherwise, the operating system always loads the starting address (or base address) of a program's data segment into D. Remember that code and data are logically separated in main memory, and that data flows into the processor from a data storage are, while code flows into the processor from a special code storage are. Main memory itself is just one long row of undifferentiated memory cells, each one **byte** in width, that store numbers. The computer carves up this long row of bytes into multiple segments, some of which store code and some of which store data.
 
-A **data segment** is a block of contigous memory cells that a program stores all of its data in, so if a programmer knows a data segment's starting address (**base address**) in memory, he or she can access all of the other memory locations in that segment using this formula:
+A **data segment is a block of contigous memory cells that a program stores all of its data in**, so if a programmer knows a data segment's starting address (**base address**) in memory, he or she can access all of the other memory locations in that segment using this formula:
 
 base address + offset
 
@@ -704,11 +696,37 @@ In short, you might say that branch instructions allow the programmer to redirec
 
 # - [The Branch Instruction as a Special Type of Load]()
 
+Recall that an instruction fetch is a special type of load that happens automatically for every instruction and that always takes the address in the program counter as its source and the instruction register as its destination. With that in mind, you might think of a branch instruction as **a similar kind of load**, but **under the control of the programmer instead of the CPU**.. The branch instruction is a **load** that takes the address specified by #target as its source and the instruction registere as its destination.
+
+Like a regular load, a branch instruction can take as its target an address stored in a register. In other words, **branch instructions can use register-relative addressing** just like regular **load** instructions. This capability is useful because it allows the computer to store blocks of code at arbitrary places in memory. The programmer does not need to know the address where the block of code will wind up before writing a branch instruction that jumps to the particular block; all he or she needs is a way to get to the memory location where the operating system, which is responsible for managing memory, has stored the starting address of the desired block of code.
+
+| Line | Code         | Comments                                                                                                                                                                      |
+|------|--------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| 16   | Sub A, B, A  | Subtract the number in register A from the number in register B and store the result in A                                                                                     |
+| 17   | jumps #C     | Check the PSW, and if the result of the previous instruction was zero, jump to the instruction at the address stored in C. If the result was nonzero, continue on to line 18. |
+| 18   | add A, 15, A | Add 15 to the number in A and store the result in A                                                                                                                           |
+
+Program 2-3 A conditional branch that uses an address stored in a register.
+
+When a programmer uses **register-relative addressing** with a branch instruction, the operating system must load a certain register with the base address of the **code segment** inwhich the program resides. Like the data segment, **the code segment is a contiguous block of memory cells**, but its cells stoe instructions instead of data. So to jump to line 15 in the currently running program, assuming that the operating system has placed the base address of the code segmented in C, the programmer could use he following instruction:
+
+| Code        | Comments                                                                                                                                                      |   |
+|-------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------|---|
+| jum #(C+30) | Jump to the instruction located 30 bytes away from the start of the code segment. (each instruction is 2 bytes length, so this puts us at the 15 instruction) |   |
+
+
+
 # - [Branch Instructions and Labels]()
 
 # - [Excursus: Booting Up](https://github.com/c4arl0s/InsideTheMachine#3-the-mechanics-of-program-execution) 
 
+If you have been around computers for any length of time, you have heard the terms **reboot** or **boot up** used in connections with either resetting the computer to its initial state or powering it in initially. The term **boot is a shortened version of the term **bootstrap**, which is itself a reference to the seemingly impossible task a computer must perform on start-up, namely, **"pulling itself up by its own bootstraps"**
 
+I say **"seemingly impossible"** because when a computer is first powered on there is no program in memory, but programs contain the instructions that make the computer run. If the processor has no program running when it is the first powered on, then how does it know where to fetch the first instruction from ?
+
+The solution to this dilemma is that the microprocessor, in its power-on default state, is hard-wired to fetch that first instruction from a predermined address in memory. This first instruction, which is loaded into the processors instruction register, is the first line of a program called the **BIOS** that livesi n a special set of storage locations - a small read-only memory (ROM) module attached to the computer's motherboard. It is the job of the BIOS to perform basic tests of the RAM and peripherls in order to  verify that everything is working properly. The the boot process can continue.
+
+At the end of the BIOS program lies a jump instruction, the target of which is the location of a **bootloader program**. By using a jump, the BIOS hands off control of the system to this second program, whose job it is to search for and load the computer's operating system from the hard disk. The operating system (OS) loads and unloads all of the other programs that run on the computer, so once the OS is up and running the computer is ready to interact with the user.
 
 
 # 4. [PIPELINED EXECUTION 35](https://github.com/c4arl0s/InsideTheMachine#inside-the-machine)
