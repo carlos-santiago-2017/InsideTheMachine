@@ -718,6 +718,20 @@ When a programmer uses **register-relative addressing** with a branch instructio
 
 # - [Branch Instructions and Labels]()
 
+In programs written for real-world architectures, branch targets don't usually take the form of either **immediate values or register-relative values**. Rather, the programmer places a **label** on the line of code to which he or she wants to jump, and then puts that label in the branch's target field. Program 2-4 shows a portion of assembly language code that uses labels.
+
+```assembly
+      sub A, B, A
+      jumpz LBL1
+      add A, 15, A
+      store A, #(D+16)
+LBL1: add A, B, B
+      store B, #(D+16)
+```
+Program 2-4: Assembly language code that uses labels.
+
+In this example, if the contents of A and B are equal, the computer will jump to the instruction with the label LBL1 and begin executing there, skipping the instructions between the jump and the labeled **add**. Just as the absolute memory addresses used in **load** and **store** instructions are modified at load time to fit the location in memory of program's data segment, labels like LBL1 are changed at load time into memory addresses that reflec the location in memory of the program's code segment.
+
 # - [Excursus: Booting Up](https://github.com/c4arl0s/InsideTheMachine#3-the-mechanics-of-program-execution) 
 
 If you have been around computers for any length of time, you have heard the terms **reboot** or **boot up** used in connections with either resetting the computer to its initial state or powering it in initially. The term **boot is a shortened version of the term **bootstrap**, which is itself a reference to the seemingly impossible task a computer must perform on start-up, namely, **"pulling itself up by its own bootstraps"**
