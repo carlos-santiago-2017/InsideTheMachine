@@ -745,6 +745,12 @@ At the end of the BIOS program lies a jump instruction, the target of which is t
 
 # 4. [PIPELINED EXECUTION 35](https://github.com/c4arl0s/InsideTheMachine#inside-the-machine)
 
+All of the processor architectures that you have looked at so far are relatively simple, and they reflect the earlest stages of computer evolution.  This chapter will bring you closer to the modern computing era by introducing one of the key innovations that underlies the rapid performance increases that have characterized the past few decades of microprocessor development: **pipelined execution**.
+
+---
+Note
+Pipelined execution is a techniche that enables microprocessor designers to increase the speed at which a processor operates, thereby decreasing the amount of time that the processor takes to execute a program. This chapter will first introduce the concept of pipelinning by means of a factory analogy, and it will then apply the analogy to microprocessors. You will the learn how to evaluate the benefits of pipelining, before I conclude with a discussion of the technique¡s limitations and costs.
+
 # - [The Lifecycle of an Instruction](https://github.com/c4arl0s/InsideTheMachine#4-pipelined-execution-35)
 # - [Basic Instruction Flow](https://github.com/c4arl0s/InsideTheMachine#4-pipelined-execution-35)
 # - [Pipelining Explained](https://github.com/c4arl0s/InsideTheMachine#4-pipelined-execution-35)
