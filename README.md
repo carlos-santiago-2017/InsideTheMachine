@@ -751,7 +751,60 @@ All of the processor architectures that you have looked at so far are relatively
 Note
 Pipelined execution is a techniche that enables microprocessor designers to increase the speed at which a processor operates, thereby decreasing the amount of time that the processor takes to execute a program. This chapter will first introduce the concept of pipelinning by means of a factory analogy, and it will then apply the analogy to microprocessors. You will the learn how to evaluate the benefits of pipelining, before I conclude with a discussion of the technique¡s limitations and costs.
 
+---
+Note
+This chapter’s discussion of pipelined execution focuses solely **on the execution of arithmetic instructions**. Memory instructions and branch instructions are pipelined using the same fundamental principles as arithmetic instructions, and later chapters will cover the peculiarities of the actual execution process of each of these two types of instruction.
+---
+
 # - [The Lifecycle of an Instruction](https://github.com/c4arl0s/InsideTheMachine#4-pipelined-execution-35)
+
+In the previous chapter, you learned that a computer repeats three basic steps over and over again in order to execute a program:
+
+1. Fetch the next instruction from the address stored in the program counter and load that instruction into the instruction register. Increment the program counter.
+2. Decode the instruction in the instruction register.
+3. Execute the instruction in the instruction register.
+
+You should also recall that **step 3**, the execute step, **itself can consist of
+multiple sub-steps**, depending on the type of instruction being executed (arithmetic, memory access, or branch). In the case of the arithmetic instruction add A, B, C, the example we used last time, the three sub-steps are as follows:
+
+1. Read the contents of registers A and B.
+2. Add the contents of A and B.
+3. Write the result back to register C.
+
+Thus the expanded list of actions required to execute an arithmetic
+instruction is as follows (substitute any other arithmetic instruction for add in the following list to see how it’s executed):
+
+1. Fetch the next instruction from the address stored in the program counter and load that instruction into the instruction register. Increment the program counter.
+2. Decode the instruction in the instruction register.
+3. Execute the instruction in the instruction register. Because the instruction is not a branch instruction but an arithmetic instruction, send it to the arithmetic logic unit (ALU).
+a. Read the contents of registers A and B.
+b. Add the contents of A and B.
+c. Write the result back to register C.
+
+At this point, **I need to make a modification to the preceding list**. For reasons we will discuss in detail when we talk about the instruction window in Chapter 5. **Most modern microprocessors treat sub-steps 3a and 3b as a group**, while they treat step 3c, **the register write, separately**. To reflect this conceptual and architectural division, this list should be modified to look as follows:
+
+
+1. Fetch the next instruction from the address stored in the program counter, and load that instruction into the instruction register. Increment the program counter.
+2. Decode the instruction in the instruction register.
+3. Execute the instruction in the instruction register. Because the instruction is not a branch instruction but an arithmetic instruction, send it to the ALU.
+  * Read the contents of registers A and B.
+  * Add the contents of A and B.
+4. Write the result back to register C.
+
+In a modern processor, these four steps are repeated over and over again until the program is finished executing. These are, in fact, **the four stages in a classic RISC pipeline**. ( I will define the term **pipeline** shortly; for now, just think of a pipeline as a series of stages that each instruction in the code stream must pass through when the code stream is being executed.). Here are the four stages in their abbreviated form, the form in which you will most often see them:
+
+1. Fetch
+2. Decode
+3. Execute
+4. Write (or “write-back”)
+
+Each of these stages could be said to represent one **phase** in the **lifecycle** of an instruction. An instruction starts out in the **fetch phase**, moves to the **decode phase**, then to the **execute phase**, and finally to the **write phase**. As I mentioned in **"The clock"** on page 29, each phase takes a fixed, but by no means equal, amount of time. In most of the example processors with which you will be working in this chapter, all four phases take an equal amount of time; this is not usually the case in real-world processors. In any case, if the DLW-1 takes exactly 1 nanosecond (ns) to complete each phase, then the DLW-1 can finish one instruction ever 4 ns.
+
+---
+Note
+The term RISC is an acronym for Reduce Instruction Set Computing. I Will cover this term in more detail in Chapter 5.
+---
+
 # - [Basic Instruction Flow](https://github.com/c4arl0s/InsideTheMachine#4-pipelined-execution-35)
 # - [Pipelining Explained](https://github.com/c4arl0s/InsideTheMachine#4-pipelined-execution-35)
 # - [Applying the Analogy](https://github.com/c4arl0s/InsideTheMachine#4-pipelined-execution-35)
