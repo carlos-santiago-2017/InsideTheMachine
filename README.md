@@ -806,6 +806,21 @@ The term RISC is an acronym for Reduce Instruction Set Computing. I Will cover t
 ---
 
 # - [Basic Instruction Flow](https://github.com/c4arl0s/InsideTheMachine#4-pipelined-execution-35)
+
+One useful division that computer architects often employ when talking about CPU is that of **front end** versus **back end**. As you already know, when instructions are fetched from main memory, they must be decoded for execution. This fetching and decoding takes place in the processor's front end. You can see in Figure 3-1 that the front end roughly corresponds to the control and I/O units in the previous chapter's diagram of the DLW-1's programming model. The ALU and registers constitute the back end of the DWL-1. Instructions make their way from the front end down through the back end, where the work of number crunching gets done.
+
+![Screen Shot 2020-07-03 at 11 05 22](https://user-images.githubusercontent.com/24994818/86484987-2626ce00-bd1d-11ea-8802-527b64d27c3e.png)
+
+We can now modify figure 1-4 to show all four phases of execution. (see Figure 3-2)
+
+![Screen Shot 2020-07-03 at 11 07 01](https://user-images.githubusercontent.com/24994818/86485054-553d3f80-bd1d-11ea-8357-7380952f3ff4.png)
+
+From here on out, we are going to focus primarily on the code stream, and more specifically, on how instructions enter and flow through the microprocessor, so the diagrams will need to leave out the data and results streams entirely. Figure 3-3 presents a microprocessor's basic instruction flow in a manner that is straightforward, yet easily elaborated upon.
+
+![Screen Shot 2020-07-03 at 11 09 02](https://user-images.githubusercontent.com/24994818/86485164-9f262580-bd1d-11ea-88d1-13f71ca8c6af.png)
+
+In Figure 3-3, instruction flows from the from end's fetch and decode phases into the back end's execute and write. (Don't worry if this seems too simple. As the level of complexity of the architectures under discussion increases, so will the complexity of the diagrams.)
+
 # - [Pipelining Explained](https://github.com/c4arl0s/InsideTheMachine#4-pipelined-execution-35)
 # - [Applying the Analogy](https://github.com/c4arl0s/InsideTheMachine#4-pipelined-execution-35)
 # 	* [A Non-Pipelined Processor](https://github.com/c4arl0s/InsideTheMachine#4-pipelined-execution-35) 
