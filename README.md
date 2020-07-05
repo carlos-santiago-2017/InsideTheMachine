@@ -822,6 +822,53 @@ From here on out, we are going to focus primarily on the code stream, and more s
 In Figure 3-3, instruction flows from the from end's fetch and decode phases into the back end's execute and write. (Don't worry if this seems too simple. As the level of complexity of the architectures under discussion increases, so will the complexity of the diagrams.)
 
 # - [Pipelining Explained](https://github.com/c4arl0s/InsideTheMachine#4-pipelined-execution-35)
+
+Let’s say my friends and I have decided to go into the automotive manufacturing business and that our first product is to be a sport utility vehicle (SUV). After some research, we determine that there are five stages in the SUV-building process:
+
+**Stage 1**: Build the chassis.
+**Stage 2**: Drop the engine into the chassis.
+**Stage 3**: Put the doors, a hood, and coverings on the chassis. 
+**Stage 4**: Attach the wheels.
+**Stage 5**: Paint the SUV.
+
+Each of these stages requires the use of highly trained workers with very specialized skill sets—workers who are good at building chasses don’t know much about engines, bodywork, wheels, or painting, and likewise for engine builders, painters, and the other crews. So when we make our first attempt to put together an SUV factory, we hire and train five crews of specialists, one for each stage of the SUV-building process. There’s one crew to build the chassis, one to drop the engines, one to put the doors, hood, and coverings on the chassis, another for the wheels, and a painting crew. Finally, because the crews are so specialized and efficient, each stage of the SUV-building process takes a crew exactly one hour to complete.**
+
+Now, since my friends and I are computer types and not industrial engi- neers, we had a lot to learn about making efficient use of factory resources. We based the functioning of our first factory on the following plan: Place all five crews in a line on the factory floor, and have the first crew start an SUV at Stage 1. After Stage 1 is complete, the Stage 1 crew passes the partially finished SUV off to the Stage 2 crew and then hits the break room to play some foos- ball, while the Stage 2 crew builds the engine and drops it in. Once the Stage 2 crew is done, the SUV moves down to Stage 3, and the Stage 3 crew takes over, while the Stage 2 crew joins the Stage 1 crew in the break room.
+
+The SUV moves on down the line through all five stages in this way, with only one crew working on one stage at any given time while the rest of the crews sit idle. Once the completed SUV finishes Stage 5, the crew at Stage 1 starts on another SUV. At this rate, it takes exactly five hours to finish a single SUV, and our factory completes one SUV every five hours.
+
+In Figure 3-4, you can see the SUV pass through all five stages. The SUV enters the factory floor at the beginning of the first hour, where the Stage 1 crew begins work on it. Notice that all of the other crews are sitting idle while the Stage 1 crew does its work. At the beginning of the second hour, the Stage 2 crew takes over, and the other four crews sit idle while waiting on Stage 2. This process continues as the SUV moves down the line, until at the beginning of the sixth hour, one SUV stands completed and while another has entered Stage 1.
+
+![Screen Shot 2020-07-04 at 19 42 50](https://user-images.githubusercontent.com/24994818/86523194-9113fa00-be2e-11ea-8b6a-55c81eecf0d0.png)
+
+Fast-forward one year. Our SUV, the Extinction LE, is selling like . . . well, it’s selling like an SUV, which means it’s doing pretty well. In fact, our SUV is selling so well that we’ve attracted the attention of the military and have been offered a contract to provide SUVs to the U.S. Army on an ongoing basis. The Army likes to order multiple SUVs at a time; one order might come in for 10 SUVs, and another order might come in for 500 SUVs. The more of these orders that we can fill each fiscal year, the more money we can make during that same period and the better our balance sheet looks. This, of course, means that we need to find a way to increase the number of SUVs that our factory can complete per hour, known as our factory’s SUV **completion rate**. By completing more SUVs per hour, we can fill the Army’s orders faster and make more money each year.
+
+The most intuitive way to go about increasing our factory’s SUV comple- tion rate is to try and decrease the production time of each SUV. If we can get the crews to work twice as fast, our factory can produce twice as many SUVs in the same amount of time. Our crews are already working as hard
+as they can, though, so unless there’s a technological breakthrough that increases their productivity, this option is off the table for now.
+
+Since we can’t speed up our crews, we can always use the brute-force approach and just throw money at the problem by building a second assembly line. If we hire and train five new crews to form a second assembly line, also capable of producing one car every five hours, we can complete a grand total of two SUVs every five hours from the factory floor—double the SUV comple- tion rate of our present factory. This doesn’t seem like a very efficient use of factory resources, though, since not only do we have twice as many crews working at once but we also have twice as many crews in the break room at once. There has to be a better way.
+
+Faced with a lack of options, we hire a team of consultants to figure out a clever way to increase overall factory productivity without either doubling the number of crews or increasing each individual crew’s productivity. One year and thousands of billable hours later, the consultants hit upon a solution. Why let our crews spend four-fifths of their work day in the break room, when they could be doing useful work during that time? With proper sched- uling of the existing five crews, our factory can complete one SUV each hour, thus drastically improving both the efficiency and the output of our assembly line. The revised workflow would look as follows:
+
+1. The Stage 1 crew builds a chassis.
+2. Once the chassis is complete, they send it on to the Stage 2 crew.
+3. The Stage 2 crew receives the chassis and begins dropping the engine in,
+while the Stage 1 crew starts on a new chassis.
+4. When both Stage 1 and Stage 2 crews are finished, the Stage 2 crew’s work advances to Stage 3, the Stage 1 crew’s work advances to Stage 2, and the Stage 1 crew starts on a new chassis.
+
+Figure 3-5 illustrates this workflow in action. Notice that multiple crews
+have multiple SUVs simultaneously in progress on the factory floor. Compare this figure to Figure 3-4, where only one crew is active at a time and only one SUV is on the factory floor at a time.
+
+![Screen Shot 2020-07-04 at 19 49 15](https://user-images.githubusercontent.com/24994818/86523263-755d2380-be2f-11ea-89dd-fdb2be3daf41.png)
+
+So as the assembly line begins to fill up with SUVs in various stages of production, more of the crews are put to work simultaneously until all of the crews are working on a different vehicle in a different stage of production. (Of course, this is how most of us nowadays in the post-Ford era expect a good, efficient assembly line to work.) If we can keep the assembly line full and keep all five crews working at once, we can produce one SUV every hour: a fivefold improvement in SUV completion rate over the previous comple- tion rate of one SUV every five hours. That, in a nutshell, is **pipelining**.
+
+While the total amount of time that each individual SUV spends in pro- duction has not changed from the original five hours, the rate at which the factory as a whole completes SUVs has increased drastically. Furthermore, the rate at which the factory can fulfill the Army’s orders for batches of SUVs has increased drastically, as well. Pipelining works its magic by making optimal use of already existing resources. We don’t need to speed up each individual stage of the production process, nor do we need to drastically increase the amount of resources that we throw at the problem; all that’s necessary is that we get more work out of resources that are already there.
+
+WHY THE SUV FACTORY?
+The preceding discussion uses a factory analogy to explain pipelining. Other books use simpler analogies, like doing laundry, for instance, to explain this technique, but there are a few reasons why I chose a more elaborate and lengthy analogy to illustrate what is a relatively simple concept. First, I use factory analogies throughout this book, because assembly line-based factories are easy for readers to visualize and there’s plenty of room for filling out the mental image in interesting ways in order to make a variety of related points. Second, and perhaps even more impor- tantly, the many scheduling-, queuing- and resource management–related problems that factory designers face have direct analogies in computer architecture. In many cases, the problems and solutions are exactly the same, simply translated into a different domain. (Similar queuing-related problem/solution pairs also crop up in the service industry, which is why analogies involving supermarkets and fast food restaurants are also favorites of mine.)
+
+
 # - [Applying the Analogy](https://github.com/c4arl0s/InsideTheMachine#4-pipelined-execution-35)
 # 	* [A Non-Pipelined Processor](https://github.com/c4arl0s/InsideTheMachine#4-pipelined-execution-35) 
 # 	* [A Pipelined Processor](https://github.com/c4arl0s/InsideTheMachine#4-pipelined-execution-35)
