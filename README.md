@@ -870,6 +870,9 @@ The preceding discussion uses a factory analogy to explain pipelining. Other boo
 
 
 # - [Applying the Analogy](https://github.com/c4arl0s/InsideTheMachine#4-pipelined-execution-35)
+
+Bringing our discussion back to microprocessors, it should be easy to see how this concept applies to the four phases of an instruction’s lifecycle. Just as the owners of the factory in our analogy wanted to increase the number of SUVs that the factory could finish in a given period of time, microprocessor designers are always looking for ways to increase the number of instructions that a CPU can complete in a given period of time. When you recall that a program is an ordered sequence of instructions, it becomes clear that increasing the number of instructions executed per unit time is one way to decrease the total amount of time that it takes to execute a program. (The other way to decrease a program’s execution time is to decrease the number of instructions in the program, but this chapter won’t address that approach until later.) In terms of our analogy, a program is like an order of SUVs from the military; just like increasing our factory’s output of SUVs per hour enabled us to fill orders faster, increasing a processor’s instruction completion rate (the number of instructions completed per unit time) enables it to run programs faster.
+
 # 	* [A Non-Pipelined Processor](https://github.com/c4arl0s/InsideTheMachine#4-pipelined-execution-35) 
 # 	* [A Pipelined Processor](https://github.com/c4arl0s/InsideTheMachine#4-pipelined-execution-35)
 # 	* [The Speedup from Pipelining](https://github.com/c4arl0s/InsideTheMachine#4-pipelined-execution-35) 
