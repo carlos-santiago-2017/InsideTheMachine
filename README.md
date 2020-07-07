@@ -894,6 +894,28 @@ The reason is straightforward and stems from the nature of the diagram. Because 
 in each stage of execution, the blue instruction enters the write phase at the beginning of the fourth nanosecond and exits the write phase at the end of the fourth nanosecond. This means that the fifth nanosecond is the first full nanosecond in which the blue instruction stands completed. Thus at the beginning of the fifth nanosecond (which coincides with the end of the fourth nanosecond), the processor has completed one instruction.
 
 # 	* [A Pipelined Processor](https://github.com/c4arl0s/InsideTheMachine#4-pipelined-execution-35)
+
+**Pipelining a processor** means breaking down its instruction execution process—what I’ve been calling the instruction’s lifecycle—into a series of discrete **pipeline stages** that can be completed in sequence by specialized hard- ware. Recall the way that we broke down the SUV assembly process into five discrete steps—with one dedicated crew assigned to complete each step— and you’ll get the idea.
+
+Because an instruction’s lifecycle consists of four fairly distinct phases, you can start by breaking down the **single-cycle processor’s instruction execution process** into a sequence of four discrete pipeline stages, where each pipeline stage corresponds to a phase in the standard instruction lifecycle:
+
+**Stage 1**: Fetch the instruction from code storage.
+**Stage 2**: Decode the instruction.
+**Stage 3**: Execute the instruction.
+**Stage 4**: Write the results of the instruction back to the register file.
+ 
+Note that the number  of pipeline stages is called the **pipeline depth**. So the four-stage pipeline has a pipeline depth of four.
+
+For convenience's sake, let's say that each of these four pipeline stages takes exactly **1 [ns]** to finish its work on an instruction, just like each crew in our assembly line analogy takes one hour to finish its portion of the work on an SUV. So the original single-cycle processor's **4 [ns]** execution process is now broken down into four discrete, sequential pipeline stages of **1 [ns]** each in length.
+
+Now let's step through another diagram together to see how a pipeline CPU would execute the four instructions depicted in Figure 3-7.
+
+![Screen Shot 2020-07-07 at 9 15 45](https://user-images.githubusercontent.com/24994818/86794801-85912080-c032-11ea-86ee-bb47088c6eea.png)
+
+At the beginning of the first nanosecond, the blue instruction enters the fetch state. After that nanosecond is complete, the second nanosecond begins and the blue instruction moves on to the decode stage, while the next instruction, the red one, starts to make its way from code storage to the processor (it enters the fetch stage). At the start of the third nanosecond, the blue instruction advances to the execute stage, the red instruction advances the decode stage, and the green instruction enters the fetch stage. At the fourth nanosecond, the blue instruction advances to the write stage, the red instruction advances to the execute stage, the green instruction advances to the decode stage, and the purple instruction advances to the fetch stage. After the fourth nanosecond has fully elapsed and the fifth nanosecond starts, the blue instruction has passed from the pipeline and is now finished executing. Thus we can say that at the end of **4 [ns]** (= four clock cycles), the pipelined processor depicted in Figure 3-7 has completed one instruction.
+
+At start of the fifth nanosecond, the pipeline is now full and the processor can begin completing instructions at a rate of **one instruction per nanosecond**. This one **instruction / ns completion rate** is a fourfold improvement over the single-cycle processor's completion rate of 0.25 instructions / ns (or four instructions ever 16 ns).
+
 # 	* [The Speedup from Pipelining](https://github.com/c4arl0s/InsideTheMachine#4-pipelined-execution-35) 
 # 	* [Program Execution Time and Completion Rate](https://github.com/c4arl0s/InsideTheMachine#4-pipelined-execution-35) 
 # 	* [The Relationship Between Completion Rate and Program Execution Time](https://github.com/c4arl0s/InsideTheMachine#4-pipelined-execution-35)
