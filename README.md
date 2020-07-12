@@ -965,6 +965,19 @@ The single-cycle processor can complete one instruction every 4 ns, for a comple
 This eightfold increase in completion rate versus a single-cycle design means that the eight-stage processor can execute programs much faster than either a single-cycle or a four-stage processor. **But does the eightfold increase in completion rate translate into an eightfold increase in processor performance? Not exactly**.
 
 # 	* [Program Execution Time and Completion Rate](https://github.com/c4arl0s/InsideTheMachine#4-pipelined-execution-35) 
+
+If the program that the single-cycle processor in Figure 3-6 is running consisted of only the four instructions depicted, that program would have a program execution time of 16 ns, or 4 instructions 􏱮 0.25 instructions/ns. If the program consisted of, say, seven instructions, it would have a program execution time of 7 instructions 􏱮 0.25 instructions/ns = 28 ns. In general, a program’s execution time is equal to the total number of instructions in the program divided by the processor’s instruction completion rate (number of instructions completed per nanosecond), as in the following equation:
+
+Program Execution Time = (Number of instructions in Program ) / (instruction completion rate)
+
+Most of the time, when I talk about **processor performance** in this book, I’m talking about program execution time. One processor performs better than another if it executes all of a program’s instructions in a shorter amount of time, so **reducing program execution time is the key to increasing processor performance**.
+
+In the case of a non-pipelined, single-cycle processor, the instruction completion rate (x instructions per 1 ns) is simply the inverse of the instruc- tion execution time (y ns per 1 instruction), where x and y have different numerical values. Because the relationship between completion rate and instruction execution time is simple and direct in a single-cycle processor, an nfold improvement in one is an nfold improvement in the other. So improving the performance of a single-cycle processor is really about reducing instruction execution times.
+
+With pipelined processors, the relationship between instruction execution time and completion rate is more complex. As discussed previously, pipelined processors allow you to increase the processor’s completion rate without altering the instruction execution time. Of course, a reduction in instruction execution time still translates into a completion rate improvement, but the reverse is not necessarily true. In fact, as you’ll learn later on, pipelining’s improvements to completion rate often come at the price of **increased** instruction execution times. This means that for pipelining to improve performance, the processor’s completion rate must be as high as possible over the course of a program’s execution.
+
+
+
 # 	* [The Relationship Between Completion Rate and Program Execution Time](https://github.com/c4arl0s/InsideTheMachine#4-pipelined-execution-35)
 # 	* [Instruction Throughput and Pipeline Stalls](https://github.com/c4arl0s/InsideTheMachine#4-pipelined-execution-35)
 # 	* [Instruction Latency and Pipeline Stalls](https://github.com/c4arl0s/InsideTheMachine#4-pipelined-execution-35)
