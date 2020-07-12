@@ -90,7 +90,7 @@ Inside the Machine is an introduction to computers that is intended to fill the 
 
 Modern computers come in all shapes and sizes, and they aid us in a million different types of tasks ranging from the serious, like air traffic control and cancer research, ti the not-so-serious, like computer gaming.
 
-At the heart of the modern computers is the **microprocessor** -also commonly called **central processing unit (CPU)** - a tiny, square silver of silicon that is etched with a microscopic network of gates and channels through which electricity flows. This netwoork of gates (transistors) and channels (wires or lines) is a very small version of the kind circuitry that we have all seen when cracking open a television remote or an old radio. In short, the microprocessor is not just the **"heart"** of a modern computer - It is a computer and of itself
+At the heart of the modern computers is the **microprocessor** -also commonly called **central processing unit (CPU)** - a tiny, square silver of silicon that is etched with a microscopic network of gates and channels through which electricity flows. This network of gates (transistors) and channels (wires or lines) is a very small version of the kind circuitry that we have all seen when cracking open a television remote or an old radio. In short, the microprocessor is not just the **"heart"** of a modern computer - It is a computer and of itself
 
 # - [The Calculator Model of Computing](https://github.com/c4arl0s/InsideTheMachine#--the-calculator-model-of-computing)
 
@@ -174,7 +174,7 @@ Since numbers must first be fetched from the storage before they can be added, w
 
 Building on our previous,, three.step description of what goes on when a computer's **ALU** is commanded to add two numbers, we can modify it as follows. To execute an **add** instruction, the ALU must perform these steps:
 
-1. Obtain the two numbers to be added (the input operands= from two source registers.ç
+1. Obtain the two numbers to be added (the input operands= from two source registers.
 2. Add the numbers.
 3. Place the results back in a **destination register**
 
@@ -191,7 +191,7 @@ Upon receiving and instruction commanding it to perform this addition operation,
 
 You should recognize these three steps as a more specific form of the read-modify-write sequence from earlier, where the generic modify steps is replaced with an addition operation.
 
-This three-step sequence is a quite simple, but it is at the very core of how a microprocessor really works. In fact, if you glance ahead to Chapter 10 discussion of the PowerPC 9700s pipeline, you will see that it actually has separate stages for each of these three operations: stage 12 is the register read step, stage 13 is the actual execute step, and stage 14 i the write-back step. (dont worry if you dont know what a pipeline is, because that is the topic for chapter 3). So the 970's **ALU** reads two operands from the register file, adds them together, and writes the sum back to the register file. If we were to stop our discussion right here, you would already understand the three core stages of the 970's main integer pipeline- all the other stages are either just preparation to get to this point or they are cleanup work after it.
+This three-step sequence is a quite simple, but it is at the very core of how a microprocessor really works. In fact, if you glance ahead to Chapter 10 discussion of the PowerPC 9700s pipeline, you will see that it actually has separate stages for each of these three operations: stage 12 is the register read step, stage 13 is the actual execute step, and stage 14 i the write-back step. (don't worry if you don't know what a pipeline is, because that is the topic for chapter 3). So the 970's **ALU** reads two operands from the register file, adds them together, and writes the sum back to the register file. If we were to stop our discussion right here, you would already understand the three core stages of the 970's main integer pipeline- all the other stages are either just preparation to get to this point or they are cleanup work after it.
 
 
 # - [RAM: When Registers Alone Won’t Cut It](https://github.com/c4arl0s/InsideTheMachine#2-basic-computing-concepts)
@@ -229,7 +229,7 @@ Since steps 2a, and 2c all take a trivial amount of time to complete, relative t
 2. Add the contents of the source registers, and place the results in the destination register, using the **ALU**.
 3. Store the contents of the destination register in main memory.
 
-The existence of **main memory** means that the user -the boss in our filing-clerk analogy- must manage the flow of information between main memory and the **CPU**'s registers. This means that the user must issue instructions to more than just the processor's **ALU**; he or she must also issue instructions to the parts of the CPU that **handle memory traffic**. Thus, the preceding three steps are representative of the kinds of instructions you find when you take a close look at the code stream.
+The existence of **main memory** means that the user -the boss in our filing-clerk analogy- must manage the flow of information between main memory and the **CPU**'s registers. This means that the user must issue instructions to more than just the processor's **ALU**; he or she must also issue instructions to the parts of the **CPU* that **handle memory traffic**. Thus, the preceding three steps are representative of the kinds of instructions you find when you take a close look at the code stream.
 
 # - [A Closer Look at the Code Stream: The Program](https://github.com/c4arl0s/InsideTheMachine#2-basic-computing-concepts)
 
@@ -406,7 +406,7 @@ In real world programs, **loads** and **stores** most often use **register-relat
 
 For example, we have been using **D** to store memory addresses, so let`s say that on the DLW-1 we can assume that, unless it is explicitly told to do otherwise, the operating system always loads the starting address (or base address) of a program's data segment into D. Remember that code and data are logically separated in main memory, and that data flows into the processor from a data storage are, while code flows into the processor from a special code storage are. Main memory itself is just one long row of undifferentiated memory cells, each one **byte** in width, that store numbers. The computer carves up this long row of bytes into multiple segments, some of which store code and some of which store data.
 
-A **data segment is a block of contigous memory cells that a program stores all of its data in**, so if a programmer knows a data segment's starting address (**base address**) in memory, he or she can access all of the other memory locations in that segment using this formula:
+A **data segment is a block of contiguous memory cells that a program stores all of its data in**, so if a programmer knows a data segment's starting address (**base address**) in memory, he or she can access all of the other memory locations in that segment using this formula:
 
 base address + offset
 
@@ -469,7 +469,7 @@ The binary valyes representing both the opcodes and the register codes are arran
 
 ---
 **Note**
-Because programmer-written instructions must be translated into binary codes before a computer can read them, it is common to see programs in any format -binary, assembly, or a high-level language like BASIC or C, referred to generically as "code" or "codes" When referring to programs written in assembly, binary or C language. Programmers also often descrive the act of programming as "writing code" or "coding", I have adopted this terminology in this book, and will henceforth use the term "code" regularly to refer generically to instructions sequences and programs.
+Because programmer-written instructions must be translated into binary codes before a computer can read them, it is common to see programs in any format -binary, assembly, or a high-level language like BASIC or C, referred to generically as "code" or "codes" When referring to programs written in assembly, binary or C language. Programmers also often describe the act of programming as "writing code" or "coding", I have adopted this terminology in this book, and will henceforth use the term "code" regularly to refer generically to instructions sequences and programs.
 ---
 
 # 	* [Binary Encoding of Arithmetic Instructions](https://github.com/c4arl0s/InsideTheMachine#3-the-mechanics-of-program-execution)
@@ -499,9 +499,9 @@ Here are a few more examples of arithmetic instructions, just so you can get the
 
 Increasing the number of binary digits in the opcode and register fields increases the total number of instructions the machine can use and the number of registers it can have. 
 
-For example, if you kwno something about binary notation, then you probably kwno that a 3-bit opcode allows the processor to map yo to 2^3 = 8 instructions in its **instruction set**, increasing the opcode size to 8 bits would allow the processor's instruction set to contain up to 256 instructions. Similarly, increasing the number of bits in the register field increases the possible number of registers that machine can have.
+For example, if you know something about binary notation, then you probably know that a 3-bit opcode allows the processor to map yo to 2^3 = 8 instructions in its **instruction set**, increasing the opcode size to 8 bits would allow the processor's instruction set to contain up to 256 instructions. Similarly, increasing the number of bits in the register field increases the possible number of registers that machine can have.
 
-Arithmetic instructions containing an immediate value use an **immediate type** instruction format, which is slightly different from the register-type format we just saw. In an immediate-type instruction, the first byte contains the opcode, the source register, and the destination register, whie the second byte contains the immediate value, as shown in Figure 2-2
+Arithmetic instructions containing an immediate value use an **immediate type** instruction format, which is slightly different from the register-type format we just saw. In an immediate-type instruction, the first byte contains the opcode, the source register, and the destination register, while the second byte contains the immediate value, as shown in Figure 2-2
 
 ![Screen Shot 2020-06-15 at 10 34 02](https://user-images.githubusercontent.com/24994818/84677011-c0041380-aef3-11ea-9500-8ae349d9aeeb.png)
 
@@ -526,18 +526,18 @@ We have previously seen two types of **load**, the first of which was the immedi
 
 ![Screen Shot 2020-06-16 at 16 37 40](https://user-images.githubusercontent.com/24994818/84830773-ba8bf380-afef-11ea-957d-47bb11ba5dda.png)
 
-Now let's transate the immediate-type **load** in line 1 of program 1-1 (12 is 1100 in binary notation)
+Now let's translate the immediate-type **load** in line 1 of program 1-1 (12 is 1100 in binary notation)
 
 
-| Assebly language Instruction | machine language instruction |
+| Assembly language Instruction | machine language instruction |
 | ---------------------------  | ---------------------------  |
 | load #12, A                  | 10100000 00001100            |
 
-The 2-bute machine language instruction on the right is a binary representation of the assambly language instruction on the left. The first bte correspoindsto an immediate-type **load** instruction that takes register A as its destination. The second byte is the binary representation of the number 12 which is the source address in memory that the data is to be loaded from.
+The 2-bute machine language instruction on the right is a binary representation of the assembly language instruction on the left. The first byte corresponds to an immediate-type **load** instruction that takes register A as its destination. The second byte is the binary representation of the number 12 which is the source address in memory that the data is to be loaded from.
 
 The **second type of load** we have seen is the register type. A register-type load uses the register-type instruction format, but with the source2 field zeroed out and ignored, as shown in Figure 2-4.
 
-In figure 2-4, the source1 field specifies the gister containing the memory address that the processor is to load data from, and the destination fiel specifies the register that the loaded data is to be placed in.
+In figure 2-4, the source1 field specifies the register containing the memory address that the processor is to load data from, and the destination field specifies the register that the loaded data is to be placed in.
 
 ![Screen Shot 2020-06-16 at 16 44 29](https://user-images.githubusercontent.com/24994818/84831277-ae546600-aff0-11ea-947c-53e7ca82218d.png)
 
@@ -644,7 +644,7 @@ To zoom in on the execute steps f the preceding sequence, revisit Chapter 1, and
 
 Steps 1 through 12 in the previous section don't take an arbitrary amount of time to complete. Rather, they are performed according to the pulse of the clock that governs every action the processor takes.
 
-This clock pulse, which is generated by a **clock generator** module on the motherboard and is fed into the processor from the outside, times the functioning of the processor so that, on the DLW-1 at least, all three steps of the fetch-execute loop are completed in exactly one beat of the clock. Thus, the program in Figure 2-9, as I have traced its execution in the preceding section, tales exactly four clock beats to finisg execution, because a new instruction is fetched on each beat of the clock.
+This clock pulse, which is generated by a **clock generator** module on the motherboard and is fed into the processor from the outside, times the functioning of the processor so that, on the DLW-1 at least, all three steps of the fetch-execute loop are completed in exactly one beat of the clock. Thus, the program in Figure 2-9, as I have traced its execution in the preceding section, tales exactly four clock beats to finishig execution, because a new instruction is fetched on each beat of the clock.
 
 One obvious way to speed up the execution of prgrams on the DLW-1 would be to speed up its clock generator so that each step takes less time to complete. This is generally true of all microprocessors, hence the race among microprocessor designers to build and market chips with ever-higher clock speeds. (We will talk more about the relationship between clock speed and performance in Chapter 3)
 
@@ -739,18 +739,18 @@ If you have been around computers for any length of time, you have heard the ter
 
 I say **"seemingly impossible"** because when a computer is first powered on there is no program in memory, but programs contain the instructions that make the computer run. If the processor has no program running when it is the first powered on, then how does it know where to fetch the first instruction from ?
 
-The solution to this dilemma is that the microprocessor, in its power-on default state, is hard-wired to fetch that first instruction from a predermined address in memory. This first instruction, which is loaded into the processors instruction register, is the first line of a program called the **BIOS** that livesi n a special set of storage locations - a small read-only memory (ROM) module attached to the computer's motherboard. It is the job of the BIOS to perform basic tests of the **RAM** and peripherls in order to  verify that everything is working properly. The the boot process can continue.
+The solution to this dilemma is that the microprocessor, in its power-on default state, is hard-wired to fetch that first instruction from a predetermined address in memory. This first instruction, which is loaded into the processors instruction register, is the first line of a program called the **BIOS** that lives in a special set of storage locations - a small read-only memory (ROM) module attached to the computer's motherboard. It is the job of the BIOS to perform basic tests of the **RAM** and peripherals in order to  verify that everything is working properly. The boot process can continue.
 
 At the end of the BIOS program lies a jump instruction, the target of which is the location of a **bootloader program**. By using a jump, the BIOS hands off control of the system to this second program, whose job it is to search for and load the computer's operating system from the hard disk. The operating system (OS) loads and unloads all of the other programs that run on the computer, so once the OS is up and running the computer is ready to interact with the user.
 
 
 # 4. [PIPELINED EXECUTION 35](https://github.com/c4arl0s/InsideTheMachine#inside-the-machine)
 
-All of the processor architectures that you have looked at so far are relatively simple, and they reflect the earlest stages of computer evolution.  This chapter will bring you closer to the modern computing era by introducing one of the key innovations that underlies the rapid performance increases that have characterized the past few decades of microprocessor development: **pipelined execution**.
+All of the processor architectures that you have looked at so far are relatively simple, and they reflect the earliest stages of computer evolution.  This chapter will bring you closer to the modern computing era by introducing one of the key innovations that underlies the rapid performance increases that have characterized the past few decades of microprocessor development: **pipelined execution**.
 
 ---
 Note
-Pipelined execution is a techniche that enables microprocessor designers to increase the speed at which a processor operates, thereby decreasing the amount of time that the processor takes to execute a program. This chapter will first introduce the concept of pipelinning by means of a factory analogy, and it will then apply the analogy to microprocessors. You will the learn how to evaluate the benefits of **pipelining**, before I conclude with a discussion of the technique¡s limitations and costs.
+Pipelined execution is a technique that enables microprocessor designers to increase the speed at which a processor operates, thereby decreasing the amount of time that the processor takes to execute a program. This chapter will first introduce the concept of **pipelining** by means of a factory analogy, and it will then apply the analogy to microprocessors. You will the learn how to evaluate the benefits of **pipelining**, before I conclude with a discussion of the technique¡s limitations and costs.
 
 ---
 Note
@@ -799,7 +799,7 @@ In a modern processor, these four steps are repeated over and over again until t
 3. Execute
 4. Write (or “write-back”)
 
-Each of these stages could be said to represent one **phase** in the **lifecycle** of an instruction. An instruction starts out in the **fetch phase**, moves to the **decode phase**, then to the **execute phase**, and finally to the **write phase**. As I mentioned in **"The clock"** on page 29, each phase takes a fixed, but by no means equal, amount of time. In most of the example processors with which you will be working in this chapter, all four phases take an equal amount of time; this is not usually the case in real-world processors. In any case, if the DLW-1 takes exactly 1 nanosecond (ns) to complete each phase, then the DLW-1 can finish one instruction ever 4 ns.
+Each of these stages could be said to represent one **phase** in the **lifecycle** of an instruction. An instruction starts out in the **fetch phase**, moves to the **decode phase**, then to the **execute phase**, and finally to the **write phase**. As I mentioned in **"The clock"** on page 29, each phase takes a fixed, but by no means equal, amount of time. In most of the example processors with which you will be working in this chapter, all four phases take an equal amount of time; this is not usually the case in real-world processors. In any case, if the DLW-1 takes exactly 1 nanosecond (**[ns]**) to complete each phase, then the DLW-1 can finish one instruction ever 4 ns.
 
 ---
 Note
@@ -880,9 +880,9 @@ The previous chapter briefly described how the simple processors described so fa
 
 Because the processor completes instructions at a rate of one per clock cycle, you want the **CPU**’s clock to run as fast as possible so that the processor’s instruction **Program Execution Time** can be as high as possible.
 
-Thus you need to calculate the maximum amount of time that it takes to complete an instruction and make the clock cycle time equivalent to that length of time. It just so happens that on the hypothetical example **CPU**, the four phases of the instruction’s lifecycle take a total of 4 ns to complete. Therefore, you should set the duration of the CPU clock cycle to 4 ns, so that the CPU can complete the instruction’s lifecycle —**from fetch to write-back**—in a **single clock**. (A CPU clock cycle is often just called a **clock** for short.)
+Thus you need to calculate the maximum amount of time that it takes to complete an instruction and make the clock cycle time equivalent to that length of time. It just so happens that on the hypothetical example **CPU**, the four phases of the instruction’s lifecycle take a total of 4 **[ns]** to complete. Therefore, you should set the duration of the **CPU** clock cycle to 4 ns, so that the **CPU** can complete the instruction’s lifecycle —**from fetch to write-back**—in a **single clock**. (A **CPU** clock cycle is often just called a **clock** for short.)
 
-In Figure 3-6, the blue instruction leaves the code storage area, enters the processor, and then advances through the phases of its lifecycle over the course of the 4 ns clock period, until at the end of the fourth nanosecond, it completes the last phase and its lifecycle is over. The end of the fourth nanosecond is also the end of the first clock cycle, so now that the first clock cycle is finished and the blue instruction has completed its execution, the red instruction can enter the processor at the start of a new clock cycle and go through the same process. This 4 ns sequence of steps is repeated until, after a total of 16 ns (or four clock cycles), the processor has completed all four instructions at a **Program Execution Time** of 0.25 instructions/ns (= 4 instructions/ 16 ns).
+In Figure 3-6, the blue instruction leaves the code storage area, enters the processor, and then advances through the phases of its lifecycle over the course of the 4 **[ns]** clock period, until at the end of the fourth nanosecond, it completes the last phase and its lifecycle is over. The end of the fourth nanosecond is also the end of the first clock cycle, so now that the first clock cycle is finished and the blue instruction has completed its execution, the red instruction can enter the processor at the start of a new clock cycle and go through the same process. This 4 ns sequence of steps is repeated until, after a total of 16 ns (or four clock cycles), the processor has completed all four instructions at a **Program Execution Time** of 0.25 instructions/ns (= 4 instructions/ 16 ns).
 
 ![Screen Shot 2020-07-05 at 9 01 59](https://user-images.githubusercontent.com/24994818/86534454-36b28200-be9e-11ea-885f-4ea98618add0.png)
 
@@ -924,7 +924,7 @@ This new method of clocking the processor means that a new instruction will not 
 
 #  * [Shrinking Program Execution Time]()
 
-Note that the total execution time for each individual instruction is not changed by **pipelining**. It still takes an instruction **4 ns** to make it all the way through the processor; that **4 ns** can be split up into four clock cycles of **1 ns** each, or it can cover one longer clock cycle, but it’s still the same **4 ns**. [Thus pipelining doesn’t speed up instruction execution time, but it does speed up program execution time (the number of nanoseconds that it takes to execute an entire program) by increasing the number of instructions finished per unit of time](). Just like **pipelining** our hypothetical SUV assembly line allowed us to fill the Army’s orders in a shorter span of time, even though each individual SUV still spent a total of five hours in the assembly line, so does **pipelining allow a processor to execute programs in a shorter amount of time**, even though each individual instruction still spends the same amount of time traveling through the CPU. **Pipelining makes more efficient use of the CPU’s existing resources by putting all of its units to work simultaneously, thereby allowing it to do more total work each nanosecond**	.
+Note that the total execution time for each individual instruction is not changed by **pipelining**. It still takes an instruction **4 ns** to make it all the way through the processor; that **4 ns** can be split up into four clock cycles of **1 ns** each, or it can cover one longer clock cycle, but it’s still the same **4 ns**. [Thus pipelining doesn’t speed up instruction execution time, but it does speed up program execution time (the number of nanoseconds that it takes to execute an entire program) by increasing the number of instructions finished per unit of time](). Just like **pipelining** our hypothetical SUV assembly line allowed us to fill the Army’s orders in a shorter span of time, even though each individual SUV still spent a total of five hours in the assembly line, so does **pipelining allow a processor to execute programs in a shorter amount of time**, even though each individual instruction still spends the same amount of time traveling through the **CPU**. **Pipelining makes more efficient use of the CPU’s existing resources by putting all of its units to work simultaneously, thereby allowing it to do more total work each nanosecond**	.
 
 
 # 	* [The Speedup from Pipelining](https://github.com/c4arl0s/InsideTheMachine#4-pipelined-execution-35) 
