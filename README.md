@@ -90,7 +90,7 @@ Inside the Machine is an introduction to computers that is intended to fill the 
 
 Modern computers come in all shapes and sizes, and they aid us in a million different types of tasks ranging from the serious, like air traffic control and cancer research, ti the not-so-serious, like computer gaming.
 
-At the heart of the modern computers is the **microprocessor** -also commonly called **central processing unit (CPU)** - a tiny, square silver of silicon that is etched with a microscopic network of gates and channels through which electricity flows. This netwoork of gates (transistors) and channels (wires or lines) is a very small version of the kind circuitry that we have all seen when cracking open a television remote or an old radio. In short, the microprocessor is not just the "heart" of a modern computer - It is a computer and of itself
+At the heart of the modern computers is the **microprocessor** -also commonly called **central processing unit (CPU)** - a tiny, square silver of silicon that is etched with a microscopic network of gates and channels through which electricity flows. This netwoork of gates (transistors) and channels (wires or lines) is a very small version of the kind circuitry that we have all seen when cracking open a television remote or an old radio. In short, the microprocessor is not just the **"heart"** of a modern computer - It is a computer and of itself
 
 # - [The Calculator Model of Computing](https://github.com/c4arl0s/InsideTheMachine#--the-calculator-model-of-computing)
 
@@ -98,7 +98,7 @@ A computer takes a stream of instructions (code) and a stream of data as input, 
 
 ![Screen Shot 2019-08-26 at 3 43 05 PM](https://user-images.githubusercontent.com/24994818/63722147-35dda800-c818-11e9-9e40-599208836737.png)
 
-Figure 1-1 is my own variation on the traditional way of representing a processor's arithmetic logic unit (ALU)
+Figure 1-1 is my own variation on the traditional way of representing a processor's arithmetic logic unit (**ALU**)
 
 I have depicted code and data streams entering the top ports and a results stream leaving the bottom port.
 
@@ -108,11 +108,11 @@ The kind of simple calculation describe above represents the sort of thing that 
 
 # - [The File-Clerk Model of Computing](https://github.com/c4arl0s/InsideTheMachine#2-basic-computing-concepts)
 
-The "Calculator" model of computing, while useful in many aspects, is not the only or even the best way to think about what computers do. As an alternative, consider the following definition of a computer:
+The **"Calculator"** model of computing, while useful in many aspects, is not the only or even the best way to think about what computers do. As an alternative, consider the following definition of a computer:
 
 A computer is a device that shuffles numbers around from place to place, reading, writing, erasing, and rewriting different numbers in different locations according to a set of inputs, a fixed set of rules for processing those inputs, and the prior history of all the inputs that the computer has seen since it was last reset, until a predefined set of criteria are met that case the computer to halt.
 
-We might, after Richard Feynman, call this idea of a computer as a reader, writer, and modifier of numbers the "file-clerk" model of computing (as opposed to the aforementioned calculator model). In the File-clerk model, the computer access a large (theoretically infinite) store of sequentially arranged numbers fr the purpose of altering that store to achieve a desired result. Once this desired result is achieved, the computer halts so that the now-modified store of numbers can be read and interpreted by humans.
+We might, after Richard Feynman, call this idea of a computer as a reader, writer, and modifier of numbers the **"file-clerk"** model of computing (as opposed to the aforementioned calculator model). In the File-clerk model, the computer access a large (theoretically infinite) store of sequentially arranged numbers fr the purpose of altering that store to achieve a desired result. Once this desired result is achieved, the computer halts so that the now-modified store of numbers can be read and interpreted by humans.
 
 The file-clerk mode of computing might not initially strike you as all that useful, but as this chapter progresses, you will begin to understand how important it is. This way of looking at computers is powerful because it emphasizes the end product of computation rather than the computation itself. After all, the purpose of computers is not just to compute in the abstract, but to produce the usable results from a given data set.
 
@@ -135,11 +135,11 @@ All of this is fairly simple so far, and I have even seen a bit repetitive with 
 All computers consist of at least three fundamental types of structures needed to carry out the read-modify-write sequence:
 
 - Storage.
-- Arithmetic Logic Unit (ALU)
+- Arithmetic Logic Unit (**ALU**)
 - Bus.
 
-The data enters the ALU from a special storage area, but where does the code stream come from? 
-One might imagine that it comes from the keypad of some person standing at the computer and entering a sequence of instructions, each of which is then transmitted to the code input port of the ALU, or perhaps that the code stream is a prerecorded list of instructions that is fed into the ALU, one instruction at a time, by some manual or automated mechanism. Figure 1-3 depicts the code stream as a prerecorded list of instructions that is stored in a special storage area just like the data stream, and modern computers do store the code stream in just such manner.
+The data enters the **ALU** from a special storage area, but where does the code stream come from? 
+One might imagine that it comes from the keypad of some person standing at the computer and entering a sequence of instructions, each of which is then transmitted to the code input port of the **ALU**, or perhaps that the code stream is a prerecorded list of instructions that is fed into the ALU, one instruction at a time, by some manual or automated mechanism. Figure 1-3 depicts the code stream as a prerecorded list of instructions that is stored in a special storage area just like the data stream, and modern computers do store the code stream in just such manner.
 
 ![Screen Shot 2020-05-31 at 19 39 09](https://user-images.githubusercontent.com/24994818/83366707-76092280-a376-11ea-87d7-9dc5da2c0568.png)
 
@@ -163,16 +163,16 @@ Example
 2. Add the numbers.
 3. Place the results back into data storage.
 
-Those three steps are carried out billions of times per second on a modern CPU.
+Those three steps are carried out billions of times per second on a modern **CPU**.
 
 To return to our File-clerck analogy, a computer is like a file clerck who sits at his desk all day waiting for messages from his boss. Eventually, the boss sends him a message telling him a message telling him to perform a calculation, and where in his personal filling cabinet the necessary numbers are located. So the clerk first retrieves the numbers from his filing cabinet, then performs the calculation, and finally places the result back into the filing cabinet. It is boring, mindless, repetitive task that is repeated endlessly, day in day out, which is precisely why we have invented a machine that can do it efficiently and not complain.
 
 
 # - [The Register File](https://github.com/c4arl0s/InsideTheMachine#2-basic-computing-concepts)
 
-Since numbers must first be fetched from the storage before they can be added, we want our data storage a space to be as fast as possible so that the operation can be carried out quickly. Since the ALU is the part of the processor that does the actual addition. We would like **to place the data storage as close as possible the ALU** so it can read the operands almost instantaneously. However, practical considerations, such as CUPs limited surface area, constrain the size of the storage area that we can stick next to the ALU. This fast data storage locations attached to the ALU. These storage locations called **registers**, and the first x86 computers only had eight of them to work with. These **registers**^, which are arrayed in a storage structure called a **register file**, stored only a small subset of the data that the code stream needs (and we will talk about where the rest of that data lives shortly).
+Since numbers must first be fetched from the storage before they can be added, we want our data storage a space to be as fast as possible so that the operation can be carried out quickly. Since the **ALU** is the part of the processor that does the actual addition. We would like **to place the data storage as close as possible the ALU** so it can read the operands almost instantaneously. However, practical considerations, such as CUPs limited surface area, constrain the size of the storage area that we can stick next to the ALU. This fast data storage locations attached to the ALU. These storage locations called **registers**, and the first x86 computers only had eight of them to work with. These **registers**^, which are arrayed in a storage structure called a **register file**, stored only a small subset of the data that the code stream needs (and we will talk about where the rest of that data lives shortly).
 
-Building on our previous,, three.step description of what goes on when a computer's ALU is commanded to add two numbers, we can modify it as follows. To execute an **add** instruction, the ALU must perform these steps:
+Building on our previous,, three.step description of what goes on when a computer's **ALU** is commanded to add two numbers, we can modify it as follows. To execute an **add** instruction, the ALU must perform these steps:
 
 1. Obtain the two numbers to be added (the input operands= from two source registers.ç
 2. Add the numbers.
@@ -183,7 +183,7 @@ For a concrete example, let's look at addition on a simple computer with only fo
 Code				Comments
 A + B = C		Add the contents of register A and B, and place the result in C, overwriting whatever was there.
 
-Upon receiving and instruction commanding it to perform this addition operation, the ALU in our simple computer would carry out the following three familiar steps:
+Upon receiving and instruction commanding it to perform this addition operation, the **ALU** in our simple computer would carry out the following three familiar steps:
 
 1. Read the contents of register A and B
 2. Add the contents of A and B
@@ -191,20 +191,19 @@ Upon receiving and instruction commanding it to perform this addition operation,
 
 You should recognize these three steps as a more specific form of the read-modify-write sequence from earlier, where the generic modify steps is replaced with an addition operation.
 
-This three-step sequence is a quite simple, but it is at the very core of how a microprocessor really works. In fact, if you glance ahead to Chapter 10 discussion of the PowerPC 9700s pipeline, you will see that it actually has separate stages for each of these three operations: stage 12 is the register read step, stage 13 is the actual execute step, and stage 14 i the write-back step. (dont worry if you dont know what a pipeline is, because that is the topic for chapter 3). So the 970's ALU reads two operands from the register file, adds them together, and writes the sum back to the register file. If we were to stop our discussion right here, you would already understand the three core stages of the 970's main integer pipeline- all the other stages are either just preparation to get to this point or they are cleanup work after it.
+This three-step sequence is a quite simple, but it is at the very core of how a microprocessor really works. In fact, if you glance ahead to Chapter 10 discussion of the PowerPC 9700s pipeline, you will see that it actually has separate stages for each of these three operations: stage 12 is the register read step, stage 13 is the actual execute step, and stage 14 i the write-back step. (dont worry if you dont know what a pipeline is, because that is the topic for chapter 3). So the 970's **ALU** reads two operands from the register file, adds them together, and writes the sum back to the register file. If we were to stop our discussion right here, you would already understand the three core stages of the 970's main integer pipeline- all the other stages are either just preparation to get to this point or they are cleanup work after it.
 
 
 # - [RAM: When Registers Alone Won’t Cut It](https://github.com/c4arl0s/InsideTheMachine#2-basic-computing-concepts)
 
 Obviously, four (or even eight) registers are not even close to the theoretically infinite storage space I mentioned earlier in this chapter. In order to make a viable computer that does useful work. You need to be able to store very large data sets. This is where the computer's **main memory** comes in. Main memory, which in modern computers is always some type of **random access memory (RAM)**, stores the data set on which the computer operates, and only a small portion of that data set a time is moved to the registers and only a small portion of that data set at a time is moved to the registers for easy access from the **ALU** (as shown in Figure 1-4).
 
-
+![Screen Shot 2020-06-03 at 11 22 31](https://user-images.githubusercontent.com/24994818/83663511-7f6cd780-a58e-11ea-85bf-c73da8f4985b.png)  
 
 Figure 1-4 gives only the slightest indication of it, but **main memory** is situated quite a bit farther away from the **ALU** than are the registers. In fact, the ALU and the registers are internal parts of the microprocessor, but main memory is a completely separate component of the computer system that is connected to the processor via the **memory bus**. Transfering data between main memory and the registers via the memory bus takes a significant amount of time. Thus, if there were no registers and the ALU had to read data directly from main memory for each calculation, computers would run very slowly. However, because the registers enable the computer to store data near the ALU, where it can be accessed nearly instantaneously, the computer's computational speed is **decoupled** somewhat from the speed of **main memory**. 
 
 We will discuss the problem of memory access speeds and computational performance in more detail in [Chapter 11](), when we talk about [caches]().
 
-![Screen Shot 2020-06-03 at 11 22 31](https://user-images.githubusercontent.com/24994818/83663511-7f6cd780-a58e-11ea-85bf-c73da8f4985b.png)  
 
 # 	* [The File-Clerk Model Revisited and Expanded](https://github.com/c4arl0s/InsideTheMachine#2-basic-computing-concepts) 
 
@@ -213,30 +212,30 @@ To return to our file-clerk metaphor, we can think of **main memory** as a docum
 This secretary represents a few different units within the processor, all of which we will meet Chapter 4. For now, suffice it to say that when the boss wants the clerk to work on a file that is not in the clerk's personal filing cabinet, the secretary must first be ordered, via a message from the boss, to retrieve the file from the storage room and place it in the clerk's cabinet so that the clerk can access it when he gets the order to begin working on it.
 
 # 	* [An Example: Adding Two Numbers](https://github.com/c4arl0s/InsideTheMachine#2-basic-computing-concepts)
-To translate this office example into computing terms, let's look at how the computer uses main memory, the register file, and the ALU to add two numbers.
+To translate this office example into computing terms, let's look at how the computer uses main memory, the register file, and the **ALU** to add two numbers.
 
 To add two numbers stored in main memory, the computer must perform these steps.
 
 1. Load the two operands from main memory into the two source registers.
-2. Add the contents of the source registers and place the results in the destination register, using the ALU. To do so, the ALU must perform these steps.
+2. Add the contents of the source registers and place the results in the destination register, using the **ALU**. To do so, the ALU must perform these steps.
 	A. Read the contents of registers A and B into the ALUU's input ports.
-	B. Add the contents of A and B in the ALU.
-	C. Write the result to regiter C via the ALU's output port.
+	B. Add the contents of A and B in the **ALU**.
+	C. Write the result to regiter C via the **ALU**'s output port.
 3. Store the contents of the destination register in **main memory**.
 
 Since steps 2a, and 2c all take a trivial amount of time to complete, relative to steps 1 and 3, we can ignore them. Hence our addition looks like this:
 
 1. Load the two operands from main memory into the two source registers.
-2. Add the contents of the source registers, and place the results in the destination register, using the ALU.
+2. Add the contents of the source registers, and place the results in the destination register, using the **ALU**.
 3. Store the contents of the destination register in main memory.
 
-The existence of **main memory** means that the user -the boss in our filing-clerk analogy- must manage the flow of information between main memory and the CPU's registers. This means that the user must issue instructions to more than just the processor's ALU; he or she must also issue instructions to the parts of the CPU that **handle memory traffic**. Thus, the preceding three steps are representative of the kinds of instructions you find when you take a close look at the code stream.
+The existence of **main memory** means that the user -the boss in our filing-clerk analogy- must manage the flow of information between main memory and the **CPU**'s registers. This means that the user must issue instructions to more than just the processor's **ALU**; he or she must also issue instructions to the parts of the CPU that **handle memory traffic**. Thus, the preceding three steps are representative of the kinds of instructions you find when you take a close look at the code stream.
 
 # - [A Closer Look at the Code Stream: The Program](https://github.com/c4arl0s/InsideTheMachine#2-basic-computing-concepts)
 
 At the beginning pf this chapter, I defined the **code stream**  consisting of **"an ordered sequence of operations** and this definition is fine as far as it goes. But in order to dig deeper, we need a more detailed picture of what the code stream is an how it woks.
 
-The term **operations** suggests  series of simple arithmetic operations like addition or substraction, but the **code stream** consist of more than just arithmetic operations. Therefore, it would be better to say that **the code stream** consist of **an ordered sequence of instructions**. Instructions, generally speaking, are commands that tell the whole computer - not just the ALU, but simple parts of the machine -exactly what actions to perform. As we have seen, a computer's list of potential actions encompasses more than just simple arithmetic operations.
+The term **operations** suggests  series of simple arithmetic operations like addition or substraction, but the **code stream** consist of more than just arithmetic operations. Therefore, it would be better to say that **the code stream** consist of **an ordered sequence of instructions**. Instructions, generally speaking, are commands that tell the whole computer - not just the **ALU**, but simple parts of the machine -exactly what actions to perform. As we have seen, a computer's list of potential actions encompasses more than just simple arithmetic operations.
 
 # 	* [General Instruction Types](https://github.com/c4arl0s/InsideTheMachine#2-basic-computing-concepts)
 
@@ -245,14 +244,14 @@ Instructions are grouped into ordered lists that, when taken as a whole, tell th
 In modern RISC microprocessors, the act of moving data between memory and the registers is under the explicit control of the code stream or program. So if a programmer wants to add two numbers that are located in main memory and then store the result back in main memory, he or she must write a list of instructions (a program) to tell the computer exactly what to do. The program must consist of:
 
 	* a load instruction to move the two numbers from memory into the registers.
-	* an add instruction to tell the ALU to add the two numbers.
+	* an add instruction to tell the **ALU** to add the two numbers.
 	* a store instruction to tell the computer to place the result of the addition back into memory, overwriting whatever was previously there.
 
 These operations fall into two main categories:
 
 ### [Arithmetic Instructions]()
 
-These instructions tell the ALU to perform an arithmetic calculation (for example add, sub, mul, div)
+These instructions tell the **ALU** to perform an arithmetic calculation (for example add, sub, mul, div)
 
 ### [Memory-access instructions]()
 
@@ -270,7 +269,7 @@ To show you how **memory-access** and arithmetic operations work together within
 
 # 	* [The DLW-1’s Basic Architecture and Arithmetic Instruction Format](https://github.com/c4arl0s/InsideTheMachine#2-basic-computing-concepts)
 
-The DLW-1 microprocessor consist of an ALU (along with a few other units that I will describe later) attached to four registers, named A,B,C,D for convenience. The **DLW-1** is attached to a bank of main memory that is laid out as a line of 256 memory cells, numbered #0 to #255 (The number that identifies an individual memory cell is called an **address**)
+The DLW-1 microprocessor consist of an **ALU** (along with a few other units that I will describe later) attached to four registers, named A,B,C,D for convenience. The **DLW-1** is attached to a bank of main memory that is laid out as a line of 256 memory cells, numbered #0 to #255 (The number that identifies an individual memory cell is called an **address**)
 
 # - [The DLW-1's Arithmetic Instructions Format]()
 
@@ -466,7 +465,7 @@ Table 2-2 Mapping of Registers to binary Codes for the DLW-1
 | C       | 10          |
 | D       | 111         |
 
-The binary valyes representing both the opcodes and the register codes are arranged in one of a number of **16-bits** (or 2-byte) formats to get a complete **machine language instruction** which is a binary number that can be stored in RAM and used by the processor.
+The binary valyes representing both the opcodes and the register codes are arranged in one of a number of **16-bits** (or 2-byte) formats to get a complete **machine language instruction** which is a binary number that can be stored in **RAM** and used by the processor.
 
 ---
 **Note**
@@ -593,7 +592,7 @@ Figure 2-7 shows a diagram of a programming model for an eight-register machine.
 
 ![Screen Shot 2020-06-18 at 17 24 51](https://user-images.githubusercontent.com/24994818/85077759-a5969800-b188-11ea-95d8-517cf5c77274.png)
 
-The ALU performs arithmetic, the registers store numbers, and the **input-output unit (I/O unit)** is responsible for interacting with memory and the rest of the system (via loads and stores. The parts of the processor that we have not yet met lie in the **control unit**. Of these, we will cover the **program counter** and the **instruction register** now.
+The **ALU** performs arithmetic, the registers store numbers, and the **input-output unit (I/O unit)** is responsible for interacting with memory and the rest of the system (via loads and stores. The parts of the processor that we have not yet met lie in the **control unit**. Of these, we will cover the **program counter** and the **instruction register** now.
 
 # 	* [The Instruction Register and Program Counter](https://github.com/c4arl0s/InsideTheMachine#3-the-mechanics-of-program-execution) 
 
@@ -611,12 +610,12 @@ An **instruction fetch** is a special type of load that happens automatically or
 
 # 	* [Running a Simple Program: The Fetch-Execute Loop](https://github.com/c4arl0s/InsideTheMachine#3-the-mechanics-of-program-execution) 
 
-In Chapter 1 we discussed the steps a processor takes to perform calculations on numbers using the ALU in combination with a fetched arithmetic instruction. Now let's look at the steps the processor takes in order to fetch a series of instructions - a program - and feed them to either the ALU (in the case of arithmetic instructions) or the memory access hardware (in case of leads and stores).
+In Chapter 1 we discussed the steps a processor takes to perform calculations on numbers using the **ALU** in combination with a fetched arithmetic instruction. Now let's look at the steps the processor takes in order to fetch a series of instructions - a program - and feed them to either the ALU (in the case of arithmetic instructions) or the memory access hardware (in case of leads and stores).
 
 1. **Fetch** the next instruction from the address stored in the program counter, and load that instruction into the instruction register. Increment the program counter.
 2. **Decode** the instructions in the instruction register.
 3. **Execute** the instruction in the instruction register, using the following rules:
-     * a. If the instruction is an arithmetic instruction, execute it using the ALU and register file.
+     * a. If the instruction is an arithmetic instruction, execute it using the **ALU** and register file.
      * b. If the instruction is a memory access instruction, execute it using the memory-access hardware.
 
 These three steps are fairly straightforward, and with one modification they describe the way that microprocessors execute programs (as we will see in the section "Branch Instructions" on page 30). Computer scientists often refer to these steps as the **fetch execute** or the **fetch-execute cycle**. The fetch-execute loop is repeated for as long as the computer is powered on. The machine iterates though the entire loop, from step 1 to step 3, over and over again many millions or billion of times per second in order to run programs.
@@ -631,7 +630,7 @@ Let's run through the three steps with our example program as shown in Figure 2-
 6. Execute **load #13, B** from the instruction register, using the memory-access hardware..
 7. Fetch the instruction at #504, and load **add A, B, C** into the instruction register. Increment the program counter to #506
 8. Decode **add A, B, C** in the instruction register.
-9. Execute **add A, B, C** from the instruction register, using the ALU and register file.
+9. Execute **add A, B, C** from the instruction register, using the **ALU** and register file.
 10. Fetch the instruction at #506, and load **store C, #14** in the instruction register. Increment the program counter to #508
 11. Decode *+store C, #14** in the instruction register.
 12. Execute **store C, #14** from the instruction register, using the memory-access hardware.
@@ -690,11 +689,11 @@ Now that we have looked at the basics branching, we can modify our three step su
 1. **Fetch** the next instruction from the address stored in the program counter, and load that instruction into the instruction register. Increment the program counter.
 2. **Decode** the instruction in the instruction register.
 3. **Execute** the instruction in the instruction register, using the following rules
-   * a. It the instruction is an arithmetic instruction, then execute it using the ALU and register file.
+   * a. It the instruction is an arithmetic instruction, then execute it using the **ALU** and register file.
    * b. If the instruction is a memory-access instruction, then execute it using the memory hardware.
    * c. If the instruction is a branch instruction, then execute it using the control unit and the program counter. (For a taken branch, write the branch target address into the program counter.)
 
-In short, you might say that branch instructions allow the programmer to redirect the **processor** as it travels through the instructions stream. Branches point the processor to different sections of code stream by manipulating its control unit, which, because it contains the instruction register and program counter, is the rudder of the CPU.
+In short, you might say that branch instructions allow the programmer to redirect the **processor** as it travels through the instructions stream. Branches point the processor to different sections of code stream by manipulating its control unit, which, because it contains the instruction register and program counter, is the rudder of the **CPU**.
 
 # - [The Branch Instruction as a Special Type of Load]()
 
@@ -740,7 +739,7 @@ If you have been around computers for any length of time, you have heard the ter
 
 I say **"seemingly impossible"** because when a computer is first powered on there is no program in memory, but programs contain the instructions that make the computer run. If the processor has no program running when it is the first powered on, then how does it know where to fetch the first instruction from ?
 
-The solution to this dilemma is that the microprocessor, in its power-on default state, is hard-wired to fetch that first instruction from a predermined address in memory. This first instruction, which is loaded into the processors instruction register, is the first line of a program called the **BIOS** that livesi n a special set of storage locations - a small read-only memory (ROM) module attached to the computer's motherboard. It is the job of the BIOS to perform basic tests of the RAM and peripherls in order to  verify that everything is working properly. The the boot process can continue.
+The solution to this dilemma is that the microprocessor, in its power-on default state, is hard-wired to fetch that first instruction from a predermined address in memory. This first instruction, which is loaded into the processors instruction register, is the first line of a program called the **BIOS** that livesi n a special set of storage locations - a small read-only memory (ROM) module attached to the computer's motherboard. It is the job of the BIOS to perform basic tests of the **RAM** and peripherls in order to  verify that everything is working properly. The the boot process can continue.
 
 At the end of the BIOS program lies a jump instruction, the target of which is the location of a **bootloader program**. By using a jump, the BIOS hands off control of the system to this second program, whose job it is to search for and load the computer's operating system from the hard disk. The operating system (OS) loads and unloads all of the other programs that run on the computer, so once the OS is up and running the computer is ready to interact with the user.
 
@@ -751,7 +750,7 @@ All of the processor architectures that you have looked at so far are relatively
 
 ---
 Note
-Pipelined execution is a techniche that enables microprocessor designers to increase the speed at which a processor operates, thereby decreasing the amount of time that the processor takes to execute a program. This chapter will first introduce the concept of pipelinning by means of a factory analogy, and it will then apply the analogy to microprocessors. You will the learn how to evaluate the benefits of pipelining, before I conclude with a discussion of the technique¡s limitations and costs.
+Pipelined execution is a techniche that enables microprocessor designers to increase the speed at which a processor operates, thereby decreasing the amount of time that the processor takes to execute a program. This chapter will first introduce the concept of pipelinning by means of a factory analogy, and it will then apply the analogy to microprocessors. You will the learn how to evaluate the benefits of **pipelining**, before I conclude with a discussion of the technique¡s limitations and costs.
 
 ---
 Note
@@ -778,7 +777,7 @@ instruction is as follows (substitute any other arithmetic instruction for add i
 
 1. Fetch the next instruction from the address stored in the program counter and load that instruction into the instruction register. Increment the program counter.
 2. Decode the instruction in the instruction register.
-3. Execute the instruction in the instruction register. Because the instruction is not a branch instruction but an arithmetic instruction, send it to the arithmetic logic unit (ALU).
+3. Execute the instruction in the instruction register. Because the instruction is not a branch instruction but an arithmetic instruction, send it to the arithmetic logic unit (**ALU**).
 a. Read the contents of registers A and B.
 b. Add the contents of A and B.
 c. Write the result back to register C.
@@ -788,7 +787,7 @@ At this point, **I need to make a modification to the preceding list**. For reas
 
 1. Fetch the next instruction from the address stored in the program counter, and load that instruction into the instruction register. Increment the program counter.
 2. Decode the instruction in the instruction register.
-3. Execute the instruction in the instruction register. Because the instruction is not a branch instruction but an arithmetic instruction, send it to the ALU.
+3. Execute the instruction in the instruction register. Because the instruction is not a branch instruction but an arithmetic instruction, send it to the **ALU**.
   * Read the contents of registers A and B.
   * Add the contents of A and B.
 4. Write the result back to register C.
@@ -809,7 +808,7 @@ The term RISC is an acronym for Reduce Instruction Set Computing. I Will cover t
 
 # - [Basic Instruction Flow](https://github.com/c4arl0s/InsideTheMachine#4-pipelined-execution-35)
 
-One useful division that computer architects often employ when talking about CPU is that of **front end** versus **back end**. As you already know, when instructions are fetched from main memory, they must be decoded for execution. This fetching and decoding takes place in the processor's front end. You can see in Figure 3-1 that the front end roughly corresponds to the control and I/O units in the previous chapter's diagram of the DLW-1's programming model. The ALU and registers constitute the back end of the DWL-1. Instructions make their way from the front end down through the back end, where the work of number crunching gets done.
+One useful division that computer architects often employ when talking about **CPU** is that of **front end** versus **back end**. As you already know, when instructions are fetched from main memory, they must be decoded for execution. This fetching and decoding takes place in the processor's front end. You can see in Figure 3-1 that the front end roughly corresponds to the control and I/O units in the previous chapter's diagram of the DLW-1's programming model. The **ALU** and registers constitute the back end of the DWL-1. Instructions make their way from the front end down through the back end, where the work of number crunching gets done.
 
 ![Screen Shot 2020-07-03 at 11 05 22](https://user-images.githubusercontent.com/24994818/86484987-2626ce00-bd1d-11ea-8802-527b64d27c3e.png)
 
@@ -863,27 +862,27 @@ have multiple SUVs simultaneously in progress on the factory floor. Compare this
 
 ![Screen Shot 2020-07-04 at 19 49 15](https://user-images.githubusercontent.com/24994818/86523263-755d2380-be2f-11ea-89dd-fdb2be3daf41.png)
 
-So as the assembly line begins to fill up with SUVs in various stages of production, more of the crews are put to work simultaneously until all of the crews are working on a different vehicle in a different stage of production. (Of course, this is how most of us nowadays in the post-Ford era expect a good, efficient assembly line to work.) If we can keep the assembly line full and keep all five crews working at once, we can produce one SUV every hour: a fivefold improvement in SUV completion rate over the previous comple- tion rate of one SUV every five hours. That, in a nutshell, is **pipelining**.
+So as the assembly line begins to fill up with SUVs in various stages of production, more of the crews are put to work simultaneously until all of the crews are working on a different vehicle in a different stage of production. (Of course, this is how most of us nowadays in the post-Ford era expect a good, efficient assembly line to work.) If we can keep the assembly line full and keep all five crews working at once, we can produce one SUV every hour: a fivefold improvement in SUV **Program Execution Time** over the previous comple- tion rate of one SUV every five hours. That, in a nutshell, is **pipelining**.
 
-While the total amount of time that each individual SUV spends in pro- duction has not changed from the original five hours, the rate at which the factory as a whole completes SUVs has increased drastically. Furthermore, the rate at which the factory can fulfill the Army’s orders for batches of SUVs has increased drastically, as well. Pipelining works its magic by making optimal use of already existing resources. We don’t need to speed up each individual stage of the production process, nor do we need to drastically increase the amount of resources that we throw at the problem; all that’s necessary is that we get more work out of resources that are already there.
+While the total amount of time that each individual SUV spends in pro- duction has not changed from the original five hours, the rate at which the factory as a whole completes SUVs has increased drastically. Furthermore, the rate at which the factory can fulfill the Army’s orders for batches of SUVs has increased drastically, as well. **pipelining** works its magic by making optimal use of already existing resources. We don’t need to speed up each individual stage of the production process, nor do we need to drastically increase the amount of resources that we throw at the problem; all that’s necessary is that we get more work out of resources that are already there.
 
 WHY THE SUV FACTORY?
-The preceding discussion uses a factory analogy to explain pipelining. Other books use simpler analogies, like doing laundry, for instance, to explain this technique, but there are a few reasons why I chose a more elaborate and lengthy analogy to illustrate what is a relatively simple concept. First, I use factory analogies throughout this book, because assembly line-based factories are easy for readers to visualize and there’s plenty of room for filling out the mental image in interesting ways in order to make a variety of related points. Second, and perhaps even more impor- tantly, the many scheduling-, queuing- and resource management–related problems that factory designers face have direct analogies in computer architecture. In many cases, the problems and solutions are exactly the same, simply translated into a different domain. (Similar queuing-related problem/solution pairs also crop up in the service industry, which is why analogies involving supermarkets and fast food restaurants are also favorites of mine.)
+The preceding discussion uses a factory analogy to explain **pipelining**. Other books use simpler analogies, like doing laundry, for instance, to explain this technique, but there are a few reasons why I chose a more elaborate and lengthy analogy to illustrate what is a relatively simple concept. First, I use factory analogies throughout this book, because assembly line-based factories are easy for readers to visualize and there’s plenty of room for filling out the mental image in interesting ways in order to make a variety of related points. Second, and perhaps even more impor- tantly, the many scheduling-, queuing- and resource management–related problems that factory designers face have direct analogies in computer architecture. In many cases, the problems and solutions are exactly the same, simply translated into a different domain. (Similar queuing-related problem/solution pairs also crop up in the service industry, which is why analogies involving supermarkets and fast food restaurants are also favorites of mine.)
 
 
 # - [Applying the Analogy](https://github.com/c4arl0s/InsideTheMachine#4-pipelined-execution-35)
 
-Bringing our discussion back to microprocessors, it should be easy to see how this concept applies to the four phases of an instruction’s lifecycle. Just as the owners of the factory in our analogy wanted to increase the number of SUVs that the factory could finish in a given period of time, microprocessor designers are always looking for ways to increase the number of instructions that a CPU can complete in a given period of time. When you recall that a program is an ordered sequence of instructions, it becomes clear that increasing the number of instructions executed per unit time is one way to decrease the total amount of time that it takes to execute a program. (The other way to decrease a program’s execution time is to decrease the number of instructions in the program, but this chapter won’t address that approach until later.) In terms of our analogy, a program is like an order of SUVs from the military; just like increasing our factory’s output of SUVs per hour enabled us to fill orders faster, increasing a processor’s instruction completion rate (the number of instructions completed per unit time) enables it to run programs faster.
+Bringing our discussion back to microprocessors, it should be easy to see how this concept applies to the four phases of an instruction’s lifecycle. Just as the owners of the factory in our analogy wanted to increase the number of SUVs that the factory could finish in a given period of time, microprocessor designers are always looking for ways to increase the number of instructions that a **CPU** can complete in a given period of time. When you recall that a program is an ordered sequence of instructions, it becomes clear that increasing the number of instructions executed per unit time is one way to decrease the total amount of time that it takes to execute a program. (The other way to decrease a program’s execution time is to decrease the number of instructions in the program, but this chapter won’t address that approach until later.) In terms of our analogy, a program is like an order of SUVs from the military; just like increasing our factory’s output of SUVs per hour enabled us to fill orders faster, increasing a processor’s instruction **Program Execution Time** (the number of instructions completed per unit time) enables it to run programs faster.
 
 # 	* [A Non-Pipelined Processor](https://github.com/c4arl0s/InsideTheMachine#4-pipelined-execution-35) 
 
 The previous chapter briefly described how the simple processors described so far (e.g., the DLW-1) use the clock to time its internal operations. These non-pipelined processors work on one instruction at a time, moving each instruction through all four phases of its lifecycle during the course of one clock cycle. Thus non-pipelined processors are also called **single-cycle processors**, because all instructions take exactly one clock cycle to execute fully (i.e., to pass through all four phases of their lifecycles).
 
-Because the processor completes instructions at a rate of one per clock cycle, you want the CPU’s clock to run as fast as possible so that the processor’s instruction completion rate can be as high as possible.
+Because the processor completes instructions at a rate of one per clock cycle, you want the **CPU**’s clock to run as fast as possible so that the processor’s instruction **Program Execution Time** can be as high as possible.
 
-Thus you need to calculate the maximum amount of time that it takes to complete an instruction and make the clock cycle time equivalent to that length of time. It just so happens that on the hypothetical example CPU, the four phases of the instruction’s lifecycle take a total of 4 ns to complete. Therefore, you should set the duration of the CPU clock cycle to 4 ns, so that the CPU can complete the instruction’s lifecycle —**from fetch to write-back**—in a **single clock**. (A CPU clock cycle is often just called a **clock** for short.)
+Thus you need to calculate the maximum amount of time that it takes to complete an instruction and make the clock cycle time equivalent to that length of time. It just so happens that on the hypothetical example **CPU**, the four phases of the instruction’s lifecycle take a total of 4 ns to complete. Therefore, you should set the duration of the CPU clock cycle to 4 ns, so that the CPU can complete the instruction’s lifecycle —**from fetch to write-back**—in a **single clock**. (A CPU clock cycle is often just called a **clock** for short.)
 
-In Figure 3-6, the blue instruction leaves the code storage area, enters the processor, and then advances through the phases of its lifecycle over the course of the 4 ns clock period, until at the end of the fourth nanosecond, it completes the last phase and its lifecycle is over. The end of the fourth nanosecond is also the end of the first clock cycle, so now that the first clock cycle is finished and the blue instruction has completed its execution, the red instruction can enter the processor at the start of a new clock cycle and go through the same process. This 4 ns sequence of steps is repeated until, after a total of 16 ns (or four clock cycles), the processor has completed all four instructions at a completion rate of 0.25 instructions/ns (= 4 instructions/ 16 ns).
+In Figure 3-6, the blue instruction leaves the code storage area, enters the processor, and then advances through the phases of its lifecycle over the course of the 4 ns clock period, until at the end of the fourth nanosecond, it completes the last phase and its lifecycle is over. The end of the fourth nanosecond is also the end of the first clock cycle, so now that the first clock cycle is finished and the blue instruction has completed its execution, the red instruction can enter the processor at the start of a new clock cycle and go through the same process. This 4 ns sequence of steps is repeated until, after a total of 16 ns (or four clock cycles), the processor has completed all four instructions at a **Program Execution Time** of 0.25 instructions/ns (= 4 instructions/ 16 ns).
 
 ![Screen Shot 2020-07-05 at 9 01 59](https://user-images.githubusercontent.com/24994818/86534454-36b28200-be9e-11ea-885f-4ea98618add0.png)
 
@@ -910,7 +909,7 @@ Note that the number  of pipeline stages is called the **pipeline depth**. So th
 
 For convenience's sake, let's say that each of these four pipeline stages takes exactly **1 [ns]** to finish its work on an instruction, just like each crew in our assembly line analogy takes one hour to finish its portion of the work on an SUV. So the original single-cycle processor's **4 [ns]** execution process is now broken down into four discrete, sequential pipeline stages of **1 [ns]** each in length.
 
-Now let's step through another diagram together to see how a pipeline CPU would execute the four instructions depicted in Figure 3-7.
+Now let's step through another diagram together to see how a pipeline **CPU** would execute the four instructions depicted in Figure 3-7.
 
 ![Screen Shot 2020-07-07 at 9 15 45](https://user-images.githubusercontent.com/24994818/86794801-85912080-c032-11ea-86ee-bb47088c6eea.png)
 
@@ -920,8 +919,8 @@ At start of the fifth nanosecond, the pipeline is now full and the processor can
 
 #   * [Shrink the clock]()
 
-You can see from Figure 3-7 that the role of the CPU clock changes slightly in a **pipelined** processor, compared to the single-cycle processor shown in Figure 3-6. Because all of the pipeline stages must now work together simultaneously and be ready at the start of each new nanosecond to hand over the results of their work to the next pipeline stage, the clock is needed to coordinate the activity of the whole pipeline. The way this is done is simple: Shrink the clock cycle time to match the time it takes each stage to complete its work so that at the start of each clock cycle, each pipeline stage hands off the instruction it was working on to the next stage in the pipeline. Because each pipeline stage in the example processor takes **1 ns** to complete its work, you can set the clock cycle to be **1 ns** in duration.
-This new method of clocking the processor means that a new instruction will not necessarily be completed at the close of each clock cycle, as was the case with the single-cycle processor. Instead, a new instruction will be completed at the close of only those clock cycles in which the write stage has been working on an instruction. Any clock cycle with an empty write stage will add no new instructions to the **“Completed Instructions” box, and any clock cycle with an active write stage will add one new instruction to the box. Of course, this means that when the pipeline first starts to work on a program, there will be a few clock cycles—three to be exact—during which no instructions are completed. But once the fourth clock cycle starts, the first instruction enters the write stage and the pipeline can then begin completing new instructions on each clock cycle, which, because each clock cycle is **1 ns**, translates into a completion rate of one instruction per nanosecond.
+You can see from Figure 3-7 that the role of the **CPU** clock changes slightly in a **pipelined** processor, compared to the single-cycle processor shown in Figure 3-6. Because all of the pipeline stages must now work together simultaneously and be ready at the start of each new nanosecond to hand over the results of their work to the next pipeline stage, the clock is needed to coordinate the activity of the whole pipeline. The way this is done is simple: Shrink the clock cycle time to match the time it takes each stage to complete its work so that at the start of each clock cycle, each pipeline stage hands off the instruction it was working on to the next stage in the pipeline. Because each pipeline stage in the example processor takes **1 ns** to complete its work, you can set the clock cycle to be **1 ns** in duration.
+This new method of clocking the processor means that a new instruction will not necessarily be completed at the close of each clock cycle, as was the case with the single-cycle processor. Instead, a new instruction will be completed at the close of only those clock cycles in which the write stage has been working on an instruction. Any clock cycle with an empty write stage will add no new instructions to the **“Completed Instructions”** box, and any clock cycle with an active write stage will add one new instruction to the box. Of course, this means that when the pipeline first starts to work on a program, there will be a few clock cycles—three to be exact—during which no instructions are completed. But once the fourth clock cycle starts, the first instruction enters the write stage and the pipeline can then begin completing new instructions on each clock cycle, which, because each clock cycle is **1 ns**, translates into a **Program Execution Time** of one instruction per nanosecond.
 
 #  * [Shrinking Program Execution Time]()
 
@@ -930,7 +929,7 @@ Note that the total execution time for each individual instruction is not change
 
 # 	* [The Speedup from Pipelining](https://github.com/c4arl0s/InsideTheMachine#4-pipelined-execution-35) 
 
-In general, the speedup in completion rate versus a single-cycle implementa- tion that’s gained from pipelining is ideally equal to the number of pipeline stages. A four-stage pipeline yields a fourfold speedup in the completion rate versus a single-cycle pipeline, a five-stage pipeline yields a fivefold speedup, a twelve-stage pipeline yields a twelvefold speedup, and so on. This speedup is possible because the more pipeline stages there are in a processor, the more instructions the processor can work on simultaneously, and the more instruc- tions it can complete in a given period of time. So the more finely you can slice those four phases of the instruction’s lifecycle, the more of the hardware that’s used to implement those phases you can put to work at any given moment.
+In general, the speedup in **Program Execution Time** versus a single-cycle implementa- tion that’s gained from **pipelining** is ideally equal to the number of pipeline stages. A four-stage pipeline yields a fourfold speedup in the **Program Execution Time** versus a single-cycle pipeline, a five-stage pipeline yields a fivefold speedup, a twelve-stage pipeline yields a twelvefold speedup, and so on. This speedup is possible because the more pipeline stages there are in a processor, the more instructions the processor can work on simultaneously, and the more instruc- tions it can complete in a given period of time. So the more finely you can slice those four phases of the instruction’s lifecycle, the more of the hardware that’s used to implement those phases you can put to work at any given moment.
 To return to our assembly line analogy, let’s say that each crew is made up of six workers, and that each of the hour-long tasks that each crew per- forms can be readily subdivided into two shorter, 30-minute tasks. So we can double our factory’s throughput by splitting each crew into two smaller, more specialized crews of three workers each, and then having each smaller crew perform one of the shorter tasks on one SUV per 30 minutes.
 
 Stage 1: Build the chassis.
@@ -949,33 +948,33 @@ Stage 5: Paint the SUV.
 -􏱭 Crew 5a: Paint the sides of the SUV.
 -􏱭 Crew 5b: Paint the top of the SUV.
 
-After the modifications described here, the 10 smaller crews in our factory now have a collective total of 10 SUVs in progress during the course of any given 30-minute period. Furthermore, our factory can now complete a new SUV every 30 minutes, a tenfold improvement over our first factory’s completion rate of one SUV every five hours. So by pipelining our assembly line even more deeply, we’ve put even more of its workers to work con- currently, thereby increasing the number of SUVs that can be worked on simultaneously and increasing the number of SUVs that can be completed within a given period of time.
+After the modifications described here, the 10 smaller crews in our factory now have a collective total of 10 SUVs in progress during the course of any given 30-minute period. Furthermore, our factory can now complete a new SUV every 30 minutes, a tenfold improvement over our first factory’s **Program Execution Time** of one SUV every five hours. So by **pipelining** our assembly line even more deeply, we’ve put even more of its workers to work con- currently, thereby increasing the number of SUVs that can be worked on simultaneously and increasing the number of SUVs that can be completed within a given period of time.
 
 Deepening the pipeline of the four-stage processor works on similar principles and has a similar effect on completion rates. Just as the five stages in our SUV assembly line could be broken down further into a longer sequence of more specialized stages, the execution process that each instruction goes through can be broken down into a series of much more than just four discrete stages. By breaking the processor’s four-stage pipeline down into a longer series of shorter, more specialized stages, even more of the processor’s specialized hardware can work simultaneously on more instructions and thereby increase the number of instructions that the pipeline completes each nanosecond.
 
-We first moved from a single-cycle processor to a pipelined processor by taking the 4 ns time period that the instruction spent traveling through the processor and slicing it into four discrete pipeline stages of 1 ns each in length. These four discrete pipeline stages corresponded to the four phases of an instruction’s lifecycle. A processor’s pipeline stages aren’t always going to correspond exactly to the four phases of a processor’s lifecycle, though. Some processors have a five-stage pipeline, some have a six-stage pipeline, and many have pipelines deeper than 10 or 20 stages. In such cases, the CPU designer must slice up the instruction’s lifecycle into the desired number of stages in such a way that all the stages are equal in length.
+We first moved from a single-cycle processor to a pipelined processor by taking the 4 ns time period that the instruction spent traveling through the processor and slicing it into four discrete pipeline stages of 1 ns each in length. These four discrete pipeline stages corresponded to the four phases of an instruction’s lifecycle. A processor’s pipeline stages aren’t always going to correspond exactly to the four phases of a processor’s lifecycle, though. Some processors have a five-stage pipeline, some have a six-stage pipeline, and many have pipelines deeper than 10 or 20 stages. In such cases, the **CPU** designer must slice up the instruction’s lifecycle into the desired number of stages in such a way that all the stages are equal in length.
 
-Now let’s take that 4 ns execution process and slice it into eight discrete stages. Because all eight pipeline stages must be of exactly the same duration for pipelining to work, the eight pipeline stages must each be 4 ns 􏱮 8 = 0.5 ns in length. Since we’re presently working with an idealized example, let’s pretend that splitting up the processor’s four-phase lifecycle into eight equally long (0.5 ns) pipeline stages is a trivial matter, and that the results look like what you see in Figure 3-8. (In reality, this task is not trivial and involves a number of trade-offs. As a concession to that reality, I’ve chosen to use the eight stages of a real-world pipeline—the MIPS pipeline—in Figure 3-8, instead of just splitting each of the four traditional stages in two.)
+Now let’s take that 4 ns execution process and slice it into eight discrete stages. Because all eight pipeline stages must be of exactly the same duration for **pipelining** to work, the eight pipeline stages must each be 4 ns 􏱮 8 = 0.5 ns in length. Since we’re presently working with an idealized example, let’s pretend that splitting up the processor’s four-phase lifecycle into eight equally long (0.5 ns) pipeline stages is a trivial matter, and that the results look like what you see in Figure 3-8. (In reality, this task is not trivial and involves a number of trade-offs. As a concession to that reality, I’ve chosen to use the eight stages of a real-world pipeline—the MIPS pipeline—in Figure 3-8, instead of just splitting each of the four traditional stages in two.)
 
 ![Screen Shot 2020-07-12 at 8 45 28](https://user-images.githubusercontent.com/24994818/87247885-15acdc80-c41c-11ea-81f6-2e100384d4ea.png)
 
-Because pipelining requires that each pipeline stage take exactly one clock cycle to complete, the clock cycle can now be shortened to 0.5 ns in order to fit the lengths of the eight pipeline stages. At the bottom of Figure 3-8, you can see the impact that this increased number of pipeline stages has on the number of instructions completed per unit time. 
+Because **pipelining** requires that each pipeline stage take exactly one clock cycle to complete, the clock cycle can now be shortened to 0.5 ns in order to fit the lengths of the eight pipeline stages. At the bottom of Figure 3-8, you can see the impact that this increased number of pipeline stages has on the number of instructions completed per unit time. 
 
-The single-cycle processor can complete one instruction every 4 ns, for a completion rate of 0.25 instructions/ns, and the four-stage pipelined pro- cessor can complete one instruction every nanosecond for a completion rate of one instructions/ns. The eight-stage processor depicted in Figure 3-8 improves on both of these by completing one instruction every 0.5 ns, for a completion rate of two instructions/ns. Note that because each instruction still takes 4 ns to execute, the first 4 ns of the eight-stage processor are still dedicated to filling up the pipeline. But once the pipeline is full, the processor can begin completing instructions twice as fast as the four-stage processor and eight times as fast as the single-stage processor.
-This eightfold increase in completion rate versus a single-cycle design means that the eight-stage processor can execute programs much faster than either a single-cycle or a four-stage processor. **But does the eightfold increase in completion rate translate into an eightfold increase in processor performance? Not exactly**.
+The single-cycle processor can complete one instruction every 4 ns, for a **Program Execution Time** of 0.25 instructions/ns, and the four-stage pipelined pro- cessor can complete one instruction every nanosecond for a **Program Execution Time** of one instructions/ns. The eight-stage processor depicted in Figure 3-8 improves on both of these by completing one instruction every 0.5 ns, for a completion rate of two instructions/ns. Note that because each instruction still takes 4 ns to execute, the first 4 ns of the eight-stage processor are still dedicated to filling up the pipeline. But once the pipeline is full, the processor can begin completing instructions twice as fast as the four-stage processor and eight times as fast as the single-stage processor.
+This eightfold increase in **Program Execution Time** versus a single-cycle design means that the eight-stage processor can execute programs much faster than either a single-cycle or a four-stage processor. **But does the eightfold increase in completion rate translate into an eightfold increase in processor performance? Not exactly**.
 
 # 	* [Program Execution Time and Completion Rate](https://github.com/c4arl0s/InsideTheMachine#4-pipelined-execution-35) 
 
-If the program that the single-cycle processor in Figure 3-6 is running consisted of only the four instructions depicted, that program would have a program execution time of 16 ns, or 4 instructions 􏱮 0.25 instructions/ns. If the program consisted of, say, seven instructions, it would have a program execution time of 7 instructions 􏱮 0.25 instructions/ns = 28 ns. In general, a program’s execution time is equal to the total number of instructions in the program divided by the processor’s instruction completion rate (number of instructions completed per nanosecond), as in the following equation:
+If the program that the single-cycle processor in Figure 3-6 is running consisted of only the four instructions depicted, that program would have a **Program Execution Time** of 16 ns, or 4 instructions 􏱮 0.25 instructions/ns. If the program consisted of, say, seven instructions, it would have a program execution time of 7 instructions 􏱮 0.25 instructions/ns = 28 ns. In general, a program’s execution time is equal to the total number of instructions in the program divided by the processor’s instruction **Program Execution Time** (number of instructions completed per nanosecond), as in the following equation:
 
 Program Execution Time = (Number of instructions in Program ) / (instruction completion rate)
 
-Most of the time, when I talk about **processor performance** in this book, I’m talking about program execution time. One processor performs better than another if it executes all of a program’s instructions in a shorter amount of time, so **reducing program execution time is the key to increasing processor performance**.
+Most of the time, when I talk about **processor performance** in this book, I’m talking about **Program Execution Time**. One processor performs better than another if it executes all of a program’s instructions in a shorter amount of time, so **reducing program execution time is the key to increasing processor performance**.
 
-In the case of a non-pipelined, single-cycle processor, the instruction completion rate (x instructions per 1 ns) is simply the inverse of the instruc- tion execution time (y ns per 1 instruction), where x and y have different numerical values. Because the relationship between completion rate and instruction execution time is simple and direct in a single-cycle processor, an nfold improvement in one is an nfold improvement in the other. So improving the performance of a single-cycle processor is really about reducing instruction execution times.
+In the case of a non-pipelined, single-cycle processor, the instruction **Program Execution Time** (x instructions per 1 ns) is simply the inverse of the instruc- tion execution time (y ns per 1 instruction), where x and y have different numerical values. Because the relationship between completion rate and **Instruction Execution Time** is simple and direct in a single-cycle processor, an nfold improvement in one is an nfold improvement in the other. So improving the performance of a single-cycle processor is really about reducing instruction execution times.
 
-With pipelined processors, the relationship between instruction execution time and completion rate is more complex. As discussed previously, pipelined processors allow you to increase the processor’s completion rate without altering the instruction execution time. Of course, a reduction in instruction execution time still translates into a completion rate improvement, but the reverse is not necessarily true. In fact, as you’ll learn later on, pipelining’s improvements to completion rate often come at the price of **increased** instruction execution times. This means that for pipelining to improve performance, the processor’s completion rate must be as high as possible over the course of a program’s execution.
-
+With pipelined processors, the relationship between **Instruction Execution Time** and **Program Execution Time** is more complex. As discussed previously, pipelined processors allow you to increase the processor’s completion rate without altering the instruction execution time. Of course, a reduction in instruction execution time still translates into a completion rate improvement, but the reverse is not necessarily true. In fact, as you’ll learn later on, **pipelining**’s improvements to completion rate often come at the price of **increased** instruction execution times. This means that for pipelining to improve performance, the processor’s completion rate must be as high as possible over the course of a program’s execution.
+**
 
 
 # 	* [The Relationship Between Completion Rate and Program Execution Time](https://github.com/c4arl0s/InsideTheMachine#4-pipelined-execution-35)
