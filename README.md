@@ -1,8 +1,8 @@
 # INSIDE THE MACHINE
   
 0. [Introduction](https://github.com/c4arl0s/1IntroductionInsideTheMachine#1-introduction)  [X]
-1. [Basic Computing Concepts](https://github.com/c4arl0s/1BasicComputingConceptsInsideTheMachine#1-basic-computing-concepts)  [X]
-2. [The Mechanics of Program Execution](https://github.com/c4arl0s/2TheMechanicsOfProgramExecutionInsideTheMachine#2-the-mechanics-of-program-execution)  [X]
+1. [Basic Computing Concepts](https://github.com/c4arl0s/1BasicComputingConceptsInsideTheMachine#1-basic-computing-concepts---content)  [X]
+2. [The Mechanics of Program Execution](https://github.com/c4arl0s/2TheMechanicsOfProgramExecutionInsideTheMachine#2-the-mechanics-of-program-execution---content)  [X]
 3. [Pipelined Execution](https://github.com/c4arl0s/3PipelinedExecutionInsideTheMachine#3-pipelined-execution-35---content)  [X]
 4. [Superscalar Execution](https://github.com/c4arl0s/4SuperscalarExecution#super-escalar-execution---content)  [X]
 5. [The Intel Pentium and Pentium Pro](https://github.com/c4arl0s/5TheIntelPentiumAndPentiumPro#5-the-intel-pentium-and-pentium-pro---content) [/]
